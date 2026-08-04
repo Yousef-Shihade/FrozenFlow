@@ -1,7 +1,7 @@
 """
 Feature extraction and the on-disk feature cache.
 
-The assignment requires the encoders to be run **exactly once** and the resulting features
+The protocol requires the encoders to be run **exactly once** and the resulting features
 cached, with all classifier training done on the cache. That is what makes the 27-run
 linear-probe sweep in step 03 cheap, and it is what guarantees the linear probe and the
 prototype baseline see byte-identical inputs — so any accuracy difference between them

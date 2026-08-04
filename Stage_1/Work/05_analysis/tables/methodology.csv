@@ -1,4 +1,4 @@
-requirement (stage_1.pdf),how it is met,where
+design choice,how it is met,where
 1. Accuracy table,every dataset x encoder x K x baseline,"section 2, tables/combined_accuracy_table.csv"
 "2. Accuracy vs. training-set size, with error bars","5-shot/10-shot/full, both baselines overlaid","section 3, plots/accuracy_vs_k.png"
 3. Training curves,"representative 10-shot train/val loss, all 3 combinations","section 4, plots/loss_curves.png"

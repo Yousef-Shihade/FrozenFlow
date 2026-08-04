@@ -1,16 +1,16 @@
 # Step 1 — Data Setup & Protocol Verification
 
-**CVLAB Summer Project — *Flow Matching as a Layer*** · Stage 1
-University of Haifa · Dr. Simon Korman
+**A Computer Vision Project — *Flow Matching as a Layer*** · Stage 1
+University of Haifa
 
 ---
 
 ## Purpose
 
 Stage 1 exists to produce an *honest baseline* that Stages 2 and 3 will be measured
-against. That comparison is only meaningful if the data protocol is exactly what the
-assignment specifies — so this step's job is to make the protocol **verifiable rather
-than assumed**, before a single feature is extracted.
+against. That comparison is only meaningful if the data protocol is followed exactly — so
+this step's job is to make the protocol **verifiable rather than assumed**, before a single
+feature is extracted.
 
 A wrong DTD partition or an overlap between train and test would not crash anything. It
 would quietly inflate every accuracy number in the project while still looking completely
@@ -47,7 +47,7 @@ No network access: the notebook passes `download=False` and reads only local dat
 ├── plots/                    <- generated figures (.png)
 ├── tables/                   <- generated data (.csv)
 └── _original_colab/
-    └── 01_data_setup_COLAB_ORIGINAL.ipynb   <- preserved for reference
+    └── 01_data_setup_COLAB_ORIGINAL.ipynb   <- an earlier draft, preserved for reference
 ```
 
 Paths are **not** hardcoded. Everything resolves through the installed `cvlab` package
@@ -72,15 +72,15 @@ All 20 currently pass. Results are saved to `tables/protocol_checks.csv`.
 
 | Check | Why it matters |
 | --- | --- |
-| DTD has 47 classes, partition 1 | DTD ships **ten** partitions; the assignment mandates #1 |
+| DTD has 47 classes, partition 1 | DTD ships **ten** partitions; this project fixes partition 1 throughout for a single, reproducible protocol |
 | Aircraft has 100 classes, `variant` level | `variant` (100) is the fine-grained task — not `family` (70) or `manufacturer` (30) |
 | Class list identical across all three splits | A mismatch would silently scramble label indices between splits |
 | Split sizes match the official counts | Detects a truncated or partial extraction |
-| **train/val, train/test, val/test are pairwise disjoint** | The assignment forbids merging splits. A leak inflates every reported accuracy invisibly |
+| **train/val, train/test, val/test are pairwise disjoint** | Splits are kept fully separate throughout; a leak inflates every reported accuracy invisibly |
 | **Every referenced image exists on disk** | Split files are text and can reference images a partial extraction never wrote |
 | **Every class has at least 10 training images** | The 10-shot setting silently requires this — better verified now than discovered in Step 3 |
 
-The three checks in bold were **not** performed by the original notebook.
+The three checks in bold were **not** performed by the earlier draft.
 
 ---
 
@@ -150,8 +150,8 @@ so every aircraft feature vector would encode it. Because it is near-identical a
 classes it mostly wastes representational capacity rather than actively misleading the
 classifier, but removing it is free and strictly correct.
 
-**Decision:** crop the bottom 20 px before resizing, in Step 2. The original notebook
-noted the banner in a markdown comment and then did nothing about it.
+**Decision:** crop the bottom 20 px before resizing, in Step 2. The earlier draft noted the
+banner in a markdown comment and then did nothing about it.
 
 ### 2. Source resolution is never the bottleneck
 
@@ -174,39 +174,35 @@ extremes. A centre crop is precisely the operation most likely to remove them. D
 opposite case: textures are statistically uniform, so any crop is as representative as any
 other (and it still loses 26% at the median, harmlessly).
 
-**We keep the standard preprocessing anyway.** The assignment requires *"the preprocessing
-associated with each checkpoint"*, and deviating would break comparability both with the
-pretrained encoders and with Stages 2–3. This is recorded as a **known, quantified
+**We keep the standard preprocessing anyway.** The preprocessing associated with each
+pretrained checkpoint is kept unchanged, since deviating would break comparability both
+with the pretrained encoders and with Stages 2–3. This is recorded as a **known, quantified
 limitation** — and it is a strong, evidence-backed answer if we are asked why Aircraft
 accuracy is so much lower than DTD's.
 
 ### 4. Both datasets are near-balanced
 
 DTD is exactly 40 images/class; Aircraft is 33–34 (std 0.48). So plain top-1 accuracy is a
-fair metric and no class weighting is needed — which is what the assignment asks for
-anyway, now with evidence behind it.
+fair metric and no class weighting is needed, now with evidence behind that choice.
 
 ---
 
-## Why DTD + FGVC-Aircraft (and not Flowers-102)
+## Dataset characteristics
 
-`tables/kshot_feasibility.csv` quantifies the reason. For DTD the full training set is 8x
-the 5-shot set; for Aircraft it is 6.7x. Flowers-102's official train split contains only
-**10 images per class**, which would have made the 10-shot and full settings *identical* —
-collapsing two of the three K settings into one and rendering the accuracy-versus-K
-deliverable meaningless.
+`tables/kshot_feasibility.csv` quantifies the training-set growth across K settings: for
+DTD the full training set is 8x the 5-shot set; for Aircraft it is 6.7x.
 
-The pair also gives a genuine easy-vs-hard contrast: DTD's 47 texture classes are broad and
+The pair gives a genuine easy-vs-hard contrast: DTD's 47 texture classes are broad and
 visually distinct, while Aircraft's 100 variants differ by subtle details such as engine
 placement and tail geometry.
 
 ---
 
-## What changed from the original Colab notebook
+## What changed from an earlier draft
 
-This is a complete rewrite. The original is preserved in `_original_colab/`.
+This is a complete rewrite. The earlier version is preserved in `_original_colab/`.
 
-| Area | Original | Now |
+| Area | Earlier draft | Now |
 | --- | --- | --- |
 | Platform | Colab + `drive.mount()` | Local, VS Code, no cloud dependency |
 | Data source | Downloaded ~3.4 GB from the internet | Reads `Stage_1/Data/` already on disk |
@@ -259,7 +255,7 @@ Carry forward into Step 2:
 1. Crop the bottom 20 px from every FGVC-Aircraft image before the resize.
 2. Define every transform at module level. Windows starts DataLoader workers with the
    `spawn` method, which pickles the dataset and its transform — a class defined *inside* a
-   function cannot be pickled, which is what broke the original notebook's `num_workers=2`
+   function cannot be pickled, which is what broke the earlier draft's `num_workers=2`
    outside Colab. Keeping the transforms in `cvlab.encoders` preserves `num_workers > 0`,
    measured in Step 2 to be worth roughly a 2x speed-up.
 3. Batch size 64 rather than 128, to stay well inside 4 GB of VRAM.

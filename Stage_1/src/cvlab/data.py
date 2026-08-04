@@ -3,7 +3,7 @@ Dataset loading and protocol constants.
 
 Two jobs:
 
-1. **Load the official splits under the exact protocol the assignment mandates** — DTD
+1. **Load the official splits under the exact protocol this project follows** — DTD
    partition 1, FGVC-Aircraft at the ``variant`` annotation level, ``download=False`` so
    the notebooks are offline and can never re-download over a partial extraction.
 
@@ -37,10 +37,10 @@ __all__ = [
     "make_kshot_subset",
 ]
 
-#: The three official splits, in canonical order. Never merged (assignment requirement).
+#: The three official splits, in canonical order. Never merged.
 SPLITS: tuple[str, str, str] = ("train", "val", "test")
 
-#: Expected shape of each dataset, from the assignment and the official dataset papers.
+#: Expected shape of each dataset, from the protocol and the official dataset papers.
 #: Used by notebook 01 to turn "it loaded" into "it loaded correctly".
 DATASET_SPECS: dict[str, dict] = {
     "DTD": {
@@ -145,14 +145,14 @@ def make_kshot_subset(
     ``(k, seed)`` they train on exactly the same images, so any accuracy difference comes
     from the classifier design rather than from a luckier draw.
 
-    Sampling is without replacement and forces exactly ``k`` per class, which is what the
-    assignment means by "balanced subsets".
+    Sampling is without replacement and forces exactly ``k`` per class, which is what
+    "balanced subsets" means here.
 
     Args:
         features: feature tensor, shape ``(N, D)``.
         label_tensor: label tensor, shape ``(N,)``.
         k: images to take from each class.
-        seed: subset seed. The assignment mandates {0, 1, 2}.
+        seed: subset seed. Used with {0, 1, 2} throughout this project.
 
     Returns:
         ``(subset_features, subset_labels)``.

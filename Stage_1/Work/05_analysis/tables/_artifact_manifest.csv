@@ -6,5 +6,5 @@ plot,plots/feature_viz_dtd.png,121.9
 plot,plots/loss_curves.png,103.9
 plot,plots/normalization_bug_demo.png,205.2
 table,tables/combined_accuracy_table.csv,1.1
-table,tables/requirements_compliance.csv,0.9
+table,tables/methodology.csv,0.9
 table,tables/top_confusions.csv,37.2

@@ -1,5 +1,5 @@
 """
-cvlab — shared library for the CVLAB Summer Project, Stage 1.
+cvlab — shared library for Stage 1 of the Flow Matching as a Layer project.
 
 The project is organised as a **package + notebooks** pair:
 
@@ -9,9 +9,9 @@ The project is organised as a **package + notebooks** pair:
 * The notebooks under ``Stage_1/Work/`` hold the *experiment* — what is being measured,
   why, and what the results mean. They read as a narrative and are what we present.
 
-The split matters for grading: the assignment asks us to reproduce results and explain
-the protocol. Duplicated helper code across five notebooks (as in the original Colab
-version, where ``load_features`` and the k-shot sampler were pasted into three notebooks
+The split matters for reproducibility: results need to be reproducible and the protocol
+needs to be explainable. Duplicated helper code across five notebooks (as in an earlier
+draft, where ``load_features`` and the k-shot sampler were pasted into three notebooks
 each) makes both harder — a fix applied to one copy silently leaves the others wrong.
 
 Install once, in editable mode, so notebooks can simply ``import cvlab``::

@@ -1,15 +1,14 @@
-# Step 3 — Linear Probe (the required baseline)
+# Step 3 — Linear Probe
 
-**CVLAB Summer Project — *Flow Matching as a Layer*** · Stage 1
-University of Haifa · Dr. Simon Korman
+**A Computer Vision Project — *Flow Matching as a Layer*** · Stage 1
+University of Haifa
 
 ---
 
 ## Purpose
 
-The baseline every group must implement, and the one **Stage 3** will replace with a
-Flow-Matching layer. It answers: given a frozen representation, how far does a single
-trained linear layer get?
+The required baseline, and the one **Stage 3** will replace with a Flow-Matching layer. It
+answers: given a frozen representation, how far does a single trained linear layer get?
 
 `s = W z + b`, with `z` a cached frozen feature from step 2. Only `W` and `b` are trained,
 with softmax cross-entropy. The encoders are never loaded — this notebook reads tensors.
@@ -32,7 +31,7 @@ with softmax cross-entropy. The encoders are never loaded — this notebook read
 
 3 encoder-dataset pairs × K ∈ {5, 10, full} × 3 seeds = **27 runs**.
 
-The two kinds of seed are easy to conflate, and the assignment distinguishes them:
+The two kinds of seed are easy to conflate:
 
 | Setting | What the seed controls |
 | --- | --- |
@@ -65,11 +64,11 @@ which is a genuine cross-check rather than a restatement.
 
 ---
 
-## Independent reproduction of the original work
+## Independent reproduction of an earlier draft
 
-The original Colab notebook produced its own 27-run sweep. This pipeline was rebuilt from
-scratch — re-extracted features, a rewritten training loop, different batching — so
-comparing them is an independent reproduction.
+An earlier draft produced its own 27-run sweep. This pipeline was rebuilt from scratch —
+re-extracted features, a rewritten training loop, different batching — so comparing them is
+an independent reproduction.
 
 | Dataset | Banner crop applied | mean Δ | range of Δ |
 | --- | --- | --- | --- |
@@ -79,7 +78,7 @@ comparing them is an independent reproduction.
 **DTD reproduces to within 0.26 pp on all three K settings.** Because DTD receives no banner
 crop, it isolates the reimplementation itself — and it agrees about as closely as two
 independent implementations can. That is strong evidence both are correct, and it means the
-original analysis, whatever its packaging problems, was **numerically sound**.
+earlier analysis, whatever its packaging problems, was **numerically sound**.
 
 **Aircraft scatters more but mixed in sign** (two of six settings negative). If the banner
 crop were a real improvement the shift would be consistently positive; it is not. This
@@ -92,7 +91,7 @@ run-to-run variation.
 
 ### 1. Why the Aircraft checkpoint sits at epoch ~199 while validation loss is rising
 
-The required loss-curve figure looks self-contradictory at first glance, and it is the most
+The loss-curve figure below looks self-contradictory at first glance, and it is the most
 likely thing to be challenged on.
 
 **Validation loss and validation accuracy stop agreeing.** Cross-entropy punishes
@@ -101,12 +100,11 @@ with ever-higher confidence it also becomes more confidently wrong on its mistak
 the loss up — while the *ranking* of the logits, which is all `argmax` responds to, keeps
 improving.
 
-The figure therefore has two rows: the loss curves the assignment asks for, and the
-validation accuracy the checkpoint rule actually maximises. On Aircraft, accuracy is still
-climbing at epoch 200 while loss has been rising since ~epoch 35. The assignment specifies
-selection on **highest validation accuracy**, so the loss minimum (grey dotted line) is
-deliberately not what we pick. Selecting on loss would choose epoch ~35 and cost real
-accuracy.
+The figure therefore has two rows: the training/validation loss curves, and the validation
+accuracy the checkpoint rule actually maximises. On Aircraft, accuracy is still climbing at
+epoch 200 while loss has been rising since ~epoch 35. The checkpoint rule selects on
+**highest validation accuracy**, so the loss minimum (grey dotted line) is deliberately not
+what we pick. Selecting on loss would choose epoch ~35 and cost real accuracy.
 
 DTD behaves conventionally — both criteria agree early — which makes the contrast
 instructive rather than worrying.
@@ -159,12 +157,12 @@ such rather than quietly dropping it.
 | `linear_probe_predictions.pt` | Test predictions per run |
 
 Keeping predictions for every run means step 5 can build confusion matrices **without
-retraining anything**. The original notebook retrained two probes for that, which risks the
+retraining anything**. The earlier draft retrained two probes for that, which risks the
 confusion matrix describing a slightly different model from the one in the accuracy table.
 
 ### Tables (`tables/`)
 
-`requirements_compliance.csv` · `probe_config.csv` · `run_grid.csv` ·
+`methodology.csv` · `probe_config.csv` · `run_grid.csv` ·
 `accuracy_summary.csv` · `reproduction_check.csv` · `overfitting_summary.csv` ·
 `epoch_budget_check.csv`
 
@@ -172,29 +170,29 @@ confusion matrix describing a slightly different model from the one in the accur
 
 | File | Shows |
 | --- | --- |
-| `loss_curves_representative.png` | **Required deliverable** — 10-shot curves + val accuracy |
+| `loss_curves_representative.png` | 10-shot curves + val accuracy |
 | `training_stability.png` | All 27 runs, 3 seeds per panel |
 | `overfitting_analysis.png` | Selected epoch, val-loss climb, final train loss |
-| `reproduction_check.png` | Ours vs the original, per setting |
+| `reproduction_check.png` | Ours vs the earlier draft, per setting |
 | `accuracy_vs_k.png` | Accuracy vs training-set size with error bars |
 
 ---
 
 ## Configuration
 
-The assignment's suggested configuration, **used unmodified**: AdamW, lr 1e-3, weight decay
-1e-4, batch size 64, max 200 epochs, checkpoint on highest validation accuracy.
+A standard configuration, **used unmodified**: AdamW, lr 1e-3, weight decay 1e-4, batch
+size 64, max 200 epochs, checkpoint on highest validation accuracy.
 
-The spec permits adjusting these if they behave poorly, provided the change is reported.
-They did not: no run diverged, none produced NaN or Inf, and every run selected a real
+Deviating would have been reasonable if it behaved poorly, provided the change was reported.
+It did not need to: no run diverged, none produced NaN or Inf, and every run selected a real
 checkpoint. Section 9 of the notebook is the evidence. Stating this explicitly is better
 than leaving a reader to wonder whether the defaults were used or quietly tuned.
 
 ---
 
-## What changed from the original Colab notebook
+## What changed from an earlier draft
 
-| Area | Original | Now |
+| Area | Earlier draft | Now |
 | --- | --- | --- |
 | Platform | Colab + Drive | Local, package-backed |
 | Training loop | Defined inline in the notebook | `cvlab/probe.py`, reusable and documented |
@@ -203,18 +201,18 @@ than leaving a reader to wonder whether the defaults were used or quietly tuned.
 | Curves kept | Only the representative run per combination | **All 27 runs** |
 | Test predictions | Not kept — step 5 retrained 2 probes to get them | Kept for all 27 runs |
 | std convention | pandas (`ddof=1`) in the table, numpy (`ddof=0`) in the plot — **inconsistent** | `cvlab/evaluation.py`, `ddof=1` everywhere |
-| Requirements check | Prose in a separate report | `requirements_compliance.csv`, generated from the code |
-| Reproduction check | — | Compared against the original, per setting |
+| Methodology check | Prose in a separate report | `methodology.csv`, generated from the code |
+| Reproduction check | — | Compared against the earlier draft, per setting |
 | Convergence caveat | Not examined | Measured and reported |
 
 ---
 
 ## Next step
 
-**Step 4 — Image-derived class prototypes** (Option A), the chosen second baseline. No
-training: L2-normalise, average each class's training features, re-normalise, classify by
-cosine similarity. 21 runs (5-shot ×3, 10-shot ×3, full ×1 per combination — the full
-setting needs one run because averaging every training image leaves nothing stochastic).
+**Step 4 — Image-derived class prototypes**, the second baseline. No training:
+L2-normalise, average each class's training features, re-normalise, classify by cosine
+similarity. 21 runs (5-shot ×3, 10-shot ×3, full ×1 per combination — the full setting needs
+one run because averaging every training image leaves nothing stochastic).
 
 Because it calls the same `cvlab.data.make_kshot_subset`, it trains on **byte-identical
 subsets** to the ones used here for a given `(K, seed)`. Any accuracy difference between the

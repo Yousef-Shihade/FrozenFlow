@@ -1,7 +1,7 @@
 """
 Frozen pretrained encoders and their preprocessing.
 
-The assignment is strict on two points, and both are enforced here rather than in the
+The protocol is strict on two points, and both are enforced here rather than in the
 notebooks so they cannot drift apart between steps:
 
 1. **All encoder parameters stay frozen.** Every builder calls ``requires_grad_(False)``
@@ -79,7 +79,7 @@ class EncoderSpec:
     datasets: tuple[str, ...] = field(default_factory=tuple)
 
 
-#: The encoders the assignment mandates, and which datasets each runs on.
+#: The encoders this project uses, and which datasets each runs on.
 ENCODER_SPECS: dict[str, EncoderSpec] = {
     "resnet18": EncoderSpec(
         name="resnet18",
@@ -105,7 +105,7 @@ def _build_resnet18() -> tuple[nn.Module, Callable]:
 
     Replacing ``fc`` with ``nn.Identity()`` makes the forward pass return the 512-d vector
     that used to feed the classifier — precisely the "512-dimensional representation before
-    the final classification layer" the assignment asks for.
+    the final classification layer" this project needs.
     """
     weights = ResNet18_Weights.IMAGENET1K_V1
     model = resnet18(weights=weights)

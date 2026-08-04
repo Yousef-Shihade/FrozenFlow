@@ -1,4 +1,4 @@
-requirement (stage_1.pdf),how it is met,where
+design choice,how it is met,where
 "s = Wz + b, only W and b trained",nn.Linear on frozen cached features; encoders never loaded,cvlab/probe.py
 Softmax cross-entropy loss,nn.CrossEntropyLoss,cvlab/probe.py
 Optimizer AdamW,AdamW,ProbeConfig

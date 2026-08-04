@@ -1,7 +1,7 @@
 """
-Image-derived class prototypes — Stage 1's chosen second baseline (Option A).
+Image-derived class prototypes — Stage 1's second baseline.
 
-Implements the assignment's exact formula. First L2-normalize every feature, then for each
+First L2-normalize every feature, then for each
 class average its (normalized) training examples and re-normalize::
 
     mu_c = normalize( mean_{i in S_c} normalize(z_i) )
@@ -41,8 +41,8 @@ __all__ = ["PrototypeResult", "l2_normalize", "compute_prototypes", "run_prototy
 
 
 def l2_normalize(x: torch.Tensor, dim: int = 1, eps: float = 1e-8) -> torch.Tensor:
-    """L2-normalize along `dim`. Thin wrapper over `F.normalize` kept for the assignment's
-    own notation (`normalize(z)`), so the code and the formula in `stage_1.pdf` read the
+    """L2-normalize along `dim`. Thin wrapper over `F.normalize` kept for the protocol's
+    own notation (`normalize(z)`), so the code and the formula above read the
     same way."""
     return F.normalize(x, p=2, dim=dim, eps=eps)
 
@@ -100,8 +100,8 @@ def run_prototype_classifier(
     """Build prototypes from the training subset and classify the test split once.
 
     No hyperparameters, no randomness beyond whatever subset was already selected — this
-    function is deterministic given its inputs, which is why the assignment only needs one
-    run for the full-data setting.
+    function is deterministic given its inputs, which is why only one run is needed for the
+    full-data setting.
     """
     start = time.perf_counter()
 

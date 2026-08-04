@@ -1,13 +1,13 @@
 kind,file,size_KB
 plot,plots/accuracy_vs_k.png,93.1
-plot,plots/loss_curves_representative.png,198.0
+plot,plots/loss_curves_representative.png,196.1
 plot,plots/overfitting_analysis.png,94.4
-plot,plots/reproduction_check.png,67.7
+plot,plots/reproduction_check.png,67.0
 plot,plots/training_stability.png,320.8
 table,tables/accuracy_summary.csv,0.5
 table,tables/epoch_budget_check.csv,0.5
+table,tables/methodology.csv,1.5
 table,tables/overfitting_summary.csv,0.6
 table,tables/probe_config.csv,0.2
 table,tables/reproduction_check.csv,0.6
-table,tables/requirements_compliance.csv,1.5
 table,tables/run_grid.csv,1.8

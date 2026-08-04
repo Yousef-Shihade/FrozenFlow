@@ -1,4 +1,4 @@
-requirement (stage_1.pdf),how it is met,where
+design choice,how it is met,where
 Use the same frozen encoders as the linear probe,"identical cached features from step 2, no re-extraction",cvlab/features.py
 L2-normalize each feature before averaging,normalize(z_i) inside compute_prototypes,cvlab/prototypes.py
 mu_c = normalize(mean of normalized training examples),"exact formula, verified in section 2",cvlab/prototypes.py

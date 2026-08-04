@@ -1,13 +1,13 @@
 """
 Shared result aggregation.
 
-The assignment asks for **mean and standard deviation over 3 runs**. That sounds
+The protocol calls for **mean and standard deviation over 3 runs**. That sounds
 unambiguous until two different parts of a report compute it two different ways: pandas'
 ``Series.std()`` defaults to the *sample* standard deviation (``ddof=1``) while numpy's
 ``ndarray.std()`` defaults to the *population* one (``ddof=0``). On three runs the two
 differ by a factor of ``sqrt(3/2) ≈ 1.22`` — enough that an accuracy table and the error
-bars on the plot beside it disagree, which is exactly what happened in the original Colab
-notebooks (DTD 5-shot: 1.74 in the table, 1.42 in the plot).
+bars on the plot beside it disagree, which is exactly what happened in an earlier draft
+(DTD 5-shot: 1.74 in the table, 1.42 in the plot).
 
 Everything in this project therefore goes through :func:`summarize_runs`, which uses the
 **sample** standard deviation (``ddof=1``) everywhere. That is the right choice here: the
@@ -30,8 +30,8 @@ def format_mean_std(mean: float, std: float | None, count: int, decimals: int = 
     """Render one cell of the accuracy table.
 
     A single run has no spread to report, so it is labelled rather than shown with a
-    meaningless ``0.00`` or ``NaN``. The assignment explicitly expects this for the
-    full-data prototype result and for zero-shot CLIP.
+    meaningless ``0.00`` or ``NaN``. This is the case for the full-data prototype result,
+    which has no seed left to vary.
     """
     if count <= 1 or std is None or (isinstance(std, float) and np.isnan(std)):
         return f"{mean:.{decimals}f} (1 run)"

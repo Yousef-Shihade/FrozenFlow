@@ -1,3 +1,3 @@
 encoder,key,checkpoint,feature_dim_expected,feature_dim_measured,params_M,trainable_params,training_mode,load_s,datasets
-ResNet-18,resnet18,torchvision IMAGENET1K_V1,512,512,11.18,0,False,0.32,"DTD, FGVC-Aircraft"
-DINOv2 ViT-S/14,dinov2,facebookresearch/dinov2 : dinov2_vits14,384,384,22.06,0,False,1.44,FGVC-Aircraft
+ResNet-18,resnet18,torchvision IMAGENET1K_V1,512,512,11.18,0,False,0.37,"DTD, FGVC-Aircraft"
+DINOv2 ViT-S/14,dinov2,facebookresearch/dinov2 : dinov2_vits14,384,384,22.06,0,False,1.31,FGVC-Aircraft

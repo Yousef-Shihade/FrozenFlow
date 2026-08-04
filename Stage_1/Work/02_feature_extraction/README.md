@@ -1,16 +1,16 @@
 # Step 2 — Feature Extraction
 
-**CVLAB Summer Project — *Flow Matching as a Layer*** · Stage 1
-University of Haifa · Dr. Simon Korman
+**A Computer Vision Project — *Flow Matching as a Layer*** · Stage 1
+University of Haifa
 
 ---
 
 ## Purpose
 
-This is the pivot point of Stage 1. The assignment requires the encoders to be **frozen**,
-run **exactly once**, and their outputs **cached**, with all classifier training done on the
-cache. After this notebook nothing in the project touches an image or an encoder again —
-steps 3, 4 and 5 read plain tensors.
+This is the pivot point of Stage 1. The protocol here is strict: the encoders stay
+**frozen**, run **exactly once**, and their outputs are **cached**, with all classifier
+training done on the cache. After this notebook nothing in the project touches an image or
+an encoder again — steps 3, 4 and 5 read plain tensors.
 
 That constraint is not bookkeeping:
 
@@ -214,14 +214,14 @@ constraint.
 because every transform, including `CropBottomBanner`, is defined at module level in the
 installed `cvlab` package: Windows starts workers with the `spawn` method, which pickles the
 dataset and its transform, and a class defined inside a function cannot be pickled. That is
-precisely why the original Colab notebook's `num_workers=2` could not run here.
+precisely why an earlier draft's `num_workers=2` could not run here.
 
 Worker counts above 4 were slower (8 workers → 36 img/s) from spawn overhead and CPU
 oversubscription.
 
 ---
 
-## What changed from the original Colab notebook
+## What changed from an earlier draft
 
 | Area | Original | Now |
 | --- | --- | --- |

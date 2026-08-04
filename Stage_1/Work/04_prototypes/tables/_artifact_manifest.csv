@@ -4,8 +4,8 @@ plot,plots/probe_vs_prototype.png,118.4
 plot,plots/prototype_centrality.png,69.7
 plot,plots/similarity_margins.png,76.9
 table,tables/accuracy_summary.csv,0.5
+table,tables/methodology.csv,1.3
 table,tables/per_class_divergence.csv,12.6
 table,tables/probe_vs_prototype.csv,0.9
 table,tables/prototype_centrality.csv,0.2
-table,tables/requirements_compliance.csv,1.3
 table,tables/run_grid.csv,0.8

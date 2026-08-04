@@ -1,12 +1,12 @@
 """
 The linear probe — Stage 1's required baseline.
 
-Implements exactly what the assignment specifies::
+Implements::
 
     s = W z + b
 
 with ``z`` a frozen cached feature, only ``W`` and ``b`` trained, softmax cross-entropy
-loss, and the suggested configuration (AdamW, lr 1e-3, weight decay 1e-4, batch size 64,
+loss, and a standard configuration (AdamW, lr 1e-3, weight decay 1e-4, batch size 64,
 up to 200 epochs, checkpoint on **highest validation accuracy**).
 
 Two details that are easy to get subtly wrong
@@ -17,10 +17,10 @@ instead controls the classifier's *initialisation* (and the batch order). Both a
 by the same ``seed`` argument here, and the caller decides which role it plays by whether
 it passes a subsampled training set or the whole one.
 
-**Checkpoint selection uses validation accuracy, not loss.** The assignment says accuracy,
-and the two disagree in practice: cross-entropy keeps rising as the model grows confident
-on the examples it already gets right, long after accuracy has plateaued. Selecting on loss
-would pick a systematically earlier epoch.
+**Checkpoint selection uses validation accuracy, not loss.** The two disagree in practice:
+cross-entropy keeps rising as the model grows confident on the examples it already gets
+right, long after accuracy has plateaued. Selecting on loss would pick a systematically
+earlier epoch.
 """
 
 from __future__ import annotations
@@ -35,11 +35,11 @@ __all__ = ["ProbeConfig", "ProbeResult", "train_linear_probe"]
 
 @dataclass(frozen=True)
 class ProbeConfig:
-    """The assignment's suggested configuration, used unmodified.
+    """A standard baseline configuration, used unmodified.
 
-    The spec allows adjusting these if the defaults behave poorly and reporting the change.
-    They did not, so they are used exactly as given — which is itself worth stating
-    explicitly rather than leaving unsaid.
+    Adjusting these would have been reasonable if the defaults behaved poorly, provided the
+    change was reported. They did not, so they are used exactly as given — which is itself
+    worth stating explicitly rather than leaving unsaid.
     """
 
     lr: float = 1e-3
@@ -106,11 +106,11 @@ def train_linear_probe(
     Args:
         train_x/train_y: training features and labels (already k-shot subsampled if needed).
         val_x/val_y: the **full** official validation split, used only for checkpoint
-            selection, as the assignment permits.
+            selection.
         test_x/test_y: the **full** official test split, used only for the final number.
         num_classes: 47 for DTD, 100 for FGVC-Aircraft.
         seed: controls weight initialisation and batch order.
-        config: hyperparameters; defaults to the assignment's suggested configuration.
+        config: hyperparameters; defaults to the standard baseline configuration.
         device: ``"cuda"`` or ``"cpu"``.
 
     Returns:

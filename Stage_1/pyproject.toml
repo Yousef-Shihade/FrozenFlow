@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "cvlab"
 version = "1.0.0"
-description = "Shared library for the CVLAB Summer Project, Stage 1 (classification baselines with frozen encoders)"
+description = "Shared library for Stage 1 (classification baselines with frozen encoders)"
 readme = "README.md"
 requires-python = ">=3.10"
 

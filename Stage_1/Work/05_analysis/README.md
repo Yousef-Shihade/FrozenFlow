@@ -1,15 +1,15 @@
 # Step 5 — Analysis
 
-**CVLAB Summer Project — *Flow Matching as a Layer*** · Stage 1
-University of Haifa · Dr. Simon Korman
+**A Computer Vision Project — *Flow Matching as a Layer*** · Stage 1
+University of Haifa
 
 ---
 
 ## Purpose
 
-The notebook that pulls together everything `stage_1.pdf` says we must be prepared to
-present and discuss. Nothing is measured here — it reads what steps 2–4 already produced
-and assembles the five required deliverables:
+The notebook that pulls together everything the project's classification-baseline pipeline
+needs to present and discuss. Nothing is measured here — it reads what steps 2–4 already
+produced and assembles the five core deliverables:
 
 1. Accuracy table (every dataset × encoder × K × baseline)
 2. Accuracy vs. training-set size, with error bars
@@ -50,9 +50,9 @@ Full combined table (18 rows, all K × both methods) in `tables/combined_accurac
 
 ---
 
-## Two problems fixed from the original notebook
+## Two problems fixed from the earlier draft
 
-The original `05_analysis` notebook (archived in `_original_colab/`) built all five
+The earlier `05_analysis` notebook (archived in `_original_colab/`) built all five
 deliverables reasonably, with two real bugs in the feature-visualization section — the one
 deliverable that involves genuinely new code rather than re-plotting existing results.
 
@@ -130,8 +130,8 @@ projection-hyperparameter choices.
 
 On FGVC-Aircraft, DINOv2's 9 classes visibly separate into tighter, more distinct clusters
 than ResNet-18's — consistent with, not new evidence for, the accuracy and separability
-numbers already established in steps 2–4. Per the assignment's explicit caveat, this is read
-qualitatively: a 2D projection is not a performance measurement.
+numbers already established in steps 2–4. As with any 2D projection, this is read
+qualitatively: it is not a performance measurement.
 
 ---
 
@@ -141,7 +141,7 @@ qualitatively: a 2D projection is not a performance measurement.
 
 | File | Contents |
 | --- | --- |
-| `requirements_compliance.csv` | The 5 deliverables and where each is produced |
+| `methodology.csv` | The 5 deliverables and where each is produced |
 | `combined_accuracy_table.csv` | Deliverable 1 — 18 rows, both baselines |
 | `top_confusions.csv` | Every off-diagonal confusion, sorted by rate (976 rows) |
 
@@ -158,9 +158,9 @@ qualitatively: a 2D projection is not a performance measurement.
 
 ---
 
-## What changed from the original Colab notebook
+## What changed from an earlier draft
 
-| Area | Original | Now |
+| Area | Earlier draft | Now |
 | --- | --- | --- |
 | Platform | Colab + Drive | Local, package-backed |
 | Confusion-matrix predictions | Retrained 2 probes to get them | Loaded from step 3's saved `linear_probe_predictions.pt` |

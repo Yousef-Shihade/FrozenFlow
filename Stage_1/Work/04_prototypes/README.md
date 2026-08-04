@@ -1,15 +1,15 @@
-# Step 4 — Image-Derived Class Prototypes (Option A)
+# Step 4 — Image-Derived Class Prototypes
 
-**CVLAB Summer Project — *Flow Matching as a Layer*** · Stage 1
-University of Haifa · Dr. Simon Korman
+**A Computer Vision Project — *Flow Matching as a Layer*** · Stage 1
+University of Haifa
 
 ---
 
 ## Purpose
 
-The assignment's second baseline choice — image-derived prototypes over zero-shot CLIP.
-No training: L2-normalize, average each class's training features, re-normalize, classify
-by cosine similarity.
+The second baseline: image-derived prototypes, computed directly from class-mean features
+rather than via zero-shot text prompts. No training: L2-normalize, average each class's
+training features, re-normalize, classify by cosine similarity.
 
 $$\mu_c = \text{normalize}\Big(\tfrac{1}{|S_c|}\sum_{i \in S_c}\text{normalize}(z_i)\Big)
 \qquad \hat{y} = \arg\max_c \cos(z, \mu_c)$$
@@ -42,7 +42,7 @@ step 3's outputs in `Stage_1/results/`.
 | ResNet-18 / FGVC-Aircraft | 16.46 ± 0.39 | 20.19 ± 1.14 | 25.47 (1 run) |
 | DINOv2 / FGVC-Aircraft | 23.79 ± 0.47 | 27.74 ± 0.98 | 34.26 (1 run) |
 
-All 21 numbers match the original notebook's reported results exactly (e.g. ResNet-18/DTD
+All 21 numbers match the earlier draft's reported results exactly (e.g. ResNet-18/DTD
 full: 58.83% here vs 58.8% originally). Prototype computation is deterministic given a
 fixed subset, so this is an exact check rather than a within-noise comparison.
 
@@ -104,11 +104,11 @@ prototypes lose so much ground on this dataset.
 | File | Contents |
 | --- | --- |
 | `prototype_runs.csv` | One row per run |
-| `full_prototypes.pt` | Full-data prototype vectors per combination — needed for step 5's required feature-visualization deliverable |
+| `full_prototypes.pt` | Full-data prototype vectors per combination — needed for step 5's feature-visualization deliverable |
 
 ### Tables (`tables/`)
 
-`requirements_compliance.csv` · `run_grid.csv` · `accuracy_summary.csv` ·
+`methodology.csv` · `run_grid.csv` · `accuracy_summary.csv` ·
 `prototype_centrality.csv` · `probe_vs_prototype.csv` · `per_class_divergence.csv`
 
 ### Plots (`plots/`)
@@ -130,13 +130,13 @@ in the same direction. If normalization were silently skipped, the larger-magnit
 would pull the class mean off its true direction — a bug that would still often "work well
 enough" on real data, which is exactly why it needs an explicit check rather than relying on
 downstream accuracy to catch it. The toy prototypes come out exactly `[1,0]` and `[0,1]`, as
-required.
+expected.
 
 ---
 
-## What changed from the original Colab notebook
+## What changed from an earlier draft
 
-| Area | Original | Now |
+| Area | Earlier draft | Now |
 | --- | --- | --- |
 | Platform | Colab + Drive | Local, package-backed |
 | Core method | Defined inline in the notebook | `cvlab/prototypes.py`, reusable and documented |
@@ -150,14 +150,13 @@ required.
 
 ## Next step
 
-**Step 5 — Analysis.** Pulls together every deliverable the assignment lists: the combined
-accuracy table (this notebook's results plus step 3's), the accuracy-vs-K plot with the
-prototype baseline included, the required training curves (already produced in step 3),
-row-normalized confusion matrices, and the 2D feature visualization with prototypes
-overlaid.
+**Step 5 — Analysis.** Pulls together the core deliverables: the combined accuracy table
+(this notebook's results plus step 3's), the accuracy-vs-K plot with the prototype baseline
+included, the training curves (already produced in step 3), row-normalized confusion
+matrices, and the 2D feature visualization with prototypes overlaid.
 
 That last deliverable is where step 2's feature-geometry finding becomes load-bearing:
 ResNet-18 and DINOv2 features sit at norms of ~24–50, never close to 1, while every
 prototype here is exactly unit-norm. Any projection that mixes the two without normalizing
-first collapses the prototypes into a single point — the bug in the original notebook's
+first collapses the prototypes into a single point — the bug in the earlier draft's
 t-SNE figure, avoidable here because it was measured in step 2 rather than assumed.
