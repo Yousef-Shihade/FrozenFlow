@@ -1,0 +1,301 @@
+dataset,split,class_idx,class,n_images
+FGVC-Aircraft,train,0,707-320,34
+FGVC-Aircraft,train,1,727-200,33
+FGVC-Aircraft,train,2,737-200,33
+FGVC-Aircraft,train,3,737-300,34
+FGVC-Aircraft,train,4,737-400,33
+FGVC-Aircraft,train,5,737-500,33
+FGVC-Aircraft,train,6,737-600,34
+FGVC-Aircraft,train,7,737-700,33
+FGVC-Aircraft,train,8,737-800,33
+FGVC-Aircraft,train,9,737-900,34
+FGVC-Aircraft,train,10,747-100,33
+FGVC-Aircraft,train,11,747-200,33
+FGVC-Aircraft,train,12,747-300,34
+FGVC-Aircraft,train,13,747-400,33
+FGVC-Aircraft,train,14,757-200,33
+FGVC-Aircraft,train,15,757-300,34
+FGVC-Aircraft,train,16,767-200,33
+FGVC-Aircraft,train,17,767-300,33
+FGVC-Aircraft,train,18,767-400,34
+FGVC-Aircraft,train,19,777-200,33
+FGVC-Aircraft,train,20,777-300,33
+FGVC-Aircraft,train,21,A300B4,34
+FGVC-Aircraft,train,22,A310,33
+FGVC-Aircraft,train,23,A318,33
+FGVC-Aircraft,train,24,A319,34
+FGVC-Aircraft,train,25,A320,33
+FGVC-Aircraft,train,26,A321,33
+FGVC-Aircraft,train,27,A330-200,34
+FGVC-Aircraft,train,28,A330-300,33
+FGVC-Aircraft,train,29,A340-200,33
+FGVC-Aircraft,train,30,A340-300,34
+FGVC-Aircraft,train,31,A340-500,33
+FGVC-Aircraft,train,32,A340-600,33
+FGVC-Aircraft,train,33,A380,34
+FGVC-Aircraft,train,34,ATR-42,33
+FGVC-Aircraft,train,35,ATR-72,33
+FGVC-Aircraft,train,36,An-12,34
+FGVC-Aircraft,train,37,BAE 146-200,33
+FGVC-Aircraft,train,38,BAE 146-300,33
+FGVC-Aircraft,train,39,BAE-125,34
+FGVC-Aircraft,train,40,Beechcraft 1900,33
+FGVC-Aircraft,train,41,Boeing 717,33
+FGVC-Aircraft,train,42,C-130,34
+FGVC-Aircraft,train,43,C-47,33
+FGVC-Aircraft,train,44,CRJ-200,33
+FGVC-Aircraft,train,45,CRJ-700,34
+FGVC-Aircraft,train,46,CRJ-900,33
+FGVC-Aircraft,train,47,Cessna 172,33
+FGVC-Aircraft,train,48,Cessna 208,34
+FGVC-Aircraft,train,49,Cessna 525,33
+FGVC-Aircraft,train,50,Cessna 560,33
+FGVC-Aircraft,train,51,Challenger 600,34
+FGVC-Aircraft,train,52,DC-10,33
+FGVC-Aircraft,train,53,DC-3,33
+FGVC-Aircraft,train,54,DC-6,34
+FGVC-Aircraft,train,55,DC-8,33
+FGVC-Aircraft,train,56,DC-9-30,33
+FGVC-Aircraft,train,57,DH-82,34
+FGVC-Aircraft,train,58,DHC-1,33
+FGVC-Aircraft,train,59,DHC-6,33
+FGVC-Aircraft,train,60,DHC-8-100,34
+FGVC-Aircraft,train,61,DHC-8-300,33
+FGVC-Aircraft,train,62,DR-400,33
+FGVC-Aircraft,train,63,Dornier 328,34
+FGVC-Aircraft,train,64,E-170,33
+FGVC-Aircraft,train,65,E-190,33
+FGVC-Aircraft,train,66,E-195,34
+FGVC-Aircraft,train,67,EMB-120,33
+FGVC-Aircraft,train,68,ERJ 135,33
+FGVC-Aircraft,train,69,ERJ 145,34
+FGVC-Aircraft,train,70,Embraer Legacy 600,33
+FGVC-Aircraft,train,71,Eurofighter Typhoon,33
+FGVC-Aircraft,train,72,F-16A/B,34
+FGVC-Aircraft,train,73,F/A-18,33
+FGVC-Aircraft,train,74,Falcon 2000,33
+FGVC-Aircraft,train,75,Falcon 900,34
+FGVC-Aircraft,train,76,Fokker 100,33
+FGVC-Aircraft,train,77,Fokker 50,33
+FGVC-Aircraft,train,78,Fokker 70,34
+FGVC-Aircraft,train,79,Global Express,33
+FGVC-Aircraft,train,80,Gulfstream IV,33
+FGVC-Aircraft,train,81,Gulfstream V,34
+FGVC-Aircraft,train,82,Hawk T1,33
+FGVC-Aircraft,train,83,Il-76,33
+FGVC-Aircraft,train,84,L-1011,34
+FGVC-Aircraft,train,85,MD-11,33
+FGVC-Aircraft,train,86,MD-80,33
+FGVC-Aircraft,train,87,MD-87,34
+FGVC-Aircraft,train,88,MD-90,33
+FGVC-Aircraft,train,89,Metroliner,33
+FGVC-Aircraft,train,90,Model B200,34
+FGVC-Aircraft,train,91,PA-28,33
+FGVC-Aircraft,train,92,SR-20,33
+FGVC-Aircraft,train,93,Saab 2000,34
+FGVC-Aircraft,train,94,Saab 340,33
+FGVC-Aircraft,train,95,Spitfire,33
+FGVC-Aircraft,train,96,Tornado,34
+FGVC-Aircraft,train,97,Tu-134,33
+FGVC-Aircraft,train,98,Tu-154,33
+FGVC-Aircraft,train,99,Yak-42,34
+FGVC-Aircraft,val,0,707-320,33
+FGVC-Aircraft,val,1,727-200,34
+FGVC-Aircraft,val,2,737-200,33
+FGVC-Aircraft,val,3,737-300,33
+FGVC-Aircraft,val,4,737-400,34
+FGVC-Aircraft,val,5,737-500,33
+FGVC-Aircraft,val,6,737-600,33
+FGVC-Aircraft,val,7,737-700,34
+FGVC-Aircraft,val,8,737-800,33
+FGVC-Aircraft,val,9,737-900,33
+FGVC-Aircraft,val,10,747-100,34
+FGVC-Aircraft,val,11,747-200,33
+FGVC-Aircraft,val,12,747-300,33
+FGVC-Aircraft,val,13,747-400,34
+FGVC-Aircraft,val,14,757-200,33
+FGVC-Aircraft,val,15,757-300,33
+FGVC-Aircraft,val,16,767-200,34
+FGVC-Aircraft,val,17,767-300,33
+FGVC-Aircraft,val,18,767-400,33
+FGVC-Aircraft,val,19,777-200,34
+FGVC-Aircraft,val,20,777-300,33
+FGVC-Aircraft,val,21,A300B4,33
+FGVC-Aircraft,val,22,A310,34
+FGVC-Aircraft,val,23,A318,33
+FGVC-Aircraft,val,24,A319,33
+FGVC-Aircraft,val,25,A320,34
+FGVC-Aircraft,val,26,A321,33
+FGVC-Aircraft,val,27,A330-200,33
+FGVC-Aircraft,val,28,A330-300,34
+FGVC-Aircraft,val,29,A340-200,33
+FGVC-Aircraft,val,30,A340-300,33
+FGVC-Aircraft,val,31,A340-500,34
+FGVC-Aircraft,val,32,A340-600,33
+FGVC-Aircraft,val,33,A380,33
+FGVC-Aircraft,val,34,ATR-42,34
+FGVC-Aircraft,val,35,ATR-72,33
+FGVC-Aircraft,val,36,An-12,33
+FGVC-Aircraft,val,37,BAE 146-200,34
+FGVC-Aircraft,val,38,BAE 146-300,33
+FGVC-Aircraft,val,39,BAE-125,33
+FGVC-Aircraft,val,40,Beechcraft 1900,34
+FGVC-Aircraft,val,41,Boeing 717,33
+FGVC-Aircraft,val,42,C-130,33
+FGVC-Aircraft,val,43,C-47,34
+FGVC-Aircraft,val,44,CRJ-200,33
+FGVC-Aircraft,val,45,CRJ-700,33
+FGVC-Aircraft,val,46,CRJ-900,34
+FGVC-Aircraft,val,47,Cessna 172,33
+FGVC-Aircraft,val,48,Cessna 208,33
+FGVC-Aircraft,val,49,Cessna 525,34
+FGVC-Aircraft,val,50,Cessna 560,33
+FGVC-Aircraft,val,51,Challenger 600,33
+FGVC-Aircraft,val,52,DC-10,34
+FGVC-Aircraft,val,53,DC-3,33
+FGVC-Aircraft,val,54,DC-6,33
+FGVC-Aircraft,val,55,DC-8,34
+FGVC-Aircraft,val,56,DC-9-30,33
+FGVC-Aircraft,val,57,DH-82,33
+FGVC-Aircraft,val,58,DHC-1,34
+FGVC-Aircraft,val,59,DHC-6,33
+FGVC-Aircraft,val,60,DHC-8-100,33
+FGVC-Aircraft,val,61,DHC-8-300,34
+FGVC-Aircraft,val,62,DR-400,33
+FGVC-Aircraft,val,63,Dornier 328,33
+FGVC-Aircraft,val,64,E-170,34
+FGVC-Aircraft,val,65,E-190,33
+FGVC-Aircraft,val,66,E-195,33
+FGVC-Aircraft,val,67,EMB-120,34
+FGVC-Aircraft,val,68,ERJ 135,33
+FGVC-Aircraft,val,69,ERJ 145,33
+FGVC-Aircraft,val,70,Embraer Legacy 600,34
+FGVC-Aircraft,val,71,Eurofighter Typhoon,33
+FGVC-Aircraft,val,72,F-16A/B,33
+FGVC-Aircraft,val,73,F/A-18,34
+FGVC-Aircraft,val,74,Falcon 2000,33
+FGVC-Aircraft,val,75,Falcon 900,33
+FGVC-Aircraft,val,76,Fokker 100,34
+FGVC-Aircraft,val,77,Fokker 50,33
+FGVC-Aircraft,val,78,Fokker 70,33
+FGVC-Aircraft,val,79,Global Express,34
+FGVC-Aircraft,val,80,Gulfstream IV,33
+FGVC-Aircraft,val,81,Gulfstream V,33
+FGVC-Aircraft,val,82,Hawk T1,34
+FGVC-Aircraft,val,83,Il-76,33
+FGVC-Aircraft,val,84,L-1011,33
+FGVC-Aircraft,val,85,MD-11,34
+FGVC-Aircraft,val,86,MD-80,33
+FGVC-Aircraft,val,87,MD-87,33
+FGVC-Aircraft,val,88,MD-90,34
+FGVC-Aircraft,val,89,Metroliner,33
+FGVC-Aircraft,val,90,Model B200,33
+FGVC-Aircraft,val,91,PA-28,34
+FGVC-Aircraft,val,92,SR-20,33
+FGVC-Aircraft,val,93,Saab 2000,33
+FGVC-Aircraft,val,94,Saab 340,34
+FGVC-Aircraft,val,95,Spitfire,33
+FGVC-Aircraft,val,96,Tornado,33
+FGVC-Aircraft,val,97,Tu-134,34
+FGVC-Aircraft,val,98,Tu-154,33
+FGVC-Aircraft,val,99,Yak-42,33
+FGVC-Aircraft,test,0,707-320,33
+FGVC-Aircraft,test,1,727-200,33
+FGVC-Aircraft,test,2,737-200,34
+FGVC-Aircraft,test,3,737-300,33
+FGVC-Aircraft,test,4,737-400,33
+FGVC-Aircraft,test,5,737-500,34
+FGVC-Aircraft,test,6,737-600,33
+FGVC-Aircraft,test,7,737-700,33
+FGVC-Aircraft,test,8,737-800,34
+FGVC-Aircraft,test,9,737-900,33
+FGVC-Aircraft,test,10,747-100,33
+FGVC-Aircraft,test,11,747-200,34
+FGVC-Aircraft,test,12,747-300,33
+FGVC-Aircraft,test,13,747-400,33
+FGVC-Aircraft,test,14,757-200,34
+FGVC-Aircraft,test,15,757-300,33
+FGVC-Aircraft,test,16,767-200,33
+FGVC-Aircraft,test,17,767-300,34
+FGVC-Aircraft,test,18,767-400,33
+FGVC-Aircraft,test,19,777-200,33
+FGVC-Aircraft,test,20,777-300,34
+FGVC-Aircraft,test,21,A300B4,33
+FGVC-Aircraft,test,22,A310,33
+FGVC-Aircraft,test,23,A318,34
+FGVC-Aircraft,test,24,A319,33
+FGVC-Aircraft,test,25,A320,33
+FGVC-Aircraft,test,26,A321,34
+FGVC-Aircraft,test,27,A330-200,33
+FGVC-Aircraft,test,28,A330-300,33
+FGVC-Aircraft,test,29,A340-200,34
+FGVC-Aircraft,test,30,A340-300,33
+FGVC-Aircraft,test,31,A340-500,33
+FGVC-Aircraft,test,32,A340-600,34
+FGVC-Aircraft,test,33,A380,33
+FGVC-Aircraft,test,34,ATR-42,33
+FGVC-Aircraft,test,35,ATR-72,34
+FGVC-Aircraft,test,36,An-12,33
+FGVC-Aircraft,test,37,BAE 146-200,33
+FGVC-Aircraft,test,38,BAE 146-300,34
+FGVC-Aircraft,test,39,BAE-125,33
+FGVC-Aircraft,test,40,Beechcraft 1900,33
+FGVC-Aircraft,test,41,Boeing 717,34
+FGVC-Aircraft,test,42,C-130,33
+FGVC-Aircraft,test,43,C-47,33
+FGVC-Aircraft,test,44,CRJ-200,34
+FGVC-Aircraft,test,45,CRJ-700,33
+FGVC-Aircraft,test,46,CRJ-900,33
+FGVC-Aircraft,test,47,Cessna 172,34
+FGVC-Aircraft,test,48,Cessna 208,33
+FGVC-Aircraft,test,49,Cessna 525,33
+FGVC-Aircraft,test,50,Cessna 560,34
+FGVC-Aircraft,test,51,Challenger 600,33
+FGVC-Aircraft,test,52,DC-10,33
+FGVC-Aircraft,test,53,DC-3,34
+FGVC-Aircraft,test,54,DC-6,33
+FGVC-Aircraft,test,55,DC-8,33
+FGVC-Aircraft,test,56,DC-9-30,34
+FGVC-Aircraft,test,57,DH-82,33
+FGVC-Aircraft,test,58,DHC-1,33
+FGVC-Aircraft,test,59,DHC-6,34
+FGVC-Aircraft,test,60,DHC-8-100,33
+FGVC-Aircraft,test,61,DHC-8-300,33
+FGVC-Aircraft,test,62,DR-400,34
+FGVC-Aircraft,test,63,Dornier 328,33
+FGVC-Aircraft,test,64,E-170,33
+FGVC-Aircraft,test,65,E-190,34
+FGVC-Aircraft,test,66,E-195,33
+FGVC-Aircraft,test,67,EMB-120,33
+FGVC-Aircraft,test,68,ERJ 135,34
+FGVC-Aircraft,test,69,ERJ 145,33
+FGVC-Aircraft,test,70,Embraer Legacy 600,33
+FGVC-Aircraft,test,71,Eurofighter Typhoon,34
+FGVC-Aircraft,test,72,F-16A/B,33
+FGVC-Aircraft,test,73,F/A-18,33
+FGVC-Aircraft,test,74,Falcon 2000,34
+FGVC-Aircraft,test,75,Falcon 900,33
+FGVC-Aircraft,test,76,Fokker 100,33
+FGVC-Aircraft,test,77,Fokker 50,34
+FGVC-Aircraft,test,78,Fokker 70,33
+FGVC-Aircraft,test,79,Global Express,33
+FGVC-Aircraft,test,80,Gulfstream IV,34
+FGVC-Aircraft,test,81,Gulfstream V,33
+FGVC-Aircraft,test,82,Hawk T1,33
+FGVC-Aircraft,test,83,Il-76,34
+FGVC-Aircraft,test,84,L-1011,33
+FGVC-Aircraft,test,85,MD-11,33
+FGVC-Aircraft,test,86,MD-80,34
+FGVC-Aircraft,test,87,MD-87,33
+FGVC-Aircraft,test,88,MD-90,33
+FGVC-Aircraft,test,89,Metroliner,34
+FGVC-Aircraft,test,90,Model B200,33
+FGVC-Aircraft,test,91,PA-28,33
+FGVC-Aircraft,test,92,SR-20,34
+FGVC-Aircraft,test,93,Saab 2000,33
+FGVC-Aircraft,test,94,Saab 340,33
+FGVC-Aircraft,test,95,Spitfire,34
+FGVC-Aircraft,test,96,Tornado,33
+FGVC-Aircraft,test,97,Tu-134,33
+FGVC-Aircraft,test,98,Tu-154,34
+FGVC-Aircraft,test,99,Yak-42,33

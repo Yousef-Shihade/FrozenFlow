@@ -1,0 +1,4 @@
+encoder,dataset,mean_pct_own_prototype_nearest,min_pct,max_pct,n_classes_below_50pct
+resnet18,DTD,58.83,20.0,85.0,12
+resnet18,FGVC-Aircraft,25.44,0.0,91.18,85
+dinov2,FGVC-Aircraft,34.25,0.0,100.0,70

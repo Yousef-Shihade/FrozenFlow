@@ -1,0 +1,21 @@
+dataset,check,status,detail
+DTD,class count,PASS,47 (expected 47)
+DTD,class list identical across splits,PASS,identical
+DTD,train split size,PASS,1880 (expected 1880)
+DTD,val split size,PASS,1880 (expected 1880)
+DTD,test split size,PASS,1880 (expected 1880)
+DTD,train/val disjoint,PASS,0 shared images
+DTD,train/test disjoint,PASS,0 shared images
+DTD,val/test disjoint,PASS,0 shared images
+DTD,10-shot feasible (min >= 10 train imgs/class),PASS,min 40 imgs/class
+DTD,test files present on disk,PASS,0 missing
+FGVC-Aircraft,class count,PASS,100 (expected 100)
+FGVC-Aircraft,class list identical across splits,PASS,identical
+FGVC-Aircraft,train split size,PASS,3334 (expected 3334)
+FGVC-Aircraft,val split size,PASS,3333 (expected 3333)
+FGVC-Aircraft,test split size,PASS,3333 (expected 3333)
+FGVC-Aircraft,train/val disjoint,PASS,0 shared images
+FGVC-Aircraft,train/test disjoint,PASS,0 shared images
+FGVC-Aircraft,val/test disjoint,PASS,0 shared images
+FGVC-Aircraft,10-shot feasible (min >= 10 train imgs/class),PASS,min 33 imgs/class
+FGVC-Aircraft,test files present on disk,PASS,0 missing

@@ -1,0 +1,20 @@
+requirement (stage_1.pdf),how it is met,where
+"s = Wz + b, only W and b trained",nn.Linear on frozen cached features; encoders never loaded,cvlab/probe.py
+Softmax cross-entropy loss,nn.CrossEntropyLoss,cvlab/probe.py
+Optimizer AdamW,AdamW,ProbeConfig
+Learning rate 1e-3,0.001,ProbeConfig
+Weight decay 1e-4,0.0001,ProbeConfig
+Batch size 64,64,ProbeConfig
+Maximum epochs 200,200,ProbeConfig
+Checkpoint selection = highest validation accuracy,best val ACCURACY (not loss); weights restored before test,cvlab/probe.py
+"ResNet-18 on both datasets, DINOv2 on one","resnet18/DTD, resnet18/FGVC-Aircraft, dinov2/FGVC-Aircraft",COMBOS
+"K in {5, 10, full}","[5, 10, 'full']",K_SETTINGS
+Run each training-set size 3 times,"seeds [0, 1, 2]",SEEDS
+5/10-shot: use the corresponding subset seeds,seed selects the balanced subset,make_kshot_subset
+Full: use 3 classifier-initialization seeds,seed selects weight init + batch order,train_linear_probe
+Balanced subsets sampled from the official train split,"exactly K per class, without replacement",make_kshot_subset
+Full validation split used for model selection,"complete official val split, every epoch",section 4
+Full test split used only for final evaluation,"touched once per run, after restoring the best checkpoint",cvlab/probe.py
+Top-1 accuracy on the complete official test split,argmax over logits vs labels,cvlab/probe.py
+Report mean and std over 3 runs,"sample std, ddof=1",cvlab/evaluation.py
+Representative 10-shot loss curves per dataset-encoder pair,"K=10, seed=0; curves kept for all 27 runs",section 7

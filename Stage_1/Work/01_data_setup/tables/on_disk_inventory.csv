@@ -1,0 +1,3 @@
+dataset,root,exists,n_jpg_found,n_jpg_expected,size_on_disk_GB,mean_file_KB
+DTD,Data\dtd\dtd,True,5640,5640,0.59,109.4
+FGVC-Aircraft,Data\FGVC-Aircraft\fgvc-aircraft-2013b,True,10000,10000,2.57,269.7

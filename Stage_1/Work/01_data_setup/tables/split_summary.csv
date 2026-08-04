@@ -1,0 +1,7 @@
+dataset,split,n_images,n_classes,imgs_per_class
+DTD,train,1880,47,40.0
+DTD,val,1880,47,40.0
+DTD,test,1880,47,40.0
+FGVC-Aircraft,train,3334,100,33.34
+FGVC-Aircraft,val,3333,100,33.33
+FGVC-Aircraft,test,3333,100,33.33

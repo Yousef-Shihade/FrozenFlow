@@ -1,0 +1,10 @@
+encoder,dataset,split,n_images,feature_dim,cache_file,already_cached
+resnet18,DTD,train,1880,512,resnet18__dtd__train.pt,False
+resnet18,DTD,val,1880,512,resnet18__dtd__val.pt,False
+resnet18,DTD,test,1880,512,resnet18__dtd__test.pt,False
+resnet18,FGVC-Aircraft,train,3334,512,resnet18__fgvc_aircraft__train.pt,False
+resnet18,FGVC-Aircraft,val,3333,512,resnet18__fgvc_aircraft__val.pt,False
+resnet18,FGVC-Aircraft,test,3333,512,resnet18__fgvc_aircraft__test.pt,False
+dinov2,FGVC-Aircraft,train,3334,384,dinov2__fgvc_aircraft__train.pt,False
+dinov2,FGVC-Aircraft,val,3333,384,dinov2__fgvc_aircraft__val.pt,False
+dinov2,FGVC-Aircraft,test,3333,384,dinov2__fgvc_aircraft__test.pt,False

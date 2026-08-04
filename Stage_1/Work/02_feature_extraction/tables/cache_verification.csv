@@ -1,0 +1,10 @@
+encoder,dataset,split,n_samples,n_expected,feature_dim,dim_expected,n_classes,labels_match_dataset,all_finite,label_range_ok,banner_cropped,size_MB,status
+resnet18,DTD,train,1880,1880,512,512,47,True,True,True,False,3.7,PASS
+resnet18,DTD,val,1880,1880,512,512,47,True,True,True,False,3.7,PASS
+resnet18,DTD,test,1880,1880,512,512,47,True,True,True,False,3.7,PASS
+resnet18,FGVC-Aircraft,train,3334,3334,512,512,100,True,True,True,True,6.5,PASS
+resnet18,FGVC-Aircraft,val,3333,3333,512,512,100,True,True,True,True,6.5,PASS
+resnet18,FGVC-Aircraft,test,3333,3333,512,512,100,True,True,True,True,6.5,PASS
+dinov2,FGVC-Aircraft,train,3334,3334,384,384,100,True,True,True,True,4.9,PASS
+dinov2,FGVC-Aircraft,val,3333,3333,384,384,100,True,True,True,True,4.9,PASS
+dinov2,FGVC-Aircraft,test,3333,3333,384,384,100,True,True,True,True,4.9,PASS

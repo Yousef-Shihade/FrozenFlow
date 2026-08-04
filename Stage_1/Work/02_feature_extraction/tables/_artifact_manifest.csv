@@ -1,0 +1,15 @@
+kind,file,size_KB
+plot,plots/banner_ablation.png,78.0
+plot,plots/class_separability.png,80.3
+plot,plots/extraction_throughput.png,58.4
+plot,plots/feature_norms.png,102.9
+plot,plots/pca_explained_variance.png,86.6
+plot,plots/preprocessing_pipeline.png,597.0
+table,tables/banner_ablation.csv,0.2
+table,tables/cache_verification.csv,0.8
+table,tables/class_separability.csv,0.3
+table,tables/encoder_inventory.csv,0.3
+table,tables/extraction_log.csv,0.6
+table,tables/extraction_plan.csv,0.7
+table,tables/feature_statistics.csv,0.7
+table,tables/pca_variance.csv,0.3

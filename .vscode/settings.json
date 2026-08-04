@@ -1,0 +1,27 @@
+{
+  "python.defaultInterpreterPath": "C:\\cvlab_env\\Scripts\\python.exe",
+  "python.terminal.activateEnvironment": true,
+
+  // Notebooks live in Work/<step>/code/, so run them with that as the working
+  // directory. cvlab.paths resolves the project independently, but this keeps any
+  // relative path a reader writes behaving the way it looks like it should.
+  "jupyter.notebookFileRoot": "${fileDirname}",
+
+  // Outputs are committed on purpose - they are the evidence that a notebook actually
+  // ran. Do not let an extension strip them on save.
+  "notebook.output.textLineLimit": 60,
+  "notebook.formatOnSave.enabled": false,
+
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/*.egg-info": true,
+    "**/.ipynb_checkpoints": true
+  },
+  "search.exclude": {
+    "Stage_1/Data": true,
+    "Stage_1/features": true
+  },
+  "[python]": {
+    "editor.rulers": [100]
+  }
+}

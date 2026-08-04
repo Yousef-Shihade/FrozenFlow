@@ -1,0 +1,4 @@
+encoder,dataset,feature_dim,components_fitted,components_for_50%,components_for_90%,components_for_95%,variance_at_fitted_%,top1_variance_%
+resnet18,DTD,512,256,23,157,231,96.0,6.8
+resnet18,FGVC-Aircraft,512,256,16,136,207,96.7,11.0
+dinov2,FGVC-Aircraft,384,256,5,53,104,99.3,16.3

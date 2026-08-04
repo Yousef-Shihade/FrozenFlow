@@ -1,0 +1,13 @@
+requirement (stage_1.pdf),how it is met,where
+Use the same frozen encoders as the linear probe,"identical cached features from step 2, no re-extraction",cvlab/features.py
+L2-normalize each feature before averaging,normalize(z_i) inside compute_prototypes,cvlab/prototypes.py
+mu_c = normalize(mean of normalized training examples),"exact formula, verified in section 2",cvlab/prototypes.py
+"Classify by cosine similarity: argmax_c cos(z, mu_c)",unit-norm dot product,cvlab/prototypes.py
+"Evaluate 5-shot, 10-shot, full","[5, 10, 'full']",K_SETTINGS
+5-shot / 10-shot: use the 3 subset seeds,"same seeds {0,1,2} as the linear probe",SEEDS
+Full-data result requires one run,no subsampling left to vary once averaging every training image,section 4
+Full validation split not needed here,prototypes have no hyperparameter to select on validation,n/a
+Full test split used only for final evaluation,touched once per run,cvlab/prototypes.py
+Top-1 accuracy on the complete official test split,argmax over cosine similarities vs labels,cvlab/prototypes.py
+Report mean and std over 3 runs (5/10-shot); one run for full,"sample std (ddof=1), same convention as step 3",cvlab/evaluation.py
+"Same k-shot subsets as the linear probe, for a fair comparison","both baselines call make_kshot_subset with the same (K, seed)",cvlab/data.py

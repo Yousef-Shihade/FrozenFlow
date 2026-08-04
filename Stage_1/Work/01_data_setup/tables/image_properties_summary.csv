@@ -1,0 +1,3 @@
+dataset,n_sampled,width_min,width_max,height_min,height_max,min_side_min,min_side_median,aspect_min,aspect_max,modes
+DTD,1500,300,800,300,670,300,425.5,0.485,2.067,RGB
+FGVC-Aircraft,1500,779,1600,413,1188,413,700.0,1.312,1.994,RGB

@@ -1,0 +1,8 @@
+requirement (stage_1.pdf),how it is met,where
+1. Accuracy table,every dataset x encoder x K x baseline,"section 2, tables/combined_accuracy_table.csv"
+"2. Accuracy vs. training-set size, with error bars","5-shot/10-shot/full, both baselines overlaid","section 3, plots/accuracy_vs_k.png"
+3. Training curves,"representative 10-shot train/val loss, all 3 combinations","section 4, plots/loss_curves.png"
+4. Confusion matrices,one row-normalized matrix per selected dataset,"section 5, plots/confusion_matrices.png"
+5. Feature visualization,"~8-10 classes, 2D projection, test features + prototypes","section 6, plots/feature_viz_*.png"
+Same classes/examples/colors across encoders on a shared dataset,identical class selection + color map reused for resnet18 and dinov2 on Aircraft,section 6
+Projection fit jointly on features and prototypes shown,"PCA fit on the concatenation of both, after L2-normalizing features to match the prototypes' unit norm",section 6

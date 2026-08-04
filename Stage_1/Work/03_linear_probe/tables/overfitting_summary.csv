@@ -1,0 +1,10 @@
+encoder,dataset,K,best_epoch_mean,final_train_loss,min_val_loss,val_loss_increase,test_acc_mean
+dinov2,FGVC-Aircraft,10,187.3333,0.0047,1.9685,0.3558,0.5154
+dinov2,FGVC-Aircraft,5,180.3333,0.0052,2.7183,0.4155,0.3819
+dinov2,FGVC-Aircraft,full,112.0,0.0016,1.2127,0.6863,0.6755
+resnet18,DTD,10,27.6667,0.0106,1.7868,0.3055,0.5204
+resnet18,DTD,5,32.0,0.0111,2.113,0.178,0.4486
+resnet18,DTD,full,18.0,0.0066,1.3805,0.8228,0.6282
+resnet18,FGVC-Aircraft,10,172.0,0.0223,3.1813,0.4625,0.2787
+resnet18,FGVC-Aircraft,5,161.0,0.0213,3.5988,0.3085,0.2076
+resnet18,FGVC-Aircraft,full,123.6667,0.0247,2.5917,0.9934,0.3815

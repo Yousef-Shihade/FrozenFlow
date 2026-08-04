@@ -1,0 +1,2 @@
+encoder,n_images,banner_px,cosine_mean,cosine_min,cosine_p5,rel_L2_change_mean_%,nn_centroid_acc_cropped_%,nn_centroid_acc_uncropped_%
+resnet18,900,20,0.982,0.9456,0.9693,19.18,31.22,32.0

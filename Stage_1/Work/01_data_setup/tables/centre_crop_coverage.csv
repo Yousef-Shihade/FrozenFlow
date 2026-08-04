@@ -1,0 +1,3 @@
+dataset,median_aspect,median_long_axis_kept_%,median_long_axis_lost_%,images_losing_>25%,n_sampled
+DTD,1.072,74.3,25.7,776,1500
+FGVC-Aircraft,1.473,59.4,40.6,1500,1500

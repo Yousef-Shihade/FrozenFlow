@@ -1,0 +1,13 @@
+encoder,dataset,K,epoch_budget,test_acc,best_epoch
+resnet18,DTD,10,200,51.17,14
+resnet18,DTD,10,600,51.17,14
+resnet18,DTD,full,200,63.3,22
+resnet18,DTD,full,600,63.3,22
+resnet18,FGVC-Aircraft,10,200,26.7,198
+resnet18,FGVC-Aircraft,10,600,26.85,516
+resnet18,FGVC-Aircraft,full,200,37.86,159
+resnet18,FGVC-Aircraft,full,600,37.65,292
+dinov2,FGVC-Aircraft,10,200,53.2,197
+dinov2,FGVC-Aircraft,10,600,53.41,594
+dinov2,FGVC-Aircraft,full,200,67.36,113
+dinov2,FGVC-Aircraft,full,600,67.36,113

@@ -1,0 +1,248 @@
+encoder,dataset,class_idx,class_name,probe_acc,prototype_acc,gap_pp
+dinov2,FGVC-Aircraft,79,Global Express,87.9,6.1,81.80000000000001
+dinov2,FGVC-Aircraft,98,Tu-154,91.2,14.7,76.5
+dinov2,FGVC-Aircraft,51,Challenger 600,84.8,12.1,72.7
+dinov2,FGVC-Aircraft,20,777-300,70.6,0.0,70.6
+dinov2,FGVC-Aircraft,74,Falcon 2000,91.2,20.6,70.6
+dinov2,FGVC-Aircraft,39,BAE-125,93.9,27.3,66.60000000000001
+dinov2,FGVC-Aircraft,44,CRJ-200,85.3,23.5,61.8
+dinov2,FGVC-Aircraft,81,Gulfstream V,87.9,27.3,60.60000000000001
+dinov2,FGVC-Aircraft,78,Fokker 70,69.7,9.1,60.6
+dinov2,FGVC-Aircraft,6,737-600,60.6,0.0,60.6
+dinov2,FGVC-Aircraft,33,A380,75.8,15.2,60.599999999999994
+dinov2,FGVC-Aircraft,23,A318,61.8,2.9,58.9
+dinov2,FGVC-Aircraft,55,DC-8,66.7,9.1,57.6
+dinov2,FGVC-Aircraft,64,E-170,63.6,6.1,57.5
+dinov2,FGVC-Aircraft,22,A310,66.7,12.1,54.6
+dinov2,FGVC-Aircraft,15,757-300,75.8,21.2,54.599999999999994
+dinov2,FGVC-Aircraft,34,ATR-42,78.8,24.2,54.599999999999994
+dinov2,FGVC-Aircraft,7,737-700,63.6,9.1,54.5
+dinov2,FGVC-Aircraft,32,A340-600,58.8,5.9,52.9
+dinov2,FGVC-Aircraft,9,737-900,51.5,0.0,51.5
+dinov2,FGVC-Aircraft,99,Yak-42,81.8,33.3,48.5
+dinov2,FGVC-Aircraft,52,DC-10,63.6,15.2,48.400000000000006
+dinov2,FGVC-Aircraft,76,Fokker 100,48.5,3.0,45.5
+dinov2,FGVC-Aircraft,69,ERJ 145,66.7,21.2,45.5
+dinov2,FGVC-Aircraft,36,An-12,97.0,51.5,45.5
+dinov2,FGVC-Aircraft,45,CRJ-700,57.6,12.1,45.5
+dinov2,FGVC-Aircraft,60,DHC-8-100,81.8,36.4,45.4
+dinov2,FGVC-Aircraft,80,Gulfstream IV,64.7,20.6,44.1
+dinov2,FGVC-Aircraft,50,Cessna 560,85.3,41.2,44.099999999999994
+dinov2,FGVC-Aircraft,46,CRJ-900,66.7,24.2,42.5
+dinov2,FGVC-Aircraft,28,A330-300,42.4,0.0,42.4
+dinov2,FGVC-Aircraft,16,767-200,48.5,6.1,42.4
+dinov2,FGVC-Aircraft,68,ERJ 135,73.5,32.4,41.1
+resnet18,FGVC-Aircraft,39,BAE-125,48.5,9.1,39.4
+dinov2,FGVC-Aircraft,77,Fokker 50,91.2,52.9,38.300000000000004
+dinov2,FGVC-Aircraft,41,Boeing 717,58.8,20.6,38.199999999999996
+resnet18,FGVC-Aircraft,81,Gulfstream V,60.6,24.2,36.400000000000006
+dinov2,FGVC-Aircraft,18,767-400,69.7,33.3,36.400000000000006
+resnet18,FGVC-Aircraft,15,757-300,45.5,9.1,36.4
+dinov2,FGVC-Aircraft,70,Embraer Legacy 600,78.8,42.4,36.4
+dinov2,FGVC-Aircraft,97,Tu-134,93.9,57.6,36.300000000000004
+dinov2,FGVC-Aircraft,49,Cessna 525,81.8,45.5,36.3
+dinov2,FGVC-Aircraft,67,EMB-120,81.8,45.5,36.3
+dinov2,FGVC-Aircraft,61,DHC-8-300,84.8,48.5,36.3
+dinov2,FGVC-Aircraft,19,777-200,42.4,6.1,36.3
+dinov2,FGVC-Aircraft,66,E-195,42.4,6.1,36.3
+dinov2,FGVC-Aircraft,92,SR-20,100.0,64.7,35.3
+resnet18,FGVC-Aircraft,9,737-900,36.4,3.0,33.4
+resnet18,FGVC-Aircraft,40,Beechcraft 1900,42.4,9.1,33.3
+dinov2,FGVC-Aircraft,21,A300B4,39.4,6.1,33.3
+dinov2,FGVC-Aircraft,25,A320,33.3,0.0,33.3
+dinov2,FGVC-Aircraft,26,A321,41.2,8.8,32.400000000000006
+dinov2,FGVC-Aircraft,29,A340-200,32.4,0.0,32.4
+dinov2,FGVC-Aircraft,8,737-800,44.1,11.8,32.3
+dinov2,FGVC-Aircraft,94,Saab 340,66.7,36.4,30.300000000000004
+dinov2,FGVC-Aircraft,85,MD-11,54.5,24.2,30.3
+resnet18,FGVC-Aircraft,64,E-170,30.3,0.0,30.3
+resnet18,FGVC-Aircraft,79,Global Express,48.5,18.2,30.3
+dinov2,FGVC-Aircraft,1,727-200,57.6,27.3,30.3
+dinov2,FGVC-Aircraft,27,A330-200,42.4,12.1,30.299999999999997
+dinov2,FGVC-Aircraft,86,MD-80,32.4,2.9,29.5
+resnet18,FGVC-Aircraft,44,CRJ-200,32.4,2.9,29.5
+resnet18,FGVC-Aircraft,89,Metroliner,64.7,35.3,29.400000000000006
+dinov2,FGVC-Aircraft,14,757-200,38.2,8.8,29.400000000000002
+resnet18,FGVC-Aircraft,38,BAE 146-300,38.2,8.8,29.400000000000002
+dinov2,FGVC-Aircraft,11,747-200,29.4,0.0,29.4
+resnet18,FGVC-Aircraft,37,BAE 146-200,51.5,24.2,27.3
+dinov2,FGVC-Aircraft,24,A319,45.5,18.2,27.3
+resnet18,FGVC-Aircraft,46,CRJ-900,36.4,9.1,27.299999999999997
+dinov2,FGVC-Aircraft,4,737-400,36.4,9.1,27.299999999999997
+dinov2,FGVC-Aircraft,63,Dornier 328,81.8,54.5,27.299999999999997
+resnet18,FGVC-Aircraft,33,A380,42.4,15.2,27.2
+resnet18,FGVC-Aircraft,72,F-16A/B,84.8,57.6,27.199999999999996
+resnet18,FGVC-Aircraft,86,MD-80,26.5,0.0,26.5
+dinov2,FGVC-Aircraft,5,737-500,44.1,17.6,26.5
+resnet18,FGVC-Aircraft,74,Falcon 2000,52.9,26.5,26.4
+dinov2,FGVC-Aircraft,65,E-190,58.8,32.4,26.4
+resnet18,DTD,31,porous,45.0,20.0,25.0
+resnet18,FGVC-Aircraft,36,An-12,66.7,42.4,24.300000000000004
+dinov2,FGVC-Aircraft,40,Beechcraft 1900,87.9,63.6,24.300000000000004
+resnet18,FGVC-Aircraft,94,Saab 340,48.5,24.2,24.3
+resnet18,FGVC-Aircraft,88,MD-90,27.3,3.0,24.3
+dinov2,FGVC-Aircraft,30,A340-300,45.5,21.2,24.3
+dinov2,FGVC-Aircraft,93,Saab 2000,75.8,51.5,24.299999999999997
+dinov2,FGVC-Aircraft,10,747-100,36.4,12.1,24.299999999999997
+resnet18,FGVC-Aircraft,76,Fokker 100,30.3,6.1,24.200000000000003
+resnet18,FGVC-Aircraft,99,Yak-42,30.3,6.1,24.200000000000003
+resnet18,FGVC-Aircraft,51,Challenger 600,51.5,27.3,24.2
+dinov2,FGVC-Aircraft,42,C-130,84.8,60.6,24.199999999999996
+resnet18,FGVC-Aircraft,29,A340-200,26.5,2.9,23.6
+dinov2,FGVC-Aircraft,83,Il-76,97.1,73.5,23.599999999999994
+dinov2,FGVC-Aircraft,35,ATR-72,73.5,50.0,23.5
+dinov2,FGVC-Aircraft,17,767-300,29.4,5.9,23.5
+resnet18,FGVC-Aircraft,77,Fokker 50,44.1,20.6,23.5
+resnet18,FGVC-Aircraft,7,737-700,27.3,6.1,21.200000000000003
+dinov2,FGVC-Aircraft,91,PA-28,90.9,69.7,21.200000000000003
+dinov2,FGVC-Aircraft,3,737-300,27.3,6.1,21.200000000000003
+dinov2,FGVC-Aircraft,72,F-16A/B,100.0,78.8,21.200000000000003
+dinov2,FGVC-Aircraft,73,F/A-18,90.9,69.7,21.200000000000003
+dinov2,FGVC-Aircraft,13,747-400,36.4,15.2,21.2
+dinov2,FGVC-Aircraft,12,747-300,39.4,18.2,21.2
+resnet18,FGVC-Aircraft,97,Tu-134,39.4,18.2,21.2
+resnet18,FGVC-Aircraft,93,Saab 2000,39.4,18.2,21.2
+resnet18,FGVC-Aircraft,34,ATR-42,39.4,18.2,21.2
+resnet18,FGVC-Aircraft,67,EMB-120,33.3,12.1,21.199999999999996
+dinov2,FGVC-Aircraft,95,Spitfire,91.2,70.6,20.60000000000001
+resnet18,FGVC-Aircraft,23,A318,44.1,23.5,20.6
+dinov2,FGVC-Aircraft,38,BAE 146-300,55.9,35.3,20.6
+resnet18,FGVC-Aircraft,80,Gulfstream IV,32.4,11.8,20.599999999999998
+dinov2,FGVC-Aircraft,59,DHC-6,94.1,73.5,20.599999999999994
+dinov2,FGVC-Aircraft,62,DR-400,94.1,73.5,20.599999999999994
+resnet18,DTD,41,swirly,62.5,42.5,20.0
+resnet18,DTD,19,interlaced,70.0,50.0,20.0
+dinov2,FGVC-Aircraft,48,Cessna 208,90.9,72.7,18.200000000000003
+dinov2,FGVC-Aircraft,58,DHC-1,100.0,81.8,18.200000000000003
+resnet18,FGVC-Aircraft,16,767-200,27.3,9.1,18.200000000000003
+resnet18,FGVC-Aircraft,63,Dornier 328,48.5,30.3,18.2
+resnet18,FGVC-Aircraft,60,DHC-8-100,45.5,27.3,18.2
+resnet18,FGVC-Aircraft,6,737-600,39.4,21.2,18.2
+resnet18,FGVC-Aircraft,78,Fokker 70,48.5,30.3,18.2
+dinov2,FGVC-Aircraft,75,Falcon 900,78.8,60.6,18.199999999999996
+resnet18,FGVC-Aircraft,96,Tornado,78.8,60.6,18.199999999999996
+dinov2,FGVC-Aircraft,90,Model B200,93.9,75.8,18.10000000000001
+resnet18,FGVC-Aircraft,20,777-300,20.6,2.9,17.700000000000003
+dinov2,FGVC-Aircraft,56,DC-9-30,58.8,41.2,17.599999999999994
+resnet18,DTD,2,braided,62.5,45.0,17.5
+resnet18,DTD,36,sprinkled,70.0,52.5,17.5
+resnet18,DTD,45,wrinkled,72.5,55.0,17.5
+resnet18,DTD,14,frilly,72.5,55.0,17.5
+resnet18,DTD,11,fibrous,77.5,60.0,17.5
+resnet18,FGVC-Aircraft,82,Hawk T1,87.9,72.7,15.200000000000003
+resnet18,FGVC-Aircraft,90,Model B200,48.5,33.3,15.200000000000003
+resnet18,FGVC-Aircraft,22,A310,15.2,0.0,15.2
+dinov2,FGVC-Aircraft,88,MD-90,36.4,21.2,15.2
+resnet18,FGVC-Aircraft,21,A300B4,15.2,0.0,15.2
+resnet18,FGVC-Aircraft,70,Embraer Legacy 600,54.5,39.4,15.100000000000001
+resnet18,DTD,0,banded,75.0,60.0,15.0
+resnet18,DTD,28,pitted,42.5,27.5,15.0
+resnet18,FGVC-Aircraft,59,DHC-6,64.7,50.0,14.700000000000003
+resnet18,FGVC-Aircraft,98,Tu-154,29.4,14.7,14.7
+resnet18,DTD,30,polka-dotted,57.5,45.0,12.5
+resnet18,DTD,13,freckled,75.0,62.5,12.5
+resnet18,FGVC-Aircraft,49,Cessna 525,45.5,33.3,12.200000000000003
+dinov2,FGVC-Aircraft,87,MD-87,45.5,33.3,12.200000000000003
+dinov2,FGVC-Aircraft,96,Tornado,97.0,84.8,12.200000000000003
+dinov2,FGVC-Aircraft,54,DC-6,90.9,78.8,12.100000000000009
+resnet18,FGVC-Aircraft,69,ERJ 145,27.3,15.2,12.100000000000001
+resnet18,FGVC-Aircraft,48,Cessna 208,54.5,42.4,12.100000000000001
+resnet18,FGVC-Aircraft,84,L-1011,33.3,21.2,12.099999999999998
+resnet18,FGVC-Aircraft,95,Spitfire,82.4,70.6,11.800000000000011
+resnet18,FGVC-Aircraft,65,E-190,20.6,8.8,11.8
+resnet18,FGVC-Aircraft,50,Cessna 560,52.9,41.2,11.699999999999996
+resnet18,DTD,42,veined,72.5,62.5,10.0
+resnet18,DTD,16,grid,50.0,40.0,10.0
+resnet18,DTD,22,lined,47.5,37.5,10.0
+resnet18,DTD,23,marbled,45.0,35.0,10.0
+resnet18,FGVC-Aircraft,61,DHC-8-300,27.3,18.2,9.100000000000001
+resnet18,FGVC-Aircraft,18,767-400,45.5,36.4,9.100000000000001
+resnet18,FGVC-Aircraft,66,E-195,42.4,33.3,9.100000000000001
+dinov2,FGVC-Aircraft,84,L-1011,42.4,33.3,9.100000000000001
+resnet18,FGVC-Aircraft,75,Falcon 900,51.5,42.4,9.100000000000001
+dinov2,FGVC-Aircraft,37,BAE 146-200,66.7,57.6,9.100000000000001
+resnet18,FGVC-Aircraft,85,MD-11,9.1,0.0,9.1
+resnet18,FGVC-Aircraft,10,747-100,9.1,0.0,9.1
+resnet18,FGVC-Aircraft,28,A330-300,15.2,6.1,9.1
+resnet18,FGVC-Aircraft,35,ATR-72,41.2,32.4,8.800000000000004
+resnet18,FGVC-Aircraft,41,Boeing 717,20.6,11.8,8.8
+resnet18,FGVC-Aircraft,47,Cessna 172,70.6,61.8,8.799999999999997
+resnet18,FGVC-Aircraft,53,DC-3,29.4,20.6,8.799999999999997
+resnet18,DTD,17,grooved,70.0,62.5,7.5
+resnet18,DTD,44,woven,37.5,30.0,7.5
+resnet18,FGVC-Aircraft,45,CRJ-700,27.3,21.2,6.100000000000001
+dinov2,FGVC-Aircraft,31,A340-500,48.5,42.4,6.100000000000001
+resnet18,FGVC-Aircraft,52,DC-10,15.2,9.1,6.1
+resnet18,FGVC-Aircraft,0,707-320,18.2,12.1,6.1
+resnet18,FGVC-Aircraft,55,DC-8,21.2,15.2,6.0
+dinov2,FGVC-Aircraft,89,Metroliner,76.5,70.6,5.900000000000006
+resnet18,FGVC-Aircraft,17,767-300,8.8,2.9,5.9
+resnet18,FGVC-Aircraft,68,ERJ 135,38.2,32.4,5.800000000000004
+resnet18,DTD,46,zigzagged,80.0,75.0,5.0
+resnet18,DTD,4,bumpy,40.0,35.0,5.0
+resnet18,DTD,18,honeycombed,75.0,70.0,5.0
+resnet18,DTD,3,bubbly,60.0,55.0,5.0
+resnet18,DTD,9,crystalline,87.5,82.5,5.0
+resnet18,FGVC-Aircraft,27,A330-200,18.2,15.2,3.0
+resnet18,FGVC-Aircraft,43,C-47,30.3,27.3,3.0
+dinov2,FGVC-Aircraft,43,C-47,42.4,39.4,3.0
+resnet18,FGVC-Aircraft,92,SR-20,82.4,79.4,3.0
+resnet18,FGVC-Aircraft,87,MD-87,30.3,27.3,3.0
+dinov2,FGVC-Aircraft,53,DC-3,41.2,38.2,3.0
+resnet18,FGVC-Aircraft,58,DHC-1,63.6,60.6,3.0
+resnet18,FGVC-Aircraft,31,A340-500,39.4,36.4,3.0
+resnet18,FGVC-Aircraft,30,A340-300,9.1,6.1,3.0
+resnet18,FGVC-Aircraft,26,A321,11.8,8.8,3.0
+resnet18,FGVC-Aircraft,3,737-300,12.1,9.1,3.0
+resnet18,FGVC-Aircraft,54,DC-6,48.5,45.5,3.0
+resnet18,FGVC-Aircraft,32,A340-600,38.2,35.3,2.9000000000000057
+resnet18,FGVC-Aircraft,56,DC-9-30,8.8,5.9,2.9000000000000004
+dinov2,FGVC-Aircraft,2,737-200,67.6,64.7,2.8999999999999915
+resnet18,DTD,5,chequered,87.5,85.0,2.5
+resnet18,DTD,1,blotchy,25.0,22.5,2.5
+resnet18,DTD,38,stratified,65.0,62.5,2.5
+resnet18,DTD,34,smeared,57.5,55.0,2.5
+resnet18,DTD,24,matted,55.0,52.5,2.5
+resnet18,DTD,32,potholed,80.0,77.5,2.5
+resnet18,DTD,15,gauzy,80.0,77.5,2.5
+resnet18,DTD,6,cobwebbed,87.5,85.0,2.5
+resnet18,DTD,27,perforated,75.0,72.5,2.5
+resnet18,DTD,33,scaly,75.0,72.5,2.5
+resnet18,FGVC-Aircraft,12,747-300,21.2,21.2,0.0
+resnet18,FGVC-Aircraft,8,737-800,5.9,5.9,0.0
+resnet18,DTD,43,waffled,80.0,80.0,0.0
+resnet18,DTD,7,cracked,65.0,65.0,0.0
+resnet18,FGVC-Aircraft,24,A319,24.2,24.2,0.0
+resnet18,FGVC-Aircraft,71,Eurofighter Typhoon,91.2,91.2,0.0
+dinov2,FGVC-Aircraft,82,Hawk T1,97.0,97.0,0.0
+dinov2,FGVC-Aircraft,47,Cessna 172,100.0,100.0,0.0
+dinov2,FGVC-Aircraft,0,707-320,51.5,51.5,0.0
+resnet18,FGVC-Aircraft,73,F/A-18,69.7,69.7,0.0
+dinov2,FGVC-Aircraft,71,Eurofighter Typhoon,97.1,97.1,0.0
+resnet18,FGVC-Aircraft,2,737-200,14.7,14.7,0.0
+resnet18,DTD,20,knitted,82.5,85.0,-2.5
+resnet18,DTD,8,crosshatched,52.5,55.0,-2.5
+resnet18,DTD,12,flecked,55.0,57.5,-2.5
+resnet18,FGVC-Aircraft,5,737-500,20.6,23.5,-2.8999999999999986
+resnet18,FGVC-Aircraft,62,DR-400,85.3,88.2,-2.9000000000000057
+resnet18,FGVC-Aircraft,83,Il-76,76.5,79.4,-2.9000000000000057
+resnet18,FGVC-Aircraft,25,A320,0.0,3.0,-3.0
+dinov2,FGVC-Aircraft,57,DH-82,93.9,97.0,-3.0999999999999943
+resnet18,FGVC-Aircraft,4,737-400,3.0,6.1,-3.0999999999999996
+resnet18,FGVC-Aircraft,13,747-400,12.1,15.2,-3.0999999999999996
+resnet18,FGVC-Aircraft,91,PA-28,54.5,57.6,-3.1000000000000014
+resnet18,DTD,26,paisley,80.0,85.0,-5.0
+resnet18,DTD,29,pleated,45.0,50.0,-5.0
+resnet18,FGVC-Aircraft,11,747-200,5.9,11.8,-5.9
+resnet18,FGVC-Aircraft,14,757-200,0.0,5.9,-5.9
+resnet18,DTD,37,stained,27.5,35.0,-7.5
+resnet18,DTD,40,studded,65.0,72.5,-7.5
+resnet18,DTD,21,lacelike,65.0,72.5,-7.5
+resnet18,FGVC-Aircraft,19,777-200,3.0,12.1,-9.1
+resnet18,FGVC-Aircraft,42,C-130,60.6,69.7,-9.100000000000001
+resnet18,DTD,35,spiralled,55.0,65.0,-10.0
+resnet18,FGVC-Aircraft,57,DH-82,72.7,84.8,-12.099999999999994
+resnet18,FGVC-Aircraft,1,727-200,18.2,30.3,-12.100000000000001
+resnet18,DTD,25,meshed,50.0,62.5,-12.5
+resnet18,DTD,39,striped,67.5,80.0,-12.5
+resnet18,DTD,10,dotted,50.0,77.5,-27.5

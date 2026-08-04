@@ -1,0 +1,7 @@
+dataset,split,min,max,mean,std
+DTD,test,40,40,40.0,0.0
+DTD,train,40,40,40.0,0.0
+DTD,val,40,40,40.0,0.0
+FGVC-Aircraft,test,33,34,33.33,0.47
+FGVC-Aircraft,train,33,34,33.34,0.48
+FGVC-Aircraft,val,33,34,33.33,0.47

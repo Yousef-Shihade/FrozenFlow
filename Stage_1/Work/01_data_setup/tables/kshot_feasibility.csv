@@ -1,0 +1,7 @@
+dataset,K,classes_meeting_K,total_classes,min_available_per_class,subset_size,pct_of_full_train
+DTD,5,47,47,40,235,12.5
+DTD,10,47,47,40,470,25.0
+DTD,full,47,47,40,1880,100.0
+FGVC-Aircraft,5,100,100,33,500,15.0
+FGVC-Aircraft,10,100,100,33,1000,30.0
+FGVC-Aircraft,full,100,100,33,3334,100.0

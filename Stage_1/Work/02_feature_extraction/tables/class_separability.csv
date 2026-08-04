@@ -1,0 +1,4 @@
+encoder,dataset,n_classes,cos_to_own_class,cos_to_other_classes,separability_margin,nearest_centroid_acc_%
+resnet18,DTD,47,0.7586,0.5871,0.1715,67.66
+resnet18,FGVC-Aircraft,100,0.9034,0.8624,0.0411,40.35
+dinov2,FGVC-Aircraft,100,0.7449,0.3248,0.4201,44.64
