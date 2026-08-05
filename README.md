@@ -2,7 +2,7 @@
 
 **University of Haifa**
 
-**Authors:** Yousef Shihade, Mira Bitar
+**Authors:** Yousef Shihade & Mira Bitar
 
 ---
 
