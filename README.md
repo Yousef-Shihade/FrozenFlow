@@ -1,4 +1,4 @@
-# A Computer Vision Project — Flow Matching as a Layer
+# Flow Matching as a Layer - A Computer Vision Project
 
 **University of Haifa**
 
