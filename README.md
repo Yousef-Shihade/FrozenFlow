@@ -1,6 +1,7 @@
 # A Computer Vision Project — Flow Matching as a Layer
 
 **University of Haifa**
+
 **Authors:** Yousef Shihade, Mira Bitar
 
 ---
