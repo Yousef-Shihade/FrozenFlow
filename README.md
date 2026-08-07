@@ -158,7 +158,7 @@ each consumes the previous step's artefacts.
 
 ---
 
-## Pipeline
+## Pipeline 
 
 | Step | Does | Needs GPU | Runtime |
 | --- | --- | --- | --- |
@@ -284,9 +284,9 @@ The confusion-matrix analysis also shows *what* gets confused, not just that som
 DTD errors cluster among related pattern concepts (`dotted` ↔ `polka-dotted`, 40%/25%), while
 Aircraft errors cluster within manufacturer families (`C-47` ↔ `DC-3`, 48.5%/44.1%) — the
 same fine-grained structure step 4 identified as the reason prototypes lose so much ground
-to the linear probe on that dataset.
+to the linear probe on that dataset. 
 
-### Final polish pass
+### Final polish pass 
 
 Two items tracked from step 05 are now closed out:
 
