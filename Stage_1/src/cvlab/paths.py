@@ -42,8 +42,8 @@ __all__ = [
 
 
 def _looks_like_stage1(p: Path) -> bool:
-    """A Stage_1 root is the directory holding both ``Data/`` and ``Work/``."""
-    return (p / "Data").is_dir() and (p / "Work").is_dir()
+    """Recognize a Stage_1 root without requiring raw datasets to be present."""
+    return (p / "Work").is_dir() and (p / "src" / "cvlab").is_dir()
 
 
 def _find_stage1_root() -> Path:
@@ -66,8 +66,9 @@ def _find_stage1_root() -> Path:
             return candidate
 
     raise FileNotFoundError(
-        "Could not locate the Stage_1 project root (a directory containing both 'Data/' "
-        f"and 'Work/'). Looked above {Path(__file__).resolve()} and above {cwd}.\n"
+        "Could not locate the Stage_1 project root (a directory containing 'Work/' and "
+        "'src/cvlab/'). "
+        f"Looked above {Path(__file__).resolve()} and above {cwd}.\n"
         "If you moved the project, reinstall the package with:\n"
         "    python -m pip install -e Stage_1"
     )

@@ -1,0 +1,7 @@
+direction,class_index,class_name,test_row,cos_start,cos_end,forward_argmax_pred
+forward,49,Cessna 525,1656,0.833,0.463,Cessna 525
+forward,61,DHC-8-300,2040,0.846,0.404,DHC-8-300
+forward,74,Falcon 2000,2475,0.783,0.358,Falcon 2000
+forward,0,707-320,7,0.725,0.383,707-320
+reverse,49,Cessna 525,-1,0.985,0.944,
+reverse,61,DHC-8-300,-1,0.987,0.955,

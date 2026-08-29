@@ -1,0 +1,279 @@
+{
+  "device": "cpu",
+  "epochs": 200,
+  "learning_rate": 0.001,
+  "seed_convention": "NumPy subset seed for K=5/10; torch.manual_seed for full",
+  "runs": [
+    {
+      "encoder": "resnet18",
+      "dataset": "DTD",
+      "K": "5",
+      "seed": 0,
+      "n_train": 235,
+      "final_train_loss": 0.12998902797698975,
+      "elapsed_s": 6.398603699999512,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__dtd__K5__seed0.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "DTD",
+      "K": "5",
+      "seed": 1,
+      "n_train": 235,
+      "final_train_loss": 0.12825347483158112,
+      "elapsed_s": 6.704841700004181,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__dtd__K5__seed1.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "DTD",
+      "K": "5",
+      "seed": 2,
+      "n_train": 235,
+      "final_train_loss": 0.1256933957338333,
+      "elapsed_s": 6.192427800000587,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__dtd__K5__seed2.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "DTD",
+      "K": "10",
+      "seed": 0,
+      "n_train": 470,
+      "final_train_loss": 0.1790144294500351,
+      "elapsed_s": 3.1467059000060544,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__dtd__K10__seed0.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "DTD",
+      "K": "10",
+      "seed": 1,
+      "n_train": 470,
+      "final_train_loss": 0.19121889770030975,
+      "elapsed_s": 3.2090635999993538,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__dtd__K10__seed1.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "DTD",
+      "K": "10",
+      "seed": 2,
+      "n_train": 470,
+      "final_train_loss": 0.18574394285678864,
+      "elapsed_s": 3.3246759999965434,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__dtd__K10__seed2.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "DTD",
+      "K": "full",
+      "seed": 0,
+      "n_train": 1880,
+      "final_train_loss": 0.23521840572357178,
+      "elapsed_s": 8.20754040000611,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__dtd__Kfull__seed0.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "DTD",
+      "K": "full",
+      "seed": 1,
+      "n_train": 1880,
+      "final_train_loss": 0.23976896703243256,
+      "elapsed_s": 8.290396299998974,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__dtd__Kfull__seed1.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "DTD",
+      "K": "full",
+      "seed": 2,
+      "n_train": 1880,
+      "final_train_loss": 0.2325918823480606,
+      "elapsed_s": 11.577947799996764,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__dtd__Kfull__seed2.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "FGVC-Aircraft",
+      "K": "5",
+      "seed": 0,
+      "n_train": 500,
+      "final_train_loss": 0.17725850641727448,
+      "elapsed_s": 4.3688015000007,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__fgvc_aircraft__K5__seed0.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "FGVC-Aircraft",
+      "K": "5",
+      "seed": 1,
+      "n_train": 500,
+      "final_train_loss": 0.1731174886226654,
+      "elapsed_s": 4.360360699996818,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__fgvc_aircraft__K5__seed1.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "FGVC-Aircraft",
+      "K": "5",
+      "seed": 2,
+      "n_train": 500,
+      "final_train_loss": 0.17541620135307312,
+      "elapsed_s": 4.354906000000483,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__fgvc_aircraft__K5__seed2.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "FGVC-Aircraft",
+      "K": "10",
+      "seed": 0,
+      "n_train": 1000,
+      "final_train_loss": 0.17774111032485962,
+      "elapsed_s": 6.738430299999891,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__fgvc_aircraft__K10__seed0.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "FGVC-Aircraft",
+      "K": "10",
+      "seed": 1,
+      "n_train": 1000,
+      "final_train_loss": 0.18249504268169403,
+      "elapsed_s": 6.725420100003248,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__fgvc_aircraft__K10__seed1.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "FGVC-Aircraft",
+      "K": "10",
+      "seed": 2,
+      "n_train": 1000,
+      "final_train_loss": 0.183321014046669,
+      "elapsed_s": 7.0031139999991865,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__fgvc_aircraft__K10__seed2.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "FGVC-Aircraft",
+      "K": "full",
+      "seed": 0,
+      "n_train": 3334,
+      "final_train_loss": 0.18973007798194885,
+      "elapsed_s": 19.28236140000081,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__fgvc_aircraft__Kfull__seed0.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "FGVC-Aircraft",
+      "K": "full",
+      "seed": 1,
+      "n_train": 3334,
+      "final_train_loss": 0.18753348290920258,
+      "elapsed_s": 20.303877500002272,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__fgvc_aircraft__Kfull__seed1.pt"
+    },
+    {
+      "encoder": "resnet18",
+      "dataset": "FGVC-Aircraft",
+      "K": "full",
+      "seed": 2,
+      "n_train": 3334,
+      "final_train_loss": 0.18954461812973022,
+      "elapsed_s": 19.05494650000037,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\resnet18__fgvc_aircraft__Kfull__seed2.pt"
+    },
+    {
+      "encoder": "dinov2",
+      "dataset": "FGVC-Aircraft",
+      "K": "5",
+      "seed": 0,
+      "n_train": 500,
+      "final_train_loss": 0.5534694194793701,
+      "elapsed_s": 3.9427429999996093,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\dinov2__fgvc_aircraft__K5__seed0.pt"
+    },
+    {
+      "encoder": "dinov2",
+      "dataset": "FGVC-Aircraft",
+      "K": "5",
+      "seed": 1,
+      "n_train": 500,
+      "final_train_loss": 0.5400071144104004,
+      "elapsed_s": 4.161526300005789,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\dinov2__fgvc_aircraft__K5__seed1.pt"
+    },
+    {
+      "encoder": "dinov2",
+      "dataset": "FGVC-Aircraft",
+      "K": "5",
+      "seed": 2,
+      "n_train": 500,
+      "final_train_loss": 0.5800167918205261,
+      "elapsed_s": 4.460075700000743,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\dinov2__fgvc_aircraft__K5__seed2.pt"
+    },
+    {
+      "encoder": "dinov2",
+      "dataset": "FGVC-Aircraft",
+      "K": "10",
+      "seed": 0,
+      "n_train": 1000,
+      "final_train_loss": 0.6784210205078125,
+      "elapsed_s": 6.4460728999983985,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\dinov2__fgvc_aircraft__K10__seed0.pt"
+    },
+    {
+      "encoder": "dinov2",
+      "dataset": "FGVC-Aircraft",
+      "K": "10",
+      "seed": 1,
+      "n_train": 1000,
+      "final_train_loss": 0.6653360724449158,
+      "elapsed_s": 5.8885049000018626,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\dinov2__fgvc_aircraft__K10__seed1.pt"
+    },
+    {
+      "encoder": "dinov2",
+      "dataset": "FGVC-Aircraft",
+      "K": "10",
+      "seed": 2,
+      "n_train": 1000,
+      "final_train_loss": 0.676102876663208,
+      "elapsed_s": 5.936694900003204,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\dinov2__fgvc_aircraft__K10__seed2.pt"
+    },
+    {
+      "encoder": "dinov2",
+      "dataset": "FGVC-Aircraft",
+      "K": "full",
+      "seed": 0,
+      "n_train": 3334,
+      "final_train_loss": 0.761614203453064,
+      "elapsed_s": 18.993961700005457,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\dinov2__fgvc_aircraft__Kfull__seed0.pt"
+    },
+    {
+      "encoder": "dinov2",
+      "dataset": "FGVC-Aircraft",
+      "K": "full",
+      "seed": 1,
+      "n_train": 3334,
+      "final_train_loss": 0.7712488770484924,
+      "elapsed_s": 17.502082299994072,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\dinov2__fgvc_aircraft__Kfull__seed1.pt"
+    },
+    {
+      "encoder": "dinov2",
+      "dataset": "FGVC-Aircraft",
+      "K": "full",
+      "seed": 2,
+      "n_train": 3334,
+      "final_train_loss": 0.7666298151016235,
+      "elapsed_s": 17.64113989999896,
+      "checkpoint": "Stage_2\\results\\flow_matching_models\\dinov2__fgvc_aircraft__Kfull__seed2.pt"
+    }
+  ],
+  "total_wall_clock_s": 235.19146290000208
+}

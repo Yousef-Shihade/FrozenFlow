@@ -10,6 +10,15 @@ Stage_1/Data/
 Stage_1/features/
 
 # ---------------------------------------------------------------------------
+# Stage 2 FM checkpoints (~230 MB combined) - not committed.
+# Regenerable via Stage_2/Work/02_standard_fm/train_standard_fm.py and
+# Stage_2/Work/05_rolled_out_fm/train_rolled_out_fm.py. The sweep_summary.json
+# files in these same folders ARE tracked - they contain the actual results.
+# ---------------------------------------------------------------------------
+Stage_2/results/flow_matching_models/*.pt
+Stage_2/results/rolled_out_fm_models/*.pt
+
+# ---------------------------------------------------------------------------
 # Not this project's own work / not needed to understand or run it - kept
 # locally for reference only.
 # ---------------------------------------------------------------------------

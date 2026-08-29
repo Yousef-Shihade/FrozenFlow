@@ -21,4 +21,7 @@ Install once, in editable mode, so notebooks can simply ``import cvlab``::
 
 __version__ = "1.0.0"
 
-__all__ = ["paths", "data", "encoders", "features", "probe", "prototypes", "evaluation", "plotting"]
+__all__ = [
+  "paths", "data", "encoders", "features", "probe", "prototypes", "flow_matching",
+  "evaluation", "plotting",
+]
