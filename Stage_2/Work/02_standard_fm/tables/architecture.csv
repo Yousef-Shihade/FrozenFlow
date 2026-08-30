@@ -1,0 +1,4 @@
+encoder,dataset,feature_dim,input_dim,hidden,activation,output_dim,params
+resnet18,DTD,512,513,2 x 512,SiLU,512,788K
+resnet18,FGVC-Aircraft,512,513,2 x 512,SiLU,512,788K
+dinov2,FGVC-Aircraft,384,385,2 x 512,SiLU,384,657K

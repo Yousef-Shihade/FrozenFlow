@@ -1,0 +1,16 @@
+encoder,dataset,method,T,train_gap,test_gap,generalisation_gap
+resnet18,DTD,no transport,-,0.6854,0.7068,0.0214
+resnet18,DTD,standard FM,4,0.3343,0.4234,0.0891
+resnet18,DTD,rolled-out FM,4,0.2759,0.3674,0.0915
+resnet18,DTD,standard FM,12,0.3425,0.4276,0.0851
+resnet18,DTD,rolled-out FM,12,0.2771,0.3673,0.0902
+resnet18,FGVC-Aircraft,no transport,-,0.4332,0.4467,0.0135
+resnet18,FGVC-Aircraft,standard FM,4,0.1851,0.213,0.0279
+resnet18,FGVC-Aircraft,rolled-out FM,4,0.1441,0.168,0.0239
+resnet18,FGVC-Aircraft,standard FM,12,0.1909,0.218,0.0271
+resnet18,FGVC-Aircraft,rolled-out FM,12,0.1445,0.1677,0.0232
+dinov2,FGVC-Aircraft,no transport,-,0.6997,0.7225,0.0228
+dinov2,FGVC-Aircraft,standard FM,4,0.2901,0.3336,0.0435
+dinov2,FGVC-Aircraft,rolled-out FM,4,0.236,0.2809,0.0449
+dinov2,FGVC-Aircraft,standard FM,12,0.2963,0.3393,0.043
+dinov2,FGVC-Aircraft,rolled-out FM,12,0.2336,0.2766,0.043

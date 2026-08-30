@@ -1,0 +1,13 @@
+kind,file,size_KB
+plot,plots/accuracy_vs_k.png,251.2
+plot,plots/clipping_evidence.png,70.9
+plot,plots/delta_comparisons.png,77.4
+plot,plots/margin_analysis.png,63.3
+plot,plots/train_inference_mismatch.png,96.6
+plot,plots/training_curves.png,304.2
+plot,plots/transport_diagnostic.png,56.3
+table,tables/accuracy_summary.csv,1.5
+table,tables/margin_analysis.csv,1.0
+table,tables/methodology.csv,0.8
+table,tables/training_stability.csv,1.2
+table,tables/transport_diagnostic.csv,0.9

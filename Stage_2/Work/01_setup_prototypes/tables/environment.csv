@@ -1,0 +1,9 @@
+item,value
+python,3.10.11
+platform,Windows 10
+torch,2.6.0+cu124
+numpy,2.2.6
+pandas,2.3.3
+cvlab,1.0.0
+cvlabfm,1.0.0
+device used,cpu (no encoder runs in this step)

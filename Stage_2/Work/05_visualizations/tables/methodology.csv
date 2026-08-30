@@ -1,0 +1,11 @@
+item,value
+scope,brief deliverables 3 (feature-space) and 4 (flow trajectories)
+models,"representative runs only - full data, seed 0, from steps 2 and 3"
+training,none - forward rollouts on cached test features only
+projection,PCA fitted JOINTLY over original + standard + rolled-out + prototypes
+why joint,per-panel PCA would rescale each view independently and make panels incomparable
+class subset,6 classes by even stride through the sorted list - not hand-picked
+T (comparison),4 - matches the headline results table
+T (trajectories),12 - more intermediate states to visualise
+quantitative backing,"section 4 measures contraction in full dimensionality, not in 2D"
+reverse flow,exploratory only - the network was never trained on reverse states

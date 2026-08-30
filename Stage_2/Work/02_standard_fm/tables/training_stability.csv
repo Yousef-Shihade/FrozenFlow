@@ -1,0 +1,10 @@
+encoder,dataset,K,loss_start,loss_end,reduction_%,last_10ep_improvement_%,seed_spread_end,monotone
+resnet18,DTD,5,0.55,0.1619,70.6,4.569,0.00192,False
+resnet18,DTD,10,0.5203,0.1864,64.2,3.647,0.00148,False
+resnet18,DTD,full,0.4715,0.2018,57.2,1.576,0.00158,False
+resnet18,FGVC-Aircraft,5,0.2481,0.0827,66.7,3.06,0.00073,False
+resnet18,FGVC-Aircraft,10,0.2239,0.0845,62.3,2.687,0.00064,False
+resnet18,FGVC-Aircraft,full,0.1969,0.0798,59.5,0.955,0.00159,False
+dinov2,FGVC-Aircraft,5,0.4675,0.2064,55.9,3.389,0.00043,False
+dinov2,FGVC-Aircraft,10,0.4682,0.2133,54.4,1.909,0.00033,False
+dinov2,FGVC-Aircraft,full,0.4029,0.1725,57.2,1.543,0.0043,True

@@ -1,0 +1,8 @@
+item,value
+prototype rule,mu_c = normalize(mean_i normalize(z_i))  [cvlab.prototypes]
+classification rule,"argmax_c cos(z, mu_c)  - unchanged from Stage 1"
+k-shot subsets,cvlab.data.make_kshot_subset - the same function Stage 1 used
+flow input,L2-normalized features (see section 3)
+prototype sets,21 (18 subsampled + 3 deterministic full-data)
+baseline check,exact match on all 21 runs
+encoders run,none - Stage 1 feature cache read only

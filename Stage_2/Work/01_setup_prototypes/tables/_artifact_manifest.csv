@@ -1,0 +1,9 @@
+kind,file,size_KB
+plot,plots/baseline_reproduction.png,111.0
+plot,plots/feature_norm_mismatch.png,74.4
+table,tables/environment.csv,0.2
+table,tables/feature_geometry.csv,0.3
+table,tables/feature_inventory.csv,0.7
+table,tables/methodology.csv,0.4
+table,tables/prototype_verification.csv,1.0
+table,tables/run_grid.csv,1.7

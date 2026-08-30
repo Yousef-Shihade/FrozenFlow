@@ -1,0 +1,11 @@
+kind,file,size_KB
+plot,plots/accuracy_vs_k.png,141.1
+plot,plots/delta_vs_baseline.png,49.2
+plot,plots/normalization_ablation.png,78.5
+plot,plots/standard_fm_concept.png,140.9
+plot,plots/training_curves.png,222.2
+table,tables/accuracy_summary.csv,1.2
+table,tables/architecture.csv,0.2
+table,tables/methodology.csv,0.8
+table,tables/normalization_ablation.csv,0.4
+table,tables/training_stability.csv,0.6

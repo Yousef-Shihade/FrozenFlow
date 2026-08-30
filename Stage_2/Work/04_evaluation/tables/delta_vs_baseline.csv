@@ -1,0 +1,10 @@
+encoder,dataset,K,std FM T=4,std FM T=12,roll FM T=4,roll FM T=12
+resnet18,DTD,5,-1.63,-1.31,-5.11,-5.23
+resnet18,DTD,10,-1.56,-1.33,-6.9,-6.35
+resnet18,DTD,full,0.76,0.73,-2.98,-3.01
+resnet18,FGVC-Aircraft,5,2.35,2.48,0.31,0.57
+resnet18,FGVC-Aircraft,10,3.49,3.72,0.15,-0.1
+resnet18,FGVC-Aircraft,full,5.57,5.5,0.17,-0.19
+dinov2,FGVC-Aircraft,5,9.51,9.03,10.34,10.07
+dinov2,FGVC-Aircraft,10,15.53,14.74,17.68,17.61
+dinov2,FGVC-Aircraft,full,22.26,21.44,17.79,17.82

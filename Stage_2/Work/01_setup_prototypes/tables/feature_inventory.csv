@@ -1,0 +1,10 @@
+encoder,dataset,split,n_images,dim,n_classes,crop_banner,file,size_MB
+resnet18,DTD,train,1880,512,47,False,resnet18__dtd__train.pt,3.69
+resnet18,DTD,val,1880,512,47,False,resnet18__dtd__val.pt,3.69
+resnet18,DTD,test,1880,512,47,False,resnet18__dtd__test.pt,3.69
+resnet18,FGVC-Aircraft,train,3334,512,100,True,resnet18__fgvc_aircraft__train.pt,6.54
+resnet18,FGVC-Aircraft,val,3333,512,100,True,resnet18__fgvc_aircraft__val.pt,6.54
+resnet18,FGVC-Aircraft,test,3333,512,100,True,resnet18__fgvc_aircraft__test.pt,6.54
+dinov2,FGVC-Aircraft,train,3334,384,100,True,dinov2__fgvc_aircraft__train.pt,4.91
+dinov2,FGVC-Aircraft,val,3333,384,100,True,dinov2__fgvc_aircraft__val.pt,4.91
+dinov2,FGVC-Aircraft,test,3333,384,100,True,dinov2__fgvc_aircraft__test.pt,4.91

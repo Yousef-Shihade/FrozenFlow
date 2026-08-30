@@ -1,0 +1,3 @@
+objective,models,final_loss_min,final_loss_max,loss_reduction_min_%,loss_reduction_max_%,diverged
+standard FM,27,0.07834,0.21366,53.9,71.5,0
+rolled-out FM,54,0.02155,0.0893,79.4,92.9,0

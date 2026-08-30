@@ -1,0 +1,13 @@
+kind,file,size_KB
+plot,plots/accuracy_vs_k.png,171.0
+plot,plots/delta_vs_baseline.png,38.8
+plot,plots/gain_analysis.png,95.7
+plot,plots/gain_vs_headroom.png,113.8
+plot,plots/training_curves.png,220.0
+table,tables/accuracy_table_full.csv,1.0
+table,tables/accuracy_table_readable.csv,0.9
+table,tables/convergence_summary.csv,0.2
+table,tables/delta_vs_baseline.csv,0.5
+table,tables/gain_vs_headroom.csv,0.6
+table,tables/gain_vs_separability.csv,0.5
+table,tables/methodology.csv,0.5

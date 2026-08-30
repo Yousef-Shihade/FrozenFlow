@@ -1,0 +1,7 @@
+encoder,dataset,input,baseline,acc_T4,acc_T12,final_loss,vs_baseline_T4
+resnet18,DTD,L2-normalized,58.8298,58.88,58.78,0.2039,0.05
+resnet18,DTD,raw,58.8298,38.56,42.71,44.385,-20.27
+resnet18,FGVC-Aircraft,L2-normalized,25.4725,31.53,31.26,0.0783,6.06
+resnet18,FGVC-Aircraft,raw,25.4725,15.78,17.55,27.1273,-9.69
+dinov2,FGVC-Aircraft,L2-normalized,34.2634,56.56,56.05,0.169,22.3
+dinov2,FGVC-Aircraft,raw,34.2634,37.92,40.62,110.7453,3.66

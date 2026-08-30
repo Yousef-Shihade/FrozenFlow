@@ -1,0 +1,10 @@
+encoder,dataset,K,prototype,linear_probe,headroom,gain_standard,gain_rolled_out,recovered_pct
+resnet18,DTD,5,46.1,44.86,-1.24,-1.63,-5.11,
+resnet18,DTD,10,51.67,52.04,0.37,-1.56,-6.9,
+resnet18,DTD,full,58.83,62.82,3.99,0.76,-2.98,19.0
+resnet18,FGVC-Aircraft,5,16.46,20.76,4.3,2.35,0.31,55.0
+resnet18,FGVC-Aircraft,10,20.19,27.87,7.68,3.49,0.15,45.0
+resnet18,FGVC-Aircraft,full,25.47,38.15,12.68,5.57,0.17,44.0
+dinov2,FGVC-Aircraft,5,23.79,38.19,14.4,9.51,10.34,66.0
+dinov2,FGVC-Aircraft,10,27.74,51.54,23.8,15.53,17.68,65.0
+dinov2,FGVC-Aircraft,full,34.26,67.55,33.29,22.26,17.79,67.0

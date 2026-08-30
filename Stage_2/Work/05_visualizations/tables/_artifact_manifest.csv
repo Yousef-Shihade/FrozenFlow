@@ -1,0 +1,14 @@
+kind,file,size_KB
+plot,plots/accuracy_by_step.png,126.0
+plot,plots/contraction_measured.png,50.6
+plot,plots/distance_by_step.png,174.5
+plot,plots/feature_space_dinov2_aircraft.png,147.0
+plot,plots/feature_space_resnet18_aircraft.png,160.8
+plot,plots/feature_space_resnet18_dtd.png,160.8
+plot,plots/flow_trajectories_dinov2.png,182.6
+plot,plots/flow_trajectories_resnet18_dtd.png,181.7
+plot,plots/reverse_flow.png,101.8
+table,tables/accuracy_by_step.csv,3.2
+table,tables/distance_by_step.csv,3.8
+table,tables/feature_geometry.csv,0.5
+table,tables/methodology.csv,0.7

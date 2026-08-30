@@ -10,19 +10,30 @@ Stage_1/Data/
 Stage_1/features/
 
 # ---------------------------------------------------------------------------
+# Trained velocity-network weights (~26 MB) - regenerate by running the Stage 2
+# notebooks 02 and 03. Derived data, like the feature cache above. Everything
+# needed to CHECK them is tracked instead: the per-run accuracies, the training
+# curves, and the per-example test predictions they produced.
+# ---------------------------------------------------------------------------
+Stage_2/results/*_models.pt
+
+# ---------------------------------------------------------------------------
 # Not this project's own work / not needed to understand or run it - kept
 # locally for reference only.
 # ---------------------------------------------------------------------------
 Course_Materials/
 Stage_1/Mira's Report/
 Stage_1/docs/
+Stage_2/docs/
 
 # ---------------------------------------------------------------------------
 # NOTE on what IS committed, deliberately:
-#   Stage_1/Work/*/plots/     figures  - deliverables and evidence of execution
-#   Stage_1/Work/*/tables/    CSVs     - the numbers behind every claim
-#   Stage_1/Work/*/code/*.ipynb        - WITH outputs, as reproducibility evidence
-#   Stage_1/results/                   - final aggregated results
+#   Stage_*/Work/*/plots/     figures  - deliverables and evidence of execution
+#   Stage_*/Work/*/tables/    CSVs     - the numbers behind every claim
+#   Stage_*/Work/*/code/*.ipynb        - WITH outputs, as reproducibility evidence
+#   Stage_*/results/                   - aggregated results, prototypes and test
+#                                        predictions (the model weights excluded
+#                                        above are the only exception)
 # ---------------------------------------------------------------------------
 
 # Python

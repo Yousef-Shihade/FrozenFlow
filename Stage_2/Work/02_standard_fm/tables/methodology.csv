@@ -1,0 +1,13 @@
+item,value
+objective,"L_FM = ||v(z_t, t) - u||^2,  z_t = (1-t) z + t p,  u = p - z"
+flow input,L2-normalized features (step 1)
+prototypes,step 1 results/prototypes.pt - verified against Stage 1
+k-shot subsets,cvlab.data.make_kshot_subset - identical to Stage 1
+architecture,"MLP, 2 x 512, SiLU, t concatenated"
+optimiser,"AdamW, lr 0.001, wd 0.0001, batch 64"
+gradient clipping,norm 1.0 - applied to BOTH objectives so they stay configuration-identical
+epochs,"100 (fixed budget, no checkpoint selection)"
+models trained,27 = 3 combos x 3 K x 3 seeds (+6 for the normalization ablation)
+normalization,L2-normalized inputs; ablated in section 6b (raw costs 18-22 pp)
+T dependence,none at training time - each model evaluated at T=4 and T=12
+classification,"argmax_c cos(z_T, mu_c) - unchanged from Stage 1"

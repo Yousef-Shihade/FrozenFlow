@@ -1,0 +1,16 @@
+encoder,dataset,method,T,cos_own,cos_runner_up,margin,test_acc
+resnet18,DTD,no transport,-,0.7441,0.7313,0.0128,58.83
+resnet18,DTD,standard FM,4,0.9071,0.8961,0.011,58.88
+resnet18,DTD,rolled-out FM,4,0.9265,0.9219,0.0046,55.32
+resnet18,DTD,standard FM,12,0.9057,0.8944,0.0113,58.78
+resnet18,DTD,rolled-out FM,12,0.9259,0.921,0.0049,55.48
+resnet18,FGVC-Aircraft,no transport,-,0.8972,0.9066,-0.0094,25.47
+resnet18,FGVC-Aircraft,standard FM,4,0.9766,0.9792,-0.0027,31.53
+resnet18,FGVC-Aircraft,rolled-out FM,4,0.9851,0.988,-0.0029,26.13
+resnet18,FGVC-Aircraft,standard FM,12,0.9755,0.9782,-0.0027,31.26
+resnet18,FGVC-Aircraft,rolled-out FM,12,0.9853,0.9882,-0.0029,25.68
+dinov2,FGVC-Aircraft,no transport,-,0.7269,0.7542,-0.0272,34.26
+dinov2,FGVC-Aircraft,standard FM,4,0.939,0.9331,0.0059,56.56
+dinov2,FGVC-Aircraft,rolled-out FM,4,0.9544,0.9528,0.0016,52.45
+dinov2,FGVC-Aircraft,standard FM,12,0.9373,0.9317,0.0056,56.05
+dinov2,FGVC-Aircraft,rolled-out FM,12,0.9552,0.9548,0.0004,52.33

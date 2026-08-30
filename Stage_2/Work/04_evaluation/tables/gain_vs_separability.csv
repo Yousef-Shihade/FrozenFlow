@@ -1,0 +1,10 @@
+encoder,dataset,K,separability_margin,baseline,best_fm,gain_pp
+resnet18,DTD,5,0.1715,46.1,44.79,-1.31
+resnet18,DTD,10,0.1715,51.67,50.34,-1.33
+resnet18,DTD,full,0.1715,58.83,59.59,0.76
+resnet18,FGVC-Aircraft,5,0.0411,16.46,18.94,2.48
+resnet18,FGVC-Aircraft,10,0.0411,20.19,23.91,3.72
+resnet18,FGVC-Aircraft,full,0.0411,25.47,31.04,5.57
+dinov2,FGVC-Aircraft,5,0.4201,23.79,34.13,10.34
+dinov2,FGVC-Aircraft,10,0.4201,27.74,45.42,17.68
+dinov2,FGVC-Aircraft,full,0.4201,34.26,56.52,22.26

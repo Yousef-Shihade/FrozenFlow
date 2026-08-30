@@ -1,0 +1,10 @@
+encoder,dataset,view,spread,separation,ratio
+resnet18,DTD,original,0.7137,0.6873,1.0383
+resnet18,DTD,standard FM,0.4233,0.6873,0.6159
+resnet18,DTD,rolled-out FM,0.3671,0.6873,0.5341
+resnet18,FGVC-Aircraft,original,0.4536,0.2837,1.5993
+resnet18,FGVC-Aircraft,standard FM,0.2205,0.2837,0.7772
+resnet18,FGVC-Aircraft,rolled-out FM,0.1766,0.2837,0.6226
+dinov2,FGVC-Aircraft,original,0.7543,0.9764,0.7725
+dinov2,FGVC-Aircraft,standard FM,0.3561,0.9764,0.3647
+dinov2,FGVC-Aircraft,rolled-out FM,0.3082,0.9764,0.3157
