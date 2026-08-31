@@ -1,7 +1,9 @@
 # Stage 2 — Flow Matching to Class Prototypes
 
 **A Computer Vision Project — *Flow Matching as a Layer***
-University of Haifa
+University of Haifa · 2026
+
+Yousef Shihade · Mira Bitar
 
 ---
 
@@ -74,7 +76,6 @@ training and inference, so it needs a separate model per $T$.
    step, rolled-out accuracy *drops* mid-rollout — on ResNet-18/Aircraft to 9 pp *below* doing
    nothing at all — before recovering at the final step. Only $\hat z_T$ is supervised, so
    nothing constrains the path.
-
 5. **One quantity predicts every cell.** Plotting the gain against the **headroom** Stage 1
    left behind — the trained linear probe minus the prototype baseline — orders all nine cells
    exactly (Spearman $\rho = 1.000$, $R^2 = 0.988$). The FM layer recovers about **70 % of
@@ -175,11 +176,30 @@ Stage_2/
 │   ├── 04_evaluation/         accuracy table, ΔAcc, accuracy-vs-K, training curves
 │   └── 05_visualizations/     feature-space comparison, flow trajectories
 ├── results/                   shared artefacts consumed across notebooks
-└── Reports&Demos/             report and presentation material
+└── Reports&Demos/             Stage2Report.pdf — the written report
 ```
 
 Each `Work/` step follows the Stage 1 convention: `code/` (the notebook), `plots/`
 (figures), `tables/` (the CSVs behind every claim), and a `README.md`.
+
+---
+
+## Reproducing these results
+
+```bash
+pip install -e Stage_1          # cvlab: encoders, features, prototypes, evaluation
+pip install -e Stage_2          # cvlabfm: the flow-matching layer
+python -m pytest Stage_2/tests -q
+```
+
+Then run the five notebooks in `Work/` in order, selecting the `Python (CVLAB Stage 1)`
+kernel. Steps 01, 04 and 05 take seconds; step 02 takes minutes; step 03 trains 54 models and
+takes roughly 40 minutes on a single GPU.
+
+Stage 1's cached features are required and are not tracked here (see `Stage_1/README`);
+`torch` must come from the PyTorch CUDA index rather than PyPI, as noted in `pyproject.toml`.
+Every run is seeded — re-training all 81 models reproduces every accuracy and every loss curve
+bit-for-bit.
 
 ---
 
@@ -211,20 +231,19 @@ all, which is worth recording:
 
 ---
 
-## Deliverables
+## What this stage produced
 
-All four required deliverables are complete, plus both optional explorations.
+| Output | Produced in |
+| --- | --- |
+| Accuracy over the full grid, $\Delta\mathrm{Acc}$ against the baseline, and accuracy vs. $K$ with error bars | step 4 |
+| Training-loss curves for both objectives | step 4 |
+| Feature space before and after transport — original, standard FM, rolled-out — one jointly fitted projection | step 5 |
+| Flow trajectories: intermediate states, original feature, transported feature, prototype | step 5 |
+| Accuracy at every intermediate Euler step of the rollout | step 5 |
+| Distance from samples to prototypes at intermediate flow times | step 5 |
+| The learned flow run in reverse, starting from the prototypes | step 5 |
 
-| # | Deliverable | Produced in | Status |
-| --- | --- | --- | --- |
-| 1 | Accuracy table + $\Delta\mathrm{Acc}$ + accuracy-vs-$K$ plot with error bars | step 4 | done |
-| 2 | Representative training-loss curves, both objectives | step 4 | done |
-| 3 | Feature-space comparison: original vs. standard-FM vs. rolled-out, jointly-fit projection | step 5 | done |
-| 4 | Flow trajectories: intermediate states, original feature, transported feature, prototype | step 5 | done |
-| — | *Optional:* the learned flow in reverse, starting from prototypes | step 5 | done |
-| — | *Optional:* samples vs. prototypes at intermediate flow times | step 5 | done |
-
-Beyond the brief, three checks were added because the conclusions depend on them: the Stage 1
+Beyond those, three checks were added because the conclusions depend on them: the Stage 1
 baseline is reproduced **exactly** before anything is built on it (step 1), the L2
 normalization decision is **ablated** rather than assumed (step 2), and the reason rolled-out
 training underperforms is established by **ruling out** underfitting and overfitting rather

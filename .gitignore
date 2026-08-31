@@ -25,7 +25,13 @@ Course_Materials/
 Stage_1/Mira's Report/
 Stage_1/docs/
 Stage_2/docs/
-Stage_2/Reports&Demos/
+
+# ---------------------------------------------------------------------------
+# Presentation material stays local; the report itself is part of the project
+# and is published.
+# ---------------------------------------------------------------------------
+Stage_2/Reports&Demos/*
+!Stage_2/Reports&Demos/Stage2Report.pdf
 
 # ---------------------------------------------------------------------------
 # NOTE on what IS committed, deliberately:
@@ -97,5 +103,3 @@ desktop.ini
 *.tmp
 scratch/
 
-# Local tooling state
-.claude/
