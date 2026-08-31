@@ -203,7 +203,7 @@ Stage 1 is complete and independently reproducible end to end.
 ### Stage 2
 
 **All five steps are complete**, with outputs committed and the written report in
-`Stage_2/Reports&Demos/Stage2Report.pdf`. Per-step detail lives in each step's README; the
+`Stage_2/Reports/Stage2Report.pdf`. Per-step detail lives in each step's README; the
 consolidated account is **[Stage_2/README.md](Stage_2/README.md)**.
 
 Everything the stage set out to produce is in place — the accuracy table with ΔAcc and error

@@ -30,8 +30,8 @@ Stage_2/docs/
 # Presentation material stays local; the report itself is part of the project
 # and is published.
 # ---------------------------------------------------------------------------
-Stage_2/Reports&Demos/*
-!Stage_2/Reports&Demos/Stage2Report.pdf
+Stage_2/Reports/*
+!Stage_2/Reports/Stage2Report.pdf
 
 # ---------------------------------------------------------------------------
 # NOTE on what IS committed, deliberately:

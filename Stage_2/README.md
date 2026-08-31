@@ -176,7 +176,7 @@ Stage_2/
 │   ├── 04_evaluation/         accuracy table, ΔAcc, accuracy-vs-K, training curves
 │   └── 05_visualizations/     feature-space comparison, flow trajectories
 ├── results/                   shared artefacts consumed across notebooks
-└── Reports&Demos/             Stage2Report.pdf — the written report
+└── Reports/                   Stage2Report.pdf — the written report
 ```
 
 Each `Work/` step follows the Stage 1 convention: `code/` (the notebook), `plots/`
