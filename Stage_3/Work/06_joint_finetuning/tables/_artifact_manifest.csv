@@ -1,0 +1,9 @@
+kind,file,size_KB
+plot,plots/joint_comparison.png,61.1
+plot,plots/joint_curves.png,119.4
+table,tables/attribution.csv,0.6
+table,tables/classifier_drift.csv,0.7
+table,tables/frozen_vs_unfrozen_matched.csv,0.3
+table,tables/joint_all_runs.csv,8.3
+table,tables/joint_config_summary.csv,0.5
+table,tables/joint_vs_frozen.csv,0.4

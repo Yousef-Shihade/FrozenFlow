@@ -1,0 +1,11 @@
+kind,file,size_KB
+plot,plots/strategy1_displacement.png,78.4
+plot,plots/strategy1_results.png,72.8
+plot,plots/training_curves.png,140.6
+table,tables/objective_diagnostic.csv,1.2
+table,tables/objective_diagnostic_summary.csv,0.4
+table,tables/strategy1_all_runs.csv,16.9
+table,tables/strategy1_best_config_summary.csv,0.3
+table,tables/strategy1_config_summary.csv,0.8
+table,tables/strategy1_learning_rate_sweep.csv,0.8
+table,tables/strategy1_main_summary.csv,0.4

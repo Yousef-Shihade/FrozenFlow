@@ -1,0 +1,16 @@
+config,encoder,dataset,classifier_drift
+clf_only,resnet18,DTD,0.037960465997457504
+clf_only,dinov2,FGVC-Aircraft,0.265424186984698
+clf_only,resnet18,FGVC-Aircraft,0.008864367691179117
+joint,resnet18,DTD,0.025025957574446995
+joint,dinov2,FGVC-Aircraft,0.06799339999755223
+joint,resnet18,FGVC-Aircraft,0.02422456257045269
+clf_lr=1e-5,resnet18,DTD,0.003548647044226527
+clf_lr=1e-5,dinov2,FGVC-Aircraft,0.00794001497949163
+clf_lr=1e-5,resnet18,FGVC-Aircraft,0.0025221984833478928
+clf_lr=1e-3,resnet18,DTD,0.1819707751274109
+clf_lr=1e-3,dinov2,FGVC-Aircraft,0.2807919482390086
+clf_lr=1e-3,resnet18,FGVC-Aircraft,0.1799911359945933
+delayed=50,resnet18,DTD,0.0
+delayed=50,dinov2,FGVC-Aircraft,0.012316737323999405
+delayed=50,resnet18,FGVC-Aircraft,0.0

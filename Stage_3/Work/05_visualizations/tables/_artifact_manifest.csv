@@ -1,0 +1,8 @@
+kind,file,size_KB
+plot,plots/feature_space_dinov2_fgvcaircraft.png,106.8
+plot,plots/feature_space_resnet18_dtd.png,116.6
+plot,plots/feature_space_resnet18_fgvcaircraft.png,112.7
+plot,plots/what_the_flow_changes.png,69.0
+table,tables/feature_geometry.csv,1.6
+table,tables/geometry_change.csv,0.6
+table,tables/visualised_models.csv,0.4

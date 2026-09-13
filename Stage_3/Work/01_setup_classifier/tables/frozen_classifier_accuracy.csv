@@ -1,0 +1,4 @@
+encoder,dataset,mean,std,n_runs,accuracy
+dinov2,FGVC-Aircraft,51.54,1.7,3,51.54 +/- 1.70
+resnet18,DTD,52.04,1.16,3,52.04 +/- 1.16
+resnet18,FGVC-Aircraft,27.87,1.33,3,27.87 +/- 1.33

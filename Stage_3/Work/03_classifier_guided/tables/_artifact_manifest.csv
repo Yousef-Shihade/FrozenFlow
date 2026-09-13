@@ -1,0 +1,9 @@
+kind,file,size_KB
+plot,plots/strategy2_results.png,75.1
+plot,plots/training_curves.png,229.3
+table,tables/matched_learning_rate_comparison.csv,0.2
+table,tables/strategy2_all_runs.csv,19.6
+table,tables/strategy2_config_summary.csv,1.0
+table,tables/strategy2_main_summary.csv,0.5
+table,tables/strategy_comparison_matched_lr.csv,0.6
+table,tables/target_quality.csv,1.7

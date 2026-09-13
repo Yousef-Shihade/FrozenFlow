@@ -1,0 +1,10 @@
+run,encoder,dataset,seed,probe_acc,stage3_at_init_acc,max_abs_feature_change,features_bit_identical,predictions_identical,delta_pp
+resnet18__DTD__K10__seed0,resnet18,DTD,0,0.5117021203041077,0.5117021203041077,0.0,True,True,0.0
+resnet18__DTD__K10__seed1,resnet18,DTD,1,0.5159574747085571,0.5159574747085571,0.0,True,True,0.0
+resnet18__DTD__K10__seed2,resnet18,DTD,2,0.5335106253623962,0.5335106253623962,0.0,True,True,0.0
+dinov2__FGVC-Aircraft__K10__seed0,dinov2,FGVC-Aircraft,0,0.5319532155990601,0.5319532155990601,0.0,True,True,0.0
+dinov2__FGVC-Aircraft__K10__seed1,dinov2,FGVC-Aircraft,1,0.5160515904426575,0.5160515904426575,0.0,True,True,0.0
+dinov2__FGVC-Aircraft__K10__seed2,dinov2,FGVC-Aircraft,2,0.498049795627594,0.498049795627594,0.0,True,True,0.0
+resnet18__FGVC-Aircraft__K10__seed0,resnet18,FGVC-Aircraft,0,0.2670266926288605,0.2670266926288605,0.0,True,True,0.0
+resnet18__FGVC-Aircraft__K10__seed1,resnet18,FGVC-Aircraft,1,0.2931293249130249,0.2931293249130249,0.0,True,True,0.0
+resnet18__FGVC-Aircraft__K10__seed2,resnet18,FGVC-Aircraft,2,0.2760275900363922,0.2760275900363922,0.0,True,True,0.0

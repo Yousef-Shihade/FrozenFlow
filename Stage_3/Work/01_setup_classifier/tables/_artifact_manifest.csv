@@ -1,0 +1,8 @@
+kind,file,size_KB
+plot,plots/setup_verification.png,49.4
+plot,plots/why_no_normalization.png,68.9
+table,tables/frozen_classifier_accuracy.csv,0.2
+table,tables/identity_initialisation_check.csv,1.1
+table,tables/l2_normalization_ablation.csv,0.9
+table,tables/l2_normalization_summary.csv,0.3
+table,tables/stage1_probe_reproduction.csv,0.8

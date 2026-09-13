@@ -1,0 +1,9 @@
+kind,file,size_KB
+plot,plots/main_comparison.png,63.2
+plot,plots/matched_learning_rate.png,36.5
+plot,plots/training_curves_both_methods.png,167.0
+table,tables/configuration_ranking.csv,1.2
+table,tables/delta_vs_probe.csv,0.4
+table,tables/main_comparison.csv,0.7
+table,tables/matched_learning_rate.csv,0.3
+table,tables/per_seed_deltas.csv,0.7
