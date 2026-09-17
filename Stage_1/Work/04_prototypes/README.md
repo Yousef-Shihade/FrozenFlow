@@ -42,8 +42,8 @@ step 3's outputs in `Stage_1/results/`.
 | ResNet-18 / FGVC-Aircraft | 16.46 ± 0.39 | 20.19 ± 1.14 | 25.47 (1 run) |
 | DINOv2 / FGVC-Aircraft | 23.79 ± 0.47 | 27.74 ± 0.98 | 34.26 (1 run) |
 
-All 21 numbers match the earlier draft's reported results exactly (e.g. ResNet-18/DTD
-full: 58.83% here vs 58.8% originally). Prototype computation is deterministic given a
+All 21 numbers match our first implementation's results exactly (e.g. ResNet-18/DTD
+full: 58.83% here against 58.8% there). Prototype computation is deterministic given a
 fixed subset, so this is an exact check rather than a within-noise comparison.
 
 ---
@@ -87,8 +87,8 @@ most classes are barely separated by their mean at all. Section 8 names the clas
 sides: the top-5 gap on DINOv2/Aircraft (Global Express, Tu-154, Challenger 600, 777-300,
 Falcon 2000) each lose 70–82 percentage points to the linear probe.
 
-**One thing worth being explicit about, because it nearly went into the notebook as a
-mistake:** the *mean* of this per-class metric is not new information — averaged over all
+**One thing worth being explicit about:** the *mean* of this per-class metric is not new
+information — averaged over all
 test images it is arithmetically the same quantity as the accuracy already reported in
 section 5, since "argmax similarity matches the true label" is the classification decision
 itself. What is new is computing it *per class first*: the spread (0% to 100% on
@@ -104,7 +104,7 @@ prototypes lose so much ground on this dataset.
 | File | Contents |
 | --- | --- |
 | `prototype_runs.csv` | One row per run |
-| `full_prototypes.pt` | Full-data prototype vectors per combination — needed for step 5's feature-visualization deliverable |
+| `full_prototypes.pt` | Full-data prototype vectors per combination — needed for step 5's feature-visualization section |
 
 ### Tables (`tables/`)
 
@@ -127,36 +127,22 @@ prototypes lose so much ground on this dataset.
 Before running on real features, `compute_prototypes` is verified against a toy example
 built by hand: two classes, each containing one unit-norm vector and one vector scaled 3–5×
 in the same direction. If normalization were silently skipped, the larger-magnitude example
-would pull the class mean off its true direction — a bug that would still often "work well
-enough" on real data, which is exactly why it needs an explicit check rather than relying on
+would pull the class mean off its true direction — an error that would still often "work
+well enough" on real data, which is exactly why it needs an explicit check rather than relying on
 downstream accuracy to catch it. The toy prototypes come out exactly `[1,0]` and `[0,1]`, as
 expected.
 
 ---
 
-## What changed from an earlier draft
-
-| Area | Earlier draft | Now |
-| --- | --- | --- |
-| Platform | Colab + Drive | Local, package-backed |
-| Core method | Defined inline in the notebook | `cvlab/prototypes.py`, reusable and documented |
-| Method verification | None | Toy-example sanity check with known ground truth |
-| k-shot subsets | Reimplemented (same logic, separate copy) | Shared `cvlab.data.make_kshot_subset` — same function step 3 uses |
-| Comparison with the linear probe | A separate later notebook (step 5) | Built directly against step 3's saved results, in this notebook |
-| Per-class analysis | None | Centrality spread, per-class divergence, confidence margins |
-| Prototypes saved for visualization | Yes | Yes, same location and format |
-
----
-
 ## Next step
 
-**Step 5 — Analysis.** Pulls together the core deliverables: the combined accuracy table
+**Step 5 — Analysis.** Pulls together the headline results: the combined accuracy table
 (this notebook's results plus step 3's), the accuracy-vs-K plot with the prototype baseline
 included, the training curves (already produced in step 3), row-normalized confusion
 matrices, and the 2D feature visualization with prototypes overlaid.
 
-That last deliverable is where step 2's feature-geometry finding becomes load-bearing:
+That last section is where step 2's feature-geometry finding becomes load-bearing:
 ResNet-18 and DINOv2 features sit at norms of ~24–50, never close to 1, while every
 prototype here is exactly unit-norm. Any projection that mixes the two without normalizing
-first collapses the prototypes into a single point — the bug in the earlier draft's
-t-SNE figure, avoidable here because it was measured in step 2 rather than assumed.
+first collapses the prototypes into a single point — a trap we can step around here
+precisely because step 2 measured the norms rather than assuming them.

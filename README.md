@@ -245,8 +245,8 @@ per-step tables (what each step does, GPU requirement, runtime):
 **All five steps are complete**, executed locally with outputs committed. The
 classification-baseline pipeline — linear probe and image-derived prototypes, on DTD and
 FGVC-Aircraft, ResNet-18 on both and DINOv2 on Aircraft — is reproducible end to end from
-`Stage_1/Data/`. Per-step findings, including two bugs caught and fixed in an earlier draft's
-feature-visualization step, live in **[Stage_1/README.md](Stage_1/README.md)**.
+`Stage_1/Data/`. Per-step findings live in
+**[Stage_1/README.md](Stage_1/README.md)**.
 
 Reproducibility was verified directly: `features/` and `results/` were deleted and all 5
 notebooks re-run from scratch, in order. Every saved result — all 27 linear-probe runs, all

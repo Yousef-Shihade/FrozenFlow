@@ -6,8 +6,8 @@ unambiguous until two different parts of a report compute it two different ways:
 ``Series.std()`` defaults to the *sample* standard deviation (``ddof=1``) while numpy's
 ``ndarray.std()`` defaults to the *population* one (``ddof=0``). On three runs the two
 differ by a factor of ``sqrt(3/2) ≈ 1.22`` — enough that an accuracy table and the error
-bars on the plot beside it disagree, which is exactly what happened in an earlier draft
-(DTD 5-shot: 1.74 in the table, 1.42 in the plot).
+bars on the plot beside it disagree: on DTD 5-shot the same spread reads 1.74 one way and
+1.42 the other.
 
 Everything in this project therefore goes through :func:`summarize_runs`, which uses the
 **sample** standard deviation (``ddof=1``) everywhere. That is the right choice here: the

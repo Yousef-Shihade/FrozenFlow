@@ -1,5 +1,5 @@
 kind,file,size_KB
-plot,plots/banner_ablation.png,77.3
+plot,plots/banner_ablation.png,74.6
 plot,plots/class_separability.png,80.3
 plot,plots/extraction_throughput.png,58.4
 plot,plots/feature_norms.png,103.0

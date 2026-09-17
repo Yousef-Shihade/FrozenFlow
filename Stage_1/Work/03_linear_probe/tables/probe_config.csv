@@ -1,7 +1,7 @@
 setting,value,status
-optimizer,AdamW,as suggested
-learning_rate,0.001,as suggested
-weight_decay,0.0001,as suggested
-batch_size,64,as suggested
-max_epochs,200,as suggested
-checkpoint_selection,val_accuracy,as suggested
+optimizer,AdamW,kept unmodified
+learning_rate,0.001,kept unmodified
+weight_decay,0.0001,kept unmodified
+batch_size,64,kept unmodified
+max_epochs,200,kept unmodified
+checkpoint_selection,val_accuracy,kept unmodified

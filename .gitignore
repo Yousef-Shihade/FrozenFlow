@@ -35,10 +35,15 @@ Stage_3/docs/
 # Presentation material stays local; the report itself is part of the project
 # and is published.
 # ---------------------------------------------------------------------------
+Stage_1/Reports/*
+!Stage_1/Reports/Stage1Report.pdf
 Stage_2/Reports/*
 !Stage_2/Reports/Stage2Report.pdf
 Stage_3/Reports/*
 !Stage_3/Reports/Stage3Report.pdf
+!Stage_3/Reports/Stage3_QA.pdf
+!Stage_3/Reports/Stage3_SpeakerNotes.pdf
+!Stage_3/Reports/MySpeakerNotes.pdf
 
 # ---------------------------------------------------------------------------
 # NOTE on what IS committed, deliberately:
@@ -110,3 +115,10 @@ desktop.ini
 *.tmp
 scratch/
 
+
+# ---------------------------------------------------------------------------
+# Build scripts that GENERATE the notebooks and PDFs (report, Q&A sheets, speaker
+# notes). Kept locally so they can be re-run; not part of the published project.
+# See _build_scripts/README.md and PROJECT_HANDOFF.md.
+# ---------------------------------------------------------------------------
+_build_scripts/

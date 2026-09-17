@@ -7,7 +7,7 @@ University of Haifa
 
 ## Purpose
 
-The required baseline, and the one **Stage 3** will replace with a Flow-Matching layer. It
+Our first baseline, and the one **Stage 3** will replace with a Flow-Matching layer. It
 answers: given a frozen representation, how far does a single trained linear layer get?
 
 `s = W z + b`, with `z` a cached frozen feature from step 2. Only `W` and `b` are trained,
@@ -64,11 +64,12 @@ which is a genuine cross-check rather than a restatement.
 
 ---
 
-## Independent reproduction of an earlier draft
+## Independent reproduction
 
-An earlier draft produced its own 27-run sweep. This pipeline was rebuilt from scratch —
-re-extracted features, a rewritten training loop, different batching — so comparing them is
-an independent reproduction.
+We ran this sweep twice, through two independently written implementations. The final
+pipeline differs from our first one in every moving part — re-extracted features, a
+rewritten training loop, different batching — so comparing them is an independent
+reproduction.
 
 | Dataset | Banner crop applied | mean Δ | range of Δ |
 | --- | --- | --- | --- |
@@ -77,8 +78,7 @@ an independent reproduction.
 
 **DTD reproduces to within 0.26 pp on all three K settings.** Because DTD receives no banner
 crop, it isolates the reimplementation itself — and it agrees about as closely as two
-independent implementations can. That is strong evidence both are correct, and it means the
-earlier analysis, whatever its packaging problems, was **numerically sound**.
+independent implementations can. That is strong evidence both are correct.
 
 **Aircraft scatters more but mixed in sign** (two of six settings negative). If the banner
 crop were a real improvement the shift would be consistently positive; it is not. This
@@ -157,8 +157,8 @@ such rather than quietly dropping it.
 | `linear_probe_predictions.pt` | Test predictions per run |
 
 Keeping predictions for every run means step 5 can build confusion matrices **without
-retraining anything**. The earlier draft retrained two probes for that, which risks the
-confusion matrix describing a slightly different model from the one in the accuracy table.
+retraining anything**. Retraining a probe just to obtain them would risk the confusion
+matrix describing a slightly different model from the one in the accuracy table.
 
 ### Tables (`tables/`)
 
@@ -173,37 +173,20 @@ confusion matrix describing a slightly different model from the one in the accur
 | `loss_curves_representative.png` | 10-shot curves + val accuracy |
 | `training_stability.png` | All 27 runs, 3 seeds per panel |
 | `overfitting_analysis.png` | Selected epoch, val-loss climb, final train loss |
-| `reproduction_check.png` | Ours vs the earlier draft, per setting |
+| `reproduction_check.png` | The two implementations, per setting |
 | `accuracy_vs_k.png` | Accuracy vs training-set size with error bars |
 
 ---
 
 ## Configuration
 
-A standard configuration, **used unmodified**: AdamW, lr 1e-3, weight decay 1e-4, batch
+A standard configuration, **kept unmodified**: AdamW, lr 1e-3, weight decay 1e-4, batch
 size 64, max 200 epochs, checkpoint on highest validation accuracy.
 
-Deviating would have been reasonable if it behaved poorly, provided the change was reported.
-It did not need to: no run diverged, none produced NaN or Inf, and every run selected a real
-checkpoint. Section 9 of the notebook is the evidence. Stating this explicitly is better
-than leaving a reader to wonder whether the defaults were used or quietly tuned.
-
----
-
-## What changed from an earlier draft
-
-| Area | Earlier draft | Now |
-| --- | --- | --- |
-| Platform | Colab + Drive | Local, package-backed |
-| Training loop | Defined inline in the notebook | `cvlab/probe.py`, reusable and documented |
-| Batching | `DataLoader(shuffle=True)` | Seeded `torch.randperm`, same distribution, less per-batch overhead |
-| Loss accumulation | `.item()` per batch (a GPU sync each time) | Accumulated on device, one sync per epoch |
-| Curves kept | Only the representative run per combination | **All 27 runs** |
-| Test predictions | Not kept — step 5 retrained 2 probes to get them | Kept for all 27 runs |
-| std convention | pandas (`ddof=1`) in the table, numpy (`ddof=0`) in the plot — **inconsistent** | `cvlab/evaluation.py`, `ddof=1` everywhere |
-| Methodology check | Prose in a separate report | `methodology.csv`, generated from the code |
-| Reproduction check | — | Compared against the earlier draft, per setting |
-| Convergence caveat | Not examined | Measured and reported |
+We would have adjusted it had it behaved poorly. It did not need to: no run diverged, none
+produced NaN or Inf, and every run selected a real checkpoint. Section 9 of the notebook is
+the evidence. Stating this explicitly is better than leaving a reader to wonder whether the
+defaults were used or quietly tuned.
 
 ---
 

@@ -47,8 +47,8 @@ class CropBottomBanner:
 
     Defined at module level on purpose: Windows spawns DataLoader workers with the
     ``spawn`` start method, which pickles the transform. A class defined inside a function
-    cannot be pickled, which is exactly why the original Colab notebook's ``num_workers=2``
-    could not run outside Colab.
+    cannot be pickled, which is exactly why a transform defined inside a function rules out
+    ``num_workers > 0`` on Windows.
 
     Args:
         px: number of pixel rows to remove from the bottom edge.

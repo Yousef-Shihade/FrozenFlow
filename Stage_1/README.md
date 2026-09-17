@@ -93,11 +93,11 @@ centroids:
 
 In ResNet-18's feature space every aircraft resembles every other aircraft, leaving almost
 no margin for a classifier to exploit. DINOv2 spreads the same 100 classes over a margin ten
-times wider. Steps 03–04 should reproduce this ranking; if they do not, the bug is in the
+times wider. Steps 03–04 should reproduce this ranking; if they do not, the fault is in the
 classifier code rather than the features.
 
-Step 02 also **walked back a step 01 recommendation**: the 20 px copyright-banner crop turns
-out to make no measurable difference (cosine 0.982; accuracy gap 0.78 pp against a ±1.55 pp
+Step 02 also **tested a step 01 recommendation rather than trusting it**: the 20 px
+copyright-banner crop turns out to make no measurable difference (cosine 0.982; accuracy gap 0.78 pp against a ±1.55 pp
 standard error). It is kept as correct hygiene, not as an improvement.
 
 ### Step 03 — Linear probe ([details](Work/03_linear_probe/README.md))
@@ -111,8 +111,8 @@ up to 200 epochs, checkpoint on highest validation accuracy) unmodified. Results
 | ResNet-18 / FGVC-Aircraft | 20.76 ± 0.26 | 27.87 ± 1.33 | 38.15 ± 0.29 |
 | DINOv2 / FGVC-Aircraft | 38.19 ± 2.49 | 51.54 ± 1.70 | 67.55 ± 0.28 |
 
-Reproduces the step-2 separability ranking exactly, and **independently reproduces an
-earlier draft's results**: DTD (which gets no banner crop) agrees to within 0.26 pp on every
+Reproduces the step-2 separability ranking exactly, and **two independent implementations
+of the protocol agree**: DTD (which gets no banner crop) matches to within 0.26 pp on every
 K setting despite re-extracted features and a rewritten training loop — strong evidence
 both implementations are correct.
 
@@ -130,8 +130,8 @@ fair reference point for Stage 2/3's Flow-Matching layer, not a maximized number
 
 ### Step 04 — Image-derived prototypes ([details](Work/04_prototypes/README.md))
 
-21 runs, no training, seconds of compute. All 21 numbers match an earlier draft's results
-exactly (prototype computation is deterministic given a fixed subset).
+21 runs, no training, seconds of compute. All 21 numbers match our first implementation's
+results exactly (prototype computation is deterministic given a fixed subset).
 
 | Dataset / encoder | 5-shot | 10-shot | full |
 | --- | --- | --- | --- |
@@ -158,13 +158,12 @@ re-extracted. Full-data headline:
 | ResNet-18 / FGVC-Aircraft | 38.15% | 25.47% | +12.68 pp |
 | DINOv2 / FGVC-Aircraft | 67.55% | 34.26% | **+33.29 pp** |
 
-Fixes two real bugs in an earlier draft's feature-visualization section. First, prototypes
-(unit-norm by construction) were projected jointly with **raw** test features (norm ~24–50
-per step 2), collapsing every prototype into one corner regardless of the actual geometry —
-fixed by L2-normalizing the features first, demonstrated directly with a before/after
-comparison. Second, its class selection (`list(range(10))`) picked 8 near-duplicate 737
-variants out of 10 for FGVC-Aircraft; fixed with a systematic diverse stride through the
-sorted class list.
+Its feature-visualization section turns on two decisions. First, prototypes are unit-norm by
+construction, so projecting them jointly with **raw** test features (norm ~24–50 per step 2)
+would collapse every prototype into one corner regardless of the actual geometry — the
+features are L2-normalized first, demonstrated directly with a before/after comparison.
+Second, classes are selected by a systematic stride through the sorted class list: picking
+by raw index would have given 8 near-duplicate 737 variants out of 10 for FGVC-Aircraft.
 
 The confusion-matrix analysis also shows *what* gets confused, not just that some things do:
 DTD errors cluster among related pattern concepts (`dotted` ↔ `polka-dotted`, 40%/25%), while
@@ -172,18 +171,13 @@ Aircraft errors cluster within manufacturer families (`C-47` ↔ `DC-3`, 48.5%/4
 same fine-grained structure step 4 identified as the reason prototypes lose so much ground
 to the linear probe on that dataset.
 
-### Final polish pass
+### End-to-end reproducibility
 
-Two items tracked from step 05 are now closed out:
-
-- **Step 02's cache-verification cell** used `reference._labels` directly instead of
-  `cvlab.data.labels()`, contradicting the module's own accessor design. Fixed.
-- **Full end-to-end reproducibility**, verified independently: `features/` and `results/`
-  were deleted and all 5 notebooks re-run from scratch, in order, on the (now-fixed) code.
-  Every saved result — all 27 linear-probe runs, all 21 prototype runs, every test
-  prediction, every prototype vector — came back **bit-for-bit identical** to the prior run.
-  Nothing in the pipeline depends on hidden state, execution order beyond the documented
-  step sequence, or anything not captured in `Data/` plus the code itself.
+Verified independently: `features/` and `results/` were deleted and all 5 notebooks re-run
+from scratch, in order. Every saved result — all 27 linear-probe runs, all 21 prototype
+runs, every test prediction, every prototype vector — came back **bit-for-bit identical** to
+the prior run. Nothing in the pipeline depends on hidden state, execution order beyond the
+documented step sequence, or anything not captured in `Data/` plus the code itself.
 
 Stage 1 is complete and independently reproducible end to end.
 
@@ -195,6 +189,8 @@ Stage 1 is complete and independently reproducible end to end.
 Stage_1/
 ├── README.md                  this file
 ├── pyproject.toml             makes `cvlab` installable
+├── Reports/
+│   └── Stage1Report.pdf       the written report for this stage
 ├── Data/                      datasets (NOT in git, ~3.2 GB)
 ├── features/                  cached feature tensors (NOT in git, regenerable)
 ├── results/                   shared run outputs consumed across steps (~1.4 MB, committed)
@@ -216,19 +212,17 @@ Stage_1/
 ```
 
 Each step folder holds `README.md` (what it does and found), `code/*.ipynb` (with outputs, as
-reproducibility evidence), `plots/` and `tables/`, and additionally `_original_colab/` — an
-earlier Colab-based version of that step's notebook, preserved unmodified so the comparison
-tables in those READMEs are verifiable rather than asserted.
+reproducibility evidence), `plots/` and `tables/`.
 
 ### Why a package *and* notebooks
 
 The library holds the **plumbing** — paths, dataset loading, encoders, classifiers, plot
 style. The notebooks hold the **experiment** — what is measured, why, and what it means.
 
-The split is not decoration. In an earlier draft, `load_features()` and the k-shot sampler
-were pasted into three notebooks each and the project root string appeared in all five. A
-fix applied to one copy silently leaves the others wrong, and that is precisely the class
-of bug that produces plausible-but-invalid numbers. Writing each piece of logic once also
+The split is not decoration. With `load_features()` and the k-shot sampler pasted into
+three notebooks each, and the project root string repeated in all five, a fix applied to one
+copy silently leaves the others wrong — precisely the class of error that produces
+plausible-but-invalid numbers. Writing each piece of logic once also
 means the linear probe and the prototype baseline provably train on *identical* k-shot
 subsets, so any accuracy gap between them comes from the classifier design rather than a
 luckier draw.

@@ -1,8 +1,7 @@
 # A Computer Vision Project - Flow Matching as a Layer - Stage 1
 #
 # IMPORTANT: install PyTorch FIRST, from the CUDA index. The default PyPI wheels are
-# CPU-only and would silently disable the GPU (this is exactly what was already installed
-# in the Anaconda base environment on this machine).
+# CPU-only and would silently disable the GPU.
 #
 #   pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124
 #   pip install -r requirements.txt

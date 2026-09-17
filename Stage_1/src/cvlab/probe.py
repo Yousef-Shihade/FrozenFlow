@@ -1,5 +1,5 @@
 """
-The linear probe — Stage 1's required baseline.
+The linear probe — Stage 1's first baseline.
 
 Implements::
 

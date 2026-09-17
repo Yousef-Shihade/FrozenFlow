@@ -2,7 +2,7 @@ kind,file,size_KB
 plot,plots/accuracy_vs_k.png,93.1
 plot,plots/loss_curves_representative.png,196.1
 plot,plots/overfitting_analysis.png,94.4
-plot,plots/reproduction_check.png,67.0
+plot,plots/reproduction_check.png,67.3
 plot,plots/training_stability.png,320.8
 table,tables/accuracy_summary.csv,0.5
 table,tables/epoch_budget_check.csv,0.5

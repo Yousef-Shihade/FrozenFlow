@@ -1,10 +1,10 @@
 kind,file,size_KB
 plot,plots/accuracy_vs_k.png,117.9
-plot,plots/confusion_matrices.png,139.5
+plot,plots/confusion_matrices.png,138.0
 plot,plots/feature_viz_aircraft.png,243.0
 plot,plots/feature_viz_dtd.png,121.9
-plot,plots/loss_curves.png,103.9
-plot,plots/normalization_bug_demo.png,205.2
+plot,plots/loss_curves.png,102.2
+plot,plots/normalization_effect.png,203.9
 table,tables/combined_accuracy_table.csv,1.1
 table,tables/methodology.csv,0.9
 table,tables/top_confusions.csv,37.2

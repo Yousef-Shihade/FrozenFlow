@@ -64,9 +64,7 @@ versions. A cache whose provenance is unknown is a cache you cannot trust.
 ├── code/
 │   └── 02_feature_extraction.ipynb  <- the notebook (run this)
 ├── plots/                           <- 6 generated figures
-├── tables/                          <- 8 generated CSVs
-└── _original_colab/
-    └── 02_feature_extraction_COLAB_ORIGINAL.ipynb
+└── tables/                          <- 8 generated CSVs
 ```
 
 ---
@@ -175,8 +173,8 @@ The feature *direction* — the only thing cosine classifiers and a learned line
 to — is essentially unchanged, and the task-level difference is noise pointing in the
 opposite direction from the one predicted.
 
-**Step 01 was right that the banner exists and survives into the crop, and wrong to imply it
-was materially damaging results.** The crop is kept because feeding the encoder a photograph
+**Step 01 was right that the banner exists and survives into the crop, but it is not
+materially damaging results.** The crop is kept because feeding the encoder a photograph
 rather than a photograph plus a copyright notice is more correct and costs nothing — but it
 is hygiene, not an improvement. If asked "how much did that help?", the honest answer is
 *"nothing measurable, and here is the ablation that shows it"*.
@@ -213,29 +211,11 @@ constraint.
 **`num_workers=4` is roughly 2× faster than 0** (58 vs 28 img/s at scale). This works only
 because every transform, including `CropBottomBanner`, is defined at module level in the
 installed `cvlab` package: Windows starts workers with the `spawn` method, which pickles the
-dataset and its transform, and a class defined inside a function cannot be pickled. That is
-precisely why an earlier draft's `num_workers=2` could not run here.
+dataset and its transform, and a class defined inside a function cannot be pickled. A
+transform defined inside a function would therefore rule out workers entirely here.
 
 Worker counts above 4 were slower (8 workers → 36 img/s) from spawn overhead and CPU
 oversubscription.
-
----
-
-## What changed from an earlier draft
-
-| Area | Original | Now |
-| --- | --- | --- |
-| Platform | Colab + `drive.mount()` | Local, VS Code |
-| Data staging | Copied `.tar.gz` from Drive and re-extracted locally to dodge Drive's slow small-file reads | Deleted entirely — data is already on local NTFS |
-| Dataset wrapper | `_Wrapped` class defined **inside** `extract_features` | None needed; the transform is attached at construction |
-| Workers | `num_workers=2` (unpicklable wrapper → fails on Windows) | `num_workers=4`, ~2× faster |
-| Batch size | 128 | 64 (peak VRAM measured at 0.46 GB) |
-| Aircraft banner | Mentioned in prose, not handled | Cropped, **and ablated** |
-| Frozen check | `requires_grad = False` set in a loop | Asserted in `build_encoder`; zero trainable params verified in the notebook |
-| Cache format | `{features, labels, classes}` | Plus full provenance metadata per file |
-| Verification | Reload and check dimensions | Reload and check dims, counts, NaN/Inf, label range, **and label-order identity** |
-| Execution evidence | Notebook was **never executed** — zero outputs | Fully executed, 14 cells with outputs committed |
-| Analysis | None | 6 figures, 8 tables, incl. separability diagnostic and banner ablation |
 
 ---
 

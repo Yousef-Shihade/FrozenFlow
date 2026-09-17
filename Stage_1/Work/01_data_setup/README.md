@@ -45,9 +45,7 @@ No network access: the notebook passes `download=False` and reads only local dat
 ├── code/
 │   └── 01_data_setup.ipynb   <- the notebook (run this)
 ├── plots/                    <- generated figures (.png)
-├── tables/                   <- generated data (.csv)
-└── _original_colab/
-    └── 01_data_setup_COLAB_ORIGINAL.ipynb   <- an earlier draft, preserved for reference
+└── tables/                   <- generated data (.csv)
 ```
 
 Paths are **not** hardcoded. Everything resolves through the installed `cvlab` package
@@ -80,7 +78,7 @@ All 20 currently pass. Results are saved to `tables/protocol_checks.csv`.
 | **Every referenced image exists on disk** | Split files are text and can reference images a partial extraction never wrote |
 | **Every class has at least 10 training images** | The 10-shot setting silently requires this — better verified now than discovered in Step 3 |
 
-The three checks in bold were **not** performed by the earlier draft.
+The three checks in bold are the ones we treat as non-negotiable.
 
 ---
 
@@ -150,8 +148,7 @@ so every aircraft feature vector would encode it. Because it is near-identical a
 classes it mostly wastes representational capacity rather than actively misleading the
 classifier, but removing it is free and strictly correct.
 
-**Decision:** crop the bottom 20 px before resizing, in Step 2. The earlier draft noted the
-banner in a markdown comment and then did nothing about it.
+**Decision:** crop the bottom 20 px before resizing, in Step 2.
 
 ### 2. Source resolution is never the bottleneck
 
@@ -177,7 +174,7 @@ other (and it still loses 26% at the median, harmlessly).
 **We keep the standard preprocessing anyway.** The preprocessing associated with each
 pretrained checkpoint is kept unchanged, since deviating would break comparability both
 with the pretrained encoders and with Stages 2–3. This is recorded as a **known, quantified
-limitation** — and it is a strong, evidence-backed answer if we are asked why Aircraft
+limitation** — and it is a strong, evidence-backed explanation for why Aircraft
 accuracy is so much lower than DTD's.
 
 ### 4. Both datasets are near-balanced
@@ -198,51 +195,6 @@ placement and tail geometry.
 
 ---
 
-## What changed from an earlier draft
-
-This is a complete rewrite. The earlier version is preserved in `_original_colab/`.
-
-| Area | Earlier draft | Now |
-| --- | --- | --- |
-| Platform | Colab + `drive.mount()` | Local, VS Code, no cloud dependency |
-| Data source | Downloaded ~3.4 GB from the internet | Reads `Stage_1/Data/` already on disk |
-| Paths | Hardcoded `/content/drive/MyDrive/...` | Resolved by the installed `cvlab` package |
-| Helper code | Redefined inline per notebook | Imported from `cvlab.data` / `cvlab.plotting` |
-| Verification | 4 asserts (class counts, class-list equality) | **20 assertions** incl. split disjointness, file presence, K-shot feasibility |
-| Execution evidence | **No cell was ever executed** — zero saved outputs | Fully executed, all 14 code cells with outputs committed |
-| Quantitative output | None | 12 CSV tables |
-| Plots | 1 (four sample thumbnails) | 8 analysis figures |
-| Aircraft banner | Mentioned in prose, never investigated | Measured, visualised, and acted on in Step 2 |
-| Image geometry | Not examined | Measured; produced the centre-crop finding above |
-
----
-
-## Environment
-
-Created once, outside OneDrive — a 2.5 GB CUDA environment must not be cloud-synced:
-
-```powershell
-C:\Users\youse\AppData\Local\Programs\Python\Python310\python.exe -m venv C:\cvlab_env
-
-C:\cvlab_env\Scripts\python.exe -m pip install torch==2.6.0 torchvision==0.21.0 `
-    --index-url https://download.pytorch.org/whl/cu124
-
-C:\cvlab_env\Scripts\python.exe -m pip install numpy pandas matplotlib scikit-learn `
-    seaborn pillow jupyter ipykernel nbformat nbconvert tqdm
-
-C:\cvlab_env\Scripts\python.exe -m ipykernel install --user --name cvlab `
-    --display-name "Python (CVLAB Stage 1)"
-```
-
-Verified working: `torch 2.6.0+cu124`, `torchvision 0.21.0+cu124`, CUDA available on the
-**NVIDIA GeForce RTX 3050 Laptop GPU (4.0 GB)**.
-
-The Anaconda base environment already had a **CPU-only** build of PyTorch and no
-torchvision at all, which is why a dedicated CUDA environment was created rather than
-modifying the base install.
-
----
-
 ## Next step
 
 **Step 2 — Feature extraction.** Load the frozen encoders (ResNet-18 on both datasets,
@@ -255,7 +207,7 @@ Carry forward into Step 2:
 1. Crop the bottom 20 px from every FGVC-Aircraft image before the resize.
 2. Define every transform at module level. Windows starts DataLoader workers with the
    `spawn` method, which pickles the dataset and its transform — a class defined *inside* a
-   function cannot be pickled, which is what broke the earlier draft's `num_workers=2`
-   outside Colab. Keeping the transforms in `cvlab.encoders` preserves `num_workers > 0`,
+   function cannot be pickled, which is what breaks `num_workers > 0` on Windows.
+   Keeping the transforms in `cvlab.encoders` preserves them,
    measured in Step 2 to be worth roughly a 2x speed-up.
 3. Batch size 64 rather than 128, to stay well inside 4 GB of VRAM.

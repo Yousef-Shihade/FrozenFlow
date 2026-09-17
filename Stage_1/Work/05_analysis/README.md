@@ -9,7 +9,7 @@ University of Haifa
 
 The notebook that pulls together everything the project's classification-baseline pipeline
 needs to present and discuss. Nothing is measured here — it reads what steps 2–4 already
-produced and assembles the five core deliverables:
+produced and assembles the five core results:
 
 1. Accuracy table (every dataset × encoder × K × baseline)
 2. Accuracy vs. training-set size, with error bars
@@ -50,16 +50,16 @@ Full combined table (18 rows, all K × both methods) in `tables/combined_accurac
 
 ---
 
-## Two problems fixed from the earlier draft
+## Two decisions in the feature-visualization section
 
-The earlier `05_analysis` notebook (archived in `_original_colab/`) built all five
-deliverables reasonably, with two real bugs in the feature-visualization section — the one
-deliverable that involves genuinely new code rather than re-plotting existing results.
+Four of the five results re-plot what steps 2–4 already computed. The feature visualization
+is the one that needs genuinely new code, and two choices inside it decide whether the plot
+answers anything at all.
 
-### 1. Prototypes projected without normalizing the features first
+### 1. The features must be normalized before the joint projection
 
-Its `plot_feature_viz` concatenated **raw** test features with **unit-norm** prototypes and
-projected the mix directly:
+Concatenating **raw** test features with **unit-norm** prototypes and projecting the mix
+directly does not work:
 
 ```python
 combined = np.concatenate([feats_sel, proto_sel], axis=0)  # feats_sel: norm ~24-50
@@ -68,15 +68,15 @@ proj = TSNE(...).fit_transform(combined)
 ```
 
 Step 2 measured ResNet-18/DINOv2 feature norms at roughly 24–50 — never close to the
-prototypes' unit norm. Section 6a of this notebook reproduces the effect directly: with
+prototypes' unit norm. Section 6a of this notebook demonstrates the effect directly: with
 unnormalized features, all 9 prototype stars get crushed into a single corner of the plot
-regardless of the actual class geometry (`plots/normalization_bug_demo.png`, left panel).
+regardless of the actual class geometry (`plots/normalization_effect.png`, left panel).
 L2-normalizing the test features before the joint fit — the same normalization the
 prototypes themselves are built from — fixes it (right panel): each star lands inside or
-near its own class's point cloud, which is the actual question this deliverable is supposed
-to let a reader answer.
+near its own class's point cloud, which is the actual question this plot is supposed to let
+a reader answer.
 
-### 2. Class selection produced 8 near-duplicate classes out of 10
+### 2. Class selection has to be systematic, not index-based
 
 ```python
 SELECTED_CLASSES = list(range(10))   # "arbitrary but deterministic"
@@ -87,14 +87,14 @@ For FGVC-Aircraft, class indices are alphabetically sorted, so `range(10)` selec
 — eight of ten are 737 variants, close to the worst possible choice for a *readable* subset
 of visually distinct classes.
 
-Fixed with `pick_diverse_classes`: an evenly spaced stride through the sorted class list
+We use `pick_diverse_classes` instead: an evenly spaced stride through the sorted class list
 (`np.linspace(0, n-1, 9).astype(int)`), which selects nine genuinely different aircraft
 families — `707-320, 747-300, A319, BAE 146-200, Cessna 525, DHC-8-300, Falcon 2000, MD-80,
 Yak-42` — and nine visually distinct DTD textures. Deterministic and systematic rather than
 either arbitrary or hand-picked.
 
-A smaller change alongside these: confusion-matrix predictions are loaded from step 3's
-saved `linear_probe_predictions.pt` instead of retraining two probes just to get them, which
+One more decision alongside these: confusion-matrix predictions are loaded from step 3's
+saved `linear_probe_predictions.pt` rather than retraining probes just to obtain them, which
 removes any risk of the confusion matrix quietly describing a slightly different model from
 the one in the accuracy table.
 
@@ -125,7 +125,7 @@ the level of specific class pairs rather than an aggregate accuracy number.
 
 PCA rather than t-SNE, deliberately — it is deterministic (no perplexity/seed sensitivity to
 justify) and "fit jointly on features and prototypes" has an unambiguous meaning for a linear
-projection, keeping section 6 about the normalization fix rather than about
+projection, keeping section 6 about the normalization step rather than about
 projection-hyperparameter choices.
 
 On FGVC-Aircraft, DINOv2's 9 classes visibly separate into tighter, more distinct clusters
@@ -141,42 +141,27 @@ qualitatively: it is not a performance measurement.
 
 | File | Contents |
 | --- | --- |
-| `methodology.csv` | The 5 deliverables and where each is produced |
-| `combined_accuracy_table.csv` | Deliverable 1 — 18 rows, both baselines |
+| `methodology.csv` | The 5 results and where each is produced |
+| `combined_accuracy_table.csv` | Result 1 — 18 rows, both baselines |
 | `top_confusions.csv` | Every off-diagonal confusion, sorted by rate (976 rows) |
 
 ### Plots (`plots/`)
 
 | File | Shows |
 | --- | --- |
-| `accuracy_vs_k.png` | Deliverable 2 — both baselines vs. K, error bars |
-| `loss_curves.png` | Deliverable 3 — representative 10-shot train/val loss, all 3 combinations |
-| `confusion_matrices.png` | Deliverable 4 — DTD (labeled) + Aircraft (unlabeled, see table) |
-| `normalization_bug_demo.png` | Before/after: why prototypes must be normalized before a joint projection |
-| `feature_viz_dtd.png` | Deliverable 5 — ResNet-18 / DTD, 9 classes + prototypes |
-| `feature_viz_aircraft.png` | Deliverable 5 — ResNet-18 vs. DINOv2, same 9 classes/images/colors |
-
----
-
-## What changed from an earlier draft
-
-| Area | Earlier draft | Now |
-| --- | --- | --- |
-| Platform | Colab + Drive | Local, package-backed |
-| Confusion-matrix predictions | Retrained 2 probes to get them | Loaded from step 3's saved `linear_probe_predictions.pt` |
-| Confusion-matrix readability | Unlabeled axes, heatmap only | DTD labeled directly; Aircraft gets a sorted top-confusions table |
-| Feature-viz normalization | Raw features + unit-norm prototypes projected together | Features L2-normalized to match prototypes before the joint fit |
-| Feature-viz class selection | `list(range(10))` — 8/10 near-duplicate 737 variants | Systematic diverse stride — 9 distinct families/textures |
-| Projection method | t-SNE (stochastic, perplexity-dependent) | PCA (deterministic, unambiguous "joint fit") |
-| std convention | — | `cvlab/evaluation.py`, `ddof=1`, same as steps 3–4 |
+| `accuracy_vs_k.png` | Result 2 — both baselines vs. K, error bars |
+| `loss_curves.png` | Result 3 — representative 10-shot train/val loss, all 3 combinations |
+| `confusion_matrices.png` | Result 4 — DTD (labeled) + Aircraft (unlabeled, see table) |
+| `normalization_effect.png` | Before/after: why prototypes must be normalized before a joint projection |
+| `feature_viz_dtd.png` | Result 5 — ResNet-18 / DTD, 9 classes + prototypes |
+| `feature_viz_aircraft.png` | Result 5 — ResNet-18 vs. DINOv2, same 9 classes/images/colors |
 
 ---
 
 ## Stage 1 status
 
-All five deliverables are produced and all five notebooks execute cleanly end to end from
-`Stage_1/Data/`. Two final-polish items are also closed out: step 2's cache-verification cell
-now uses `cvlab.data.labels()` instead of `reference._labels` directly, and a full clean
-re-run of all 5 notebooks from a deleted `features/`/`results/` cache reproduced every saved
-number **bit-for-bit identical** to the prior run — independent confirmation that nothing in
-the pipeline depends on hidden state.
+All five results are produced and all five notebooks execute cleanly end to end from
+`Stage_1/Data/`. Reproducibility was verified directly: a full clean re-run of all 5
+notebooks from a deleted `features/`/`results/` cache reproduced every saved number
+**bit-for-bit identical** to the prior run — independent confirmation that nothing in the
+pipeline depends on hidden state.

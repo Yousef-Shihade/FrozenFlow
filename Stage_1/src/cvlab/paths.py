@@ -1,8 +1,7 @@
 """
 Project path resolution.
 
-Replaces the Google-Drive mounting the original Colab notebooks relied on. Every path in
-the project derives from one anchor — the ``Stage_1/`` directory — which is located
+Every path in the project derives from one anchor — the ``Stage_1/`` directory — which is located
 automatically, so nothing is hardcoded and moving the project breaks nothing.
 
 Why the two dataset roots look asymmetric

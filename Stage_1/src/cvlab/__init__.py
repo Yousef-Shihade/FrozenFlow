@@ -10,9 +10,9 @@ The project is organised as a **package + notebooks** pair:
   why, and what the results mean. They read as a narrative and are what we present.
 
 The split matters for reproducibility: results need to be reproducible and the protocol
-needs to be explainable. Duplicated helper code across five notebooks (as in an earlier
-draft, where ``load_features`` and the k-shot sampler were pasted into three notebooks
-each) makes both harder — a fix applied to one copy silently leaves the others wrong.
+needs to be explainable. Duplicating helper code across five notebooks — pasting
+``load_features`` and the k-shot sampler into three of them each — makes both harder, since
+a fix applied to one copy silently leaves the others wrong.
 
 Install once, in editable mode, so notebooks can simply ``import cvlab``::
 
