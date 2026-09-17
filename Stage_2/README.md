@@ -41,8 +41,8 @@ $\hat z_{k+1} = \hat z_k + \tfrac{1}{T} v_\theta(\hat z_k, \tfrac{k}{T})$, then 
 $\hat z_T$ by cosine similarity to the prototypes.
 
 **Standard FM training is $T$-independent** — one trained model is evaluated at both
-$T = 4$ and $T = 12$. **Rolled-out training is not** — the brief requires the same $T$ at
-training and inference, so it needs a separate model per $T$.
+$T = 4$ and $T = 12$. **Rolled-out training is not** — since $T$ is part of the rollout that is
+backpropagated through, it needs a separate model per $T$.
 
 ---
 
@@ -166,9 +166,8 @@ training so the comparison isolates the objective.
 ```text
 Stage_2/
 ├── README.md                  this file
-├── docs/                      the Stage 2 brief (not tracked)
 ├── src/cvlabfm/               FM layer, training loops, rollout — the reusable code
-├── tests/                     the brief's formulas, checked against the implementation
+├── tests/                     the objective and rollout formulas, checked against the implementation
 ├── Work/
 │   ├── 01_setup_prototypes/   load Stage 1 features, rebuild prototypes, verify vs Stage 1
 │   ├── 02_standard_fm/        standard FM training
@@ -176,6 +175,9 @@ Stage_2/
 │   ├── 04_evaluation/         accuracy table, ΔAcc, accuracy-vs-K, training curves
 │   └── 05_visualizations/     feature-space comparison, flow trajectories
 ├── results/                   shared artefacts consumed across notebooks
+│                               (the two *_models.pt weight files are NOT in git, ~26 MB
+│                               combined, regenerable by re-running steps 2 and 3 — everything
+│                               needed to check the results is tracked instead)
 └── Reports/                   Stage2Report.pdf — the written report
 ```
 
@@ -203,14 +205,14 @@ bit-for-bit.
 
 ---
 
-## Does the code compute what the brief specifies?
+## Does the code compute the formulas it claims to?
 
 Every result here rests on that being true, and it is unusually easy to break without
 noticing: a loss averaged over the feature dimension, a rollout whose last step lands on
 $t = 1$, or an interpolation normalized on one side only would each still train, still
 converge, and still produce a plausible accuracy table.
 
-`tests/test_flow.py` re-derives each of the brief's four formulas from its wording and asserts
+`tests/test_flow.py` re-derives each of the four formulas from their stated form and asserts
 the implementation agrees — deliberately written the slow, literal way, so the check is
 independent of the code it checks.
 

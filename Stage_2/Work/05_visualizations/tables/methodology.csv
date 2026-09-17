@@ -1,5 +1,5 @@
 item,value
-scope,brief deliverables 3 (feature-space) and 4 (flow trajectories)
+scope,results 3 (feature-space) and 4 (flow trajectories)
 models,"representative runs only - full data, seed 0, from steps 2 and 3"
 training,none - forward rollouts on cached test features only
 projection,PCA fitted JOINTLY over original + standard + rolled-out + prototypes

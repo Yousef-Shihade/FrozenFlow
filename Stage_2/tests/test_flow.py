@@ -1,19 +1,19 @@
 """
-Does the implementation compute what the Stage 2 brief actually specifies?
+Does the implementation compute the formulas Stage 2 is built on?
 
-Every number in Stage 2 rests on one claim: that `cvlabfm.flow` implements the brief's four
-formulas and not something merely close to them. That claim is unusually easy to break
+Every number in Stage 2 rests on one claim: that `cvlabfm.flow` implements the four
+formulas below and not something merely close to them. That claim is unusually easy to break
 silently. A loss that averages over the feature dimension, a rollout whose last step lands on
 ``t = 1``, an interpolation that normalizes one side and not the other — each would still
 train, still converge, and still fill in a plausible accuracy table. Nothing in a notebook's
 output would look wrong.
 
-So each test below re-derives one formula directly from the brief's wording and asserts the
+So each test below re-derives one formula directly from its stated form and asserts the
 implementation agrees. The re-derivations are deliberately written the slow, literal way
 (explicit Python loops, no reuse of the helpers under test) — being independent of the
 implementation is the entire point.
 
-The brief's four formulas:
+The four formulas:
 
     Euler step      z_{k+1} = z_k + (1/T) v(z_k, k/T),  k = 0 .. T-1
     Standard FM     t ~ U(0,1), z_t = (1-t) z_i + t p_yi, u_i = p_yi - z_i
@@ -80,10 +80,10 @@ def prototypes() -> torch.Tensor:
     return l2_normalize(torch.randn(N_CLASSES, DIM))
 
 
-# --- The brief's formulas ----------------------------------------------------------------
+# --- The four formulas -------------------------------------------------------------------
 
 @pytest.mark.parametrize("T", [1, 4, 12])
-def test_euler_rollout_matches_the_brief(net, z0, T):
+def test_euler_rollout_matches_the_formula(net, z0, T):
     """z_{k+1} = z_k + (1/T) v(z_k, k/T), integrated by hand."""
     expected = z0.clone()
     for k in range(T):
@@ -121,7 +121,7 @@ def test_constant_velocity_field_integrates_exactly(z0):
         assert torch.allclose(euler_rollout(ConstantVelocity(), z0, T), z0 + 2.0, atol=1e-5)
 
 
-def test_standard_fm_loss_matches_the_brief(net, prototypes):
+def test_standard_fm_loss_matches_the_formula(net, prototypes):
     """L_FM = || v((1-t) z_i + t p_yi, t) - (p_yi - z_i) ||_2^2, averaged over the batch."""
     torch.manual_seed(3)
     z_i = l2_normalize(torch.randn(N_EXAMPLES, DIM))
@@ -139,7 +139,7 @@ def test_standard_fm_loss_matches_the_brief(net, prototypes):
     assert float(_mse_per_example(v, u_i)) == pytest.approx(by_hand, rel=1e-6)
 
 
-def test_rolled_out_loss_matches_the_brief(net, z0, prototypes):
+def test_rolled_out_loss_matches_the_formula(net, z0, prototypes):
     """L_roll = || z_T - p_yi ||_2^2, where z_T is the *same* rollout used at inference."""
     torch.manual_seed(4)
     y = torch.randint(0, N_CLASSES, (N_EXAMPLES,))
@@ -154,8 +154,8 @@ def test_rolled_out_loss_matches_the_brief(net, z0, prototypes):
 def test_loss_is_squared_l2_not_mean_over_feature_dimension():
     """The trap this guards: ``F.mse_loss`` also divides by D, rescaling the loss 512x.
 
-    Training would still converge, but the reported loss would no longer be the quantity the
-    brief names, and the two objectives' curves would not be on comparable scales.
+    Training would still converge, but the reported loss would no longer be the stated
+    quantity, and the two objectives' curves would not be on comparable scales.
     """
     torch.manual_seed(5)
     a, b = torch.randn(4, DIM), torch.randn(4, DIM)
@@ -238,13 +238,13 @@ def test_velocity_net_accepts_scalar_and_batched_times(net, z0):
         assert net(z0, t).shape == z0.shape
 
 
-def test_velocity_net_has_the_architecture_the_brief_suggests():
+def test_velocity_net_has_the_designed_architecture():
     """2 hidden layers of width 512, input = feature + scalar t, output = feature dim."""
     net = VelocityNet(dim=512, hidden_dim=512, n_hidden=2)
     n_params = sum(p.numel() for p in net.parameters())
     expected = (513 * 512 + 512) + (512 * 512 + 512) + (512 * 512 + 512)
 
-    assert n_params == expected, "architecture drifted from the brief's suggestion"
+    assert n_params == expected, "architecture drifted from the designed configuration"
 
 
 def test_same_seed_gives_identical_results(prototypes):
@@ -263,7 +263,7 @@ def test_same_seed_gives_identical_results(prototypes):
 
 
 def test_both_objectives_start_from_the_same_initialisation(prototypes):
-    """The brief asks for architecture and training choices to be held fixed.
+    """Architecture and training choices are held fixed between the two objectives.
 
     Both loops go through the same ``_prepare``, so for a given seed they must begin from
     byte-identical weights — otherwise a measured difference could be initialisation, not
@@ -296,7 +296,7 @@ def test_normalization_flag_actually_changes_the_inputs(prototypes):
                                        device=DEVICE, normalize=False)
     assert hist_norm != hist_raw, "normalize=False did not reach the training path"
 
-    # Both objectives carry the same knob, so the parity the brief asks for cannot drift.
+    # Both objectives carry the same knob, so this parity cannot drift between them.
     _, roll_norm, _ = train_rolled_out_fm(x, y, prototypes, T=4, seed=4, config=cfg,
                                           device=DEVICE, normalize=True)
     _, roll_raw, _ = train_rolled_out_fm(x, y, prototypes, T=4, seed=4, config=cfg,

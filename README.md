@@ -222,7 +222,7 @@ feature cache and results, so Stage 1 must be run first.
 C:\cvlab_env\Scripts\python.exe -m pytest Stage_2/tests -q   # 21 passed
 ```
 
-checks the Stage 2 implementation against the brief's formulas.
+checks the Stage 2 implementation against its formulas.
 
 ---
 
@@ -274,8 +274,8 @@ Three checks were added because the conclusions depend on them:
 - **The L2-normalization decision is ablated, not assumed.** Training the identical objective
   on raw features costs **15.8–20.3 pp**, and on both ResNet-18 combinations leaves the flow
   *worse than no flow at all*.
-- **The implementation is checked against the brief's formulas.** A 21-test suite re-derives
-  the Euler step, both losses, and the classification rule from the brief's wording and
+- **The implementation is checked against its own formulas.** A 21-test suite re-derives
+  the Euler step, both losses, and the classification rule from their stated form and
   asserts the code agrees. The suite was validated by deliberately breaking the
   implementation and confirming it noticed.
 

@@ -43,9 +43,9 @@ Stage 1's linear probe selected the best epoch by validation accuracy. That is d
 *not* done here. The two objectives are on different scales and measure different things
 (velocity error vs. endpoint distance), so there is no single validation quantity that could
 select fairly between them. A fixed epoch budget, held identical across both, keeps the
-comparison about the objective rather than about a selection rule — which is what the brief's
-"keep the main training choices fixed" asks for. Training curves are recorded so stability
-can be verified directly.
+comparison about the objective rather than about a selection rule, so the main training
+choices stay fixed between them. Training curves are recorded so stability can be verified
+directly.
 """
 
 from __future__ import annotations
@@ -74,9 +74,9 @@ __all__ = [
 class FlowConfig:
     """Training and architecture settings, held fixed across both objectives.
 
-    The brief asks for a small MLP and explicitly discourages hyperparameter search, so these
-    mirror Stage 1's probe configuration where they overlap (AdamW, lr 1e-3, weight decay
-    1e-4, batch size 64) rather than introducing new numbers to justify.
+    Deliberately a small, untuned MLP. These settings mirror Stage 1's probe configuration
+    where they overlap (AdamW, lr 1e-3, weight decay 1e-4, batch size 64) rather than
+    introducing new numbers to justify.
     """
 
     hidden_dim: int = 512
@@ -170,10 +170,9 @@ def euler_rollout(
 ) -> torch.Tensor | tuple[torch.Tensor, torch.Tensor]:
     """Integrate the velocity field with ``T`` uniform Euler steps.
 
-    Implements ``z_{k+1} = z_k + (1/T) v(z_k, k/T)`` for ``k = 0 .. T-1``, exactly as the
-    brief specifies. Used unchanged for inference and inside rolled-out training, which is
-    the point: the two must not drift apart, or the "no train/inference mismatch" claim
-    stops being true.
+    Implements ``z_{k+1} = z_k + (1/T) v(z_k, k/T)`` for ``k = 0 .. T-1``. Used unchanged
+    for inference and inside rolled-out training, which is the point: the two must not
+    drift apart, or the "no train/inference mismatch" claim stops being true.
 
     No ``torch.no_grad()`` here — rolled-out training needs to backpropagate through the
     entire sequence. Callers that only evaluate should wrap the call themselves.
@@ -219,7 +218,7 @@ def classify_by_prototype(z: torch.Tensor, prototypes: torch.Tensor) -> torch.Te
 def _mse_per_example(a: torch.Tensor, b: torch.Tensor) -> torch.Tensor:
     """Mean over the batch of the **squared L2 norm** per example.
 
-    Written out rather than using ``F.mse_loss`` because the brief's objectives are stated as
+    Written out rather than using ``F.mse_loss`` because both objectives are stated as
     ``|| . ||_2^2``, and ``mse_loss`` would additionally divide by the feature dimension —
     a 384x or 512x rescale of the loss. Adam largely absorbs a constant factor, but the
     reported loss values would no longer match the formulas being compared.
@@ -344,9 +343,9 @@ def train_rolled_out_fm(
 
     Args:
         normalize: L2-normalize inputs. Mirrors :func:`train_standard_fm` so the two
-            objectives keep identical knobs — the brief asks for the training choices to be
-            held fixed between them, and a flag present on only one is a way for that to
-            quietly stop being true.
+            objectives keep identical knobs — the training choices are meant to stay fixed
+            between them, and a flag present on only one is a way for that to quietly stop
+            being true.
 
     Returns:
         ``(net, history, elapsed_s)`` — history is the mean loss per epoch.

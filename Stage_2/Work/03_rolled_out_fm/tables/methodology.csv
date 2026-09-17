@@ -1,7 +1,7 @@
 item,value
 objective,"L_roll = ||z_T - p||^2, backpropagated through all T steps"
 rollout,cvlabfm.flow.euler_rollout - the same function used at inference
-T at training,"equal to T at inference, as the brief requires"
+T at training,"equal to T at inference, by construction"
 architecture,"identical to step 2: MLP 2 x 512, SiLU"
 optimiser,"identical to step 2: AdamW, lr 0.001, wd 0.0001, batch 64"
 gradient clipping,"norm 1.0 - added for this objective's stability, applied to step 2 as well to keep them identical"

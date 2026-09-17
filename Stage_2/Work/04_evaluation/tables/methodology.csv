@@ -1,5 +1,5 @@
 item,value
-scope,brief deliverables 1 (classification results) and 2 (training curves)
+scope,results 1 (classification results) and 2 (training curves)
 computation,none - every number read from steps 2-3 saved results
 methods compared,"5: baseline, standard FM T=4/12, rolled-out FM T=4/12"
 cells,45 = 3 combos x 3 K x 5 methods

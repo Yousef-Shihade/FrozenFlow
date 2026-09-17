@@ -7,7 +7,7 @@ University of Haifa
 
 ## Purpose
 
-Assemble the Stage 2 brief's first two required deliverables from the results steps 2 and 3
+Assemble the first two of Stage 2's four results from the results steps 2 and 3
 already saved.
 
 **Nothing is retrained and no rollout is re-run.** Every number here is read off disk, which
@@ -15,7 +15,7 @@ is what guarantees the table, the plots and the per-run CSVs all describe exactl
 models — a confusion matrix or a plot built from a re-trained model would silently describe a
 *different* one.
 
-| Brief deliverable | Produced |
+| Result | Produced |
 | --- | --- |
 | 1. Classification results — all methods, $\Delta\mathrm{Acc}$, accuracy-vs-$K$ with error bars | **here** |
 | 2. Training curves — both objectives, verifying stable training | **here** |
@@ -210,9 +210,9 @@ what a trained classifier would, not why.
 
 | File | Shows |
 | --- | --- |
-| `accuracy_vs_k.png` | **Required deliverable** — accuracy vs. training-set size, all five methods, error bars |
+| `accuracy_vs_k.png` | **Core result** — accuracy vs. training-set size, all five methods, error bars |
 | `delta_vs_baseline.png` | All 36 FM cells against the baseline, grouped by setting |
-| `training_curves.png` | **Required deliverable** — both objectives, mean over 3 seeds, min/max band |
+| `training_curves.png` | **Core result** — both objectives, mean over 3 seeds, min/max band |
 | `gain_analysis.png` | What predicts the gain: separability (it does not) and $K$ (it does) |
 | `gain_vs_headroom.png` | The relationship that orders all nine cells, and the break-even threshold |
 
@@ -220,7 +220,7 @@ what a trained classifier would, not why.
 
 ## Next step
 
-**Step 5 — Visualisations.** The brief's remaining two deliverables: feature-space comparisons
+**Step 5 — Visualisations.** The remaining two results: feature-space comparisons
 (original encoder features vs. after standard FM vs. after rolled-out FM — same test examples,
 same class colours, projection fitted jointly across the compared sets), and flow trajectories
 showing intermediate states between the original feature and its class prototype.

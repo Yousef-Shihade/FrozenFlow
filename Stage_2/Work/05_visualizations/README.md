@@ -7,9 +7,9 @@ University of Haifa
 
 ## Purpose
 
-The Stage 2 brief's remaining two deliverables, plus the optional reverse-flow exploration.
+Stage 2's remaining two results, plus the optional reverse-flow exploration.
 
-| # | Deliverable | Requirement |
+| # | Result | What it shows |
 | --- | --- | --- |
 | 3 | **Feature-space visualisations** | Original features vs. after standard FM vs. after rolled-out FM. Same test examples, same class colours, corresponding prototypes, projection fitted **jointly**. |
 | 4 | **Flow trajectories** | Intermediate FM states with the original feature, the transported feature, and the class prototype. |
@@ -34,8 +34,9 @@ steps 2 and 3, and only forward rollouts on cached test features are computed.
 
 ## Two methodological choices
 
-**The projection is fitted jointly.** The brief requires the compared views to "correspond to
-the same low-dimensional representation". A separate PCA per panel would rotate and rescale
+**The projection is fitted jointly.** The compared views must "correspond to the same
+low-dimensional representation" for a side-by-side reading to mean anything. A separate PCA
+per panel would rotate and rescale
 each view independently, so a cluster that *appears* to tighten might merely have been
 re-scaled. One PCA is therefore fitted on the concatenation of every set being compared —
 original features, standard-FM outputs, rolled-out outputs and all prototypes — and applied
@@ -147,7 +148,8 @@ so this is exploratory and is not used to support any claim.
 
 ## Samples and prototypes at intermediate flow times
 
-The brief's optional exploration. `distance_by_step.png` measures, at every Euler step, how
+An optional exploration beyond the two required results. `distance_by_step.png` measures,
+at every Euler step, how
 far $\hat z_k$ is from **its own** prototype and from the **nearest competing** one — in full
 dimensionality, not in the PCA projection. It turns out to explain the two findings above
 geometrically rather than just illustrating them.
@@ -209,11 +211,11 @@ right one, which is what a 16–25 % baseline looks like geometrically.
 
 | File | Shows |
 | --- | --- |
-| `feature_space_dinov2_aircraft.png` | **Deliverable 3** — the success case (+22.3 pp) |
-| `feature_space_resnet18_dtd.png` | **Deliverable 3** — the failure case (−1.6 pp), which looks similar |
-| `feature_space_resnet18_aircraft.png` | **Deliverable 3** — the third combination |
-| `flow_trajectories_dinov2.png` | **Deliverable 4** — smooth vs. zigzagging paths |
-| `flow_trajectories_resnet18_dtd.png` | **Deliverable 4** — the same contrast on DTD |
+| `feature_space_dinov2_aircraft.png` | **Result 3** — the success case (+22.3 pp) |
+| `feature_space_resnet18_dtd.png` | **Result 3** — the failure case (−1.6 pp), which looks similar |
+| `feature_space_resnet18_aircraft.png` | **Result 3** — the third combination |
+| `flow_trajectories_dinov2.png` | **Result 4** — smooth vs. zigzagging paths |
+| `flow_trajectories_resnet18_dtd.png` | **Result 4** — the same contrast on DTD |
 | `accuracy_by_step.png` | Accuracy of the intermediate state at every step — the mid-rollout collapse |
 | `distance_by_step.png` | Samples vs. prototypes at intermediate flow times — own prototype against nearest rival |
 | `contraction_measured.png` | The contraction claim, measured in full dimensionality |
@@ -221,9 +223,9 @@ right one, which is what a 16–25 % baseline looks like geometrically.
 
 ---
 
-## Stage 2 deliverables — complete
+## Stage 2 results — complete
 
-| # | Deliverable | Where |
+| # | Result | Where |
 | --- | --- | --- |
 | 1 | Classification results, $\Delta\mathrm{Acc}$, accuracy-vs-$K$ with error bars | step 4 |
 | 2 | Training curves, both objectives | step 4 |
