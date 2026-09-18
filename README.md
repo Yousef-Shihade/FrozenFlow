@@ -139,7 +139,7 @@ Three findings worth stating up front:
   Stage 1 ordering — moves the *wrong way* where the gain is real.
 
 Full detail, including the no-normalization ablation, the four-knob guided sweep and the
-the joint fine-tuning extension: **[Stage_3/README.md](Stage_3/README.md)**.
+joint fine-tuning extension: **[Stage_3/README.md](Stage_3/README.md)**.
 
 ---
 
@@ -180,7 +180,9 @@ See **[Stage_1/README.md](Stage_1/README.md)**, **[Stage_2/README.md](Stage_2/RE
 
 ### 1. Python environment
 
-Requires Python 3.10+ and an NVIDIA GPU for Step 2 (Steps 1 and 3–5 run fine on CPU).
+Requires Python 3.10+. An NVIDIA GPU is needed for feature extraction (Stage 1) and for
+training the flow-matching and classifier models (Stages 2 and 3); every other step runs fine
+on CPU. Each stage's README lists exactly which steps need it and how long they take.
 
 ```powershell
 # Create an environment OUTSIDE any cloud-synced folder - it is ~5 GB
@@ -193,6 +195,7 @@ C:\cvlab_env\Scripts\python.exe -m pip install torch==2.6.0 torchvision==0.21.0 
 C:\cvlab_env\Scripts\python.exe -m pip install -r requirements.txt
 C:\cvlab_env\Scripts\python.exe -m pip install -e Stage_1
 C:\cvlab_env\Scripts\python.exe -m pip install -e Stage_2
+C:\cvlab_env\Scripts\python.exe -m pip install -e Stage_3
 
 C:\cvlab_env\Scripts\python.exe -m ipykernel install --user --name cvlab `
     --display-name "Python (CVLAB Stage 1)"
@@ -213,16 +216,18 @@ results](Stage_1/README.md#reproducing-these-results)**.
 
 ### 3. Run
 
-Open any notebook under `Stage_1/Work/*/code/` or `Stage_2/Work/*/code/` in VS Code, select
-the kernel **Python (CVLAB Stage 1)**, and Run All. Steps must run in order the first time,
-because each consumes the previous step's artefacts — and all of Stage 2 depends on Stage 1's
-feature cache and results, so Stage 1 must be run first.
+Open any notebook under `Stage_1/Work/*/code/`, `Stage_2/Work/*/code/`, or
+`Stage_3/Work/*/code/` in VS Code, select the kernel **Python (CVLAB Stage 1)**, and Run All.
+Steps must run in order the first time, because each consumes the previous step's artefacts:
+Stage 2 depends on Stage 1's feature cache and results, and Stage 3 depends on both — Stage 1's
+trained classifier and Stage 2's flow implementation — so Stage 1 runs first, then Stage 2,
+then Stage 3.
 
 ```powershell
-C:\cvlab_env\Scripts\python.exe -m pytest Stage_2/tests -q   # 21 passed
+C:\cvlab_env\Scripts\python.exe -m pytest Stage_2/tests Stage_3/tests -q   # 52 passed
 ```
 
-checks the Stage 2 implementation against its formulas.
+checks both stages' implementations against their formulas.
 
 ---
 
@@ -242,9 +247,9 @@ per-step tables (what each step does, GPU requirement, runtime):
 
 ### Stage 1
 
-**All five steps are complete**, executed locally with outputs committed. The
+All five steps ran locally end to end, with their outputs committed alongside the code. The
 classification-baseline pipeline — linear probe and image-derived prototypes, on DTD and
-FGVC-Aircraft, ResNet-18 on both and DINOv2 on Aircraft — is reproducible end to end from
+FGVC-Aircraft, ResNet-18 on both and DINOv2 on Aircraft — runs start to finish from
 `Stage_1/Data/`. Per-step findings live in
 **[Stage_1/README.md](Stage_1/README.md)**.
 
@@ -253,11 +258,9 @@ notebooks re-run from scratch, in order. Every saved result — all 27 linear-pr
 21 prototype runs, every prototype vector — came back **bit-for-bit identical** to the prior
 run.
 
-Stage 1 is complete and independently reproducible end to end.
-
 ### Stage 2
 
-**All five steps are complete**, with outputs committed and the written report in
+All five steps ran end to end, with outputs committed and the written report in
 `Stage_2/Reports/Stage2Report.pdf`. Per-step detail lives in each step's README; the
 consolidated account is **[Stage_2/README.md](Stage_2/README.md)**.
 
@@ -283,11 +286,9 @@ Reproducibility was verified the same way as Stage 1: re-training all **81 model
 scratch returned every accuracy and every loss curve **bit-for-bit identical**, and all 108
 reported accuracies recompute from the stored per-example predictions to within 6e-06 pp.
 
-Stage 2 is complete and independently reproducible end to end.
-
 ### Stage 3
 
-**All six steps are complete**, executed locally with outputs committed. Both training
+All six steps ran locally end to end, with outputs committed. Both training
 strategies are implemented and swept — 81 end-to-end runs across a
 learning-rate sweep and both regularisers, 99 classifier-guided runs across all four
 knobs Strategy 2 exposes, and 45 runs for the joint fine-tuning extension.
@@ -312,4 +313,5 @@ knobs Strategy 2 exposes, and 45 runs for the joint fine-tuning extension.
   ways on purpose; the first run caught only five, and the three misses were fixed by moving
   the formulas out of the tests and into the public API.
 
-**Stages 1 and 2 are not modified** — verified against git. All three stages are complete.
+Stage 3 was built without editing Stage 1 or Stage 2 — confirmed against git history — so
+every number in this project still traces back to the same original run that produced it.
