@@ -9,7 +9,8 @@ trained toward it with an ordinary Flow Matching update:
 3. Build $\hat z'$ by taking gradient steps on $\hat z$ in feature space.
 4. Source $z$, target $\hat z'$.
 5. Standard FM update: $t\sim\mathcal{U}(0,1)$, $z_t=(1-t)z+t\hat z'$, $u=\hat z'-z$,
-   $\mathcal{L}_\mathrm{FM}=\lVert v(z_t,t)-u\rVert^2$.
+   $\mathcal{L}_\mathrm{FM}=\mathrm{MSE}(v(z_t,t),u)$ — mean over the feature dimension, not
+   on the same numeric scale as Stage 2's summed loss.
 6. Recompute the targets as the flow changes.
 
 **99 runs**: 11 configurations × 3 combinations × 3 seeds, 16 minutes of training.

@@ -64,6 +64,10 @@ seeing different data.
 After Step 2, nothing touches the images or the encoders again — Steps 3–5 operate purely
 on cached vectors, which is what makes the whole sweep cheap enough to re-run at will.
 
+Step 2 also needs internet access the first time it runs: DINOv2 is fetched through
+`torch.hub` from GitHub and cached locally (`~/.cache/torch/hub`) afterward, so every run
+after the first works offline.
+
 ---
 
 ## Results
@@ -278,6 +282,10 @@ Verify:
 C:\cvlab_env\Scripts\python.exe -c "import torch; print(torch.__version__, torch.cuda.is_available())"
 # -> 2.6.0+cu124 True
 ```
+
+These commands are Windows/PowerShell, matching how this project was built and run. On
+Linux or macOS the same steps work with `python3 -m venv .venv` and `.venv/bin/python` in
+place of `python -m venv C:\cvlab_env` and `C:\cvlab_env\Scripts\python.exe`.
 
 ### 2. Datasets
 

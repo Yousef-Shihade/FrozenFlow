@@ -152,7 +152,7 @@ joint fine-tuning extension: **[Stage_3/README.md](Stage_3/README.md)**. Full re
 ## Repository structure
 
 ```text
-ProjectInComputerVision/
+FrozenFlow/
 ├── README.md                  <- this file, the project-wide overview
 ├── requirements.txt
 ├── .gitignore
@@ -221,6 +221,10 @@ Verify:
 C:\cvlab_env\Scripts\python.exe -c "import torch; print(torch.__version__, torch.cuda.is_available())"
 # -> 2.6.0+cu124 True
 ```
+
+These commands are Windows/PowerShell, matching how this project was built and run. On
+Linux or macOS the same steps work with `python3 -m venv .venv` and `.venv/bin/python` in
+place of `python -m venv C:\cvlab_env` and `C:\cvlab_env\Scripts\python.exe`.
 
 ### 2. Datasets
 

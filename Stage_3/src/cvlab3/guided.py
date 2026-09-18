@@ -15,17 +15,22 @@ One training step:
 5. Perform a standard FM update between them::
 
        t ~ U(0, 1),  z_t = (1 - t) z + t z',  u = z' - z
-       L_FM = || v(z_t, t) - u ||^2
+       L_FM = MSE(v(z_t, t), u)   (mean over the feature dimension)
 
 6. Recompute the targets as the flow changes during training.
 
 How this differs from Stage 2's standard FM
 -------------------------------------------
-Mechanically the update is identical - deliberately so, reusing Stage 2's standard FM
-machinery unchanged. The difference is where the target comes from. Stage 2's targets
-were **fixed class prototypes**: one vector per class, known before training, shared by every
-example of that class. Here the target is **per-example and moves during training**, because it
-is derived from the current flow's own output through a classifier gradient.
+Mechanically the update follows the same recipe as Stage 2's standard FM - the same
+interpolation and velocity-matching structure - though the loss here is ``nn.MSELoss``,
+which averages over the feature dimension as well as the batch, rather than Stage 2's
+summed convention (``((a - b) ** 2).sum(dim=1).mean()``). The two losses are therefore not
+on the same numeric scale; only their shape over training is comparable, not their raw
+magnitude. The difference that does matter is where the target comes from. Stage 2's
+targets were **fixed class prototypes**: one vector per class, known before training, shared
+by every example of that class. Here the target is **per-example and moves during
+training**, because it is derived from the current flow's own output through a classifier
+gradient.
 
 That has a consequence worth stating: Stage 2's targets were a fixed point the flow could
 converge to. These targets are recomputed from the flow that is chasing them, so the objective

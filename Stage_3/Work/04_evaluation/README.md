@@ -102,7 +102,7 @@ already-fitted linear boundary: about a point.
 substantially more robust to the learning rate.
 
 **What limits both?** Step 02 measured it: the frozen probe already classifies its own k-shot
-training set at 96–100%, so the signal both strategies chase is nearly exhausted and following
+training set at 98.44–100.00%, so the signal both strategies chase is nearly exhausted and following
 it further is memorisation. Both depend entirely on validation-accuracy checkpointing.
 
 ---

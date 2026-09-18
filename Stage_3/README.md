@@ -81,7 +81,8 @@ Use the classifier to **build a target**, then train the flow to it with an ordi
 4. Source $z$, target $\hat z'$ — **detached**, so this is a genuine FM update and not a second
    end-to-end objective.
 5. Standard FM: $t\sim\mathcal{U}(0,1)$, $z_t=(1-t)z+t\hat z'$, $u=\hat z'-z$,
-   $\mathcal{L}_\mathrm{FM}=\lVert v(z_t,t)-u\rVert^2$.
+   $\mathcal{L}_\mathrm{FM}=\mathrm{MSE}(v(z_t,t),u)$ — mean over the feature dimension, not
+   on the same numeric scale as Stage 2's summed loss.
 6. Recompute the targets every `refresh_every` epochs, as the flow changes.
 
 The classifier says **where to go**; the standard FM machinery does the **going**. The gradient
@@ -129,7 +130,7 @@ nearly as fast (selected epochs 101 / 117 / 198).
 
 ### What limits both
 
-The frozen probe already classifies **its own k-shot training set** at 96–100% (CE as low as
+The frozen probe already classifies **its own k-shot training set** at 98.44–100.00% (CE as low as
 0.005). Strategy 1's loss is computed on exactly that set, so the objective is nearly exhausted
 before training starts, and following it further is memorisation. Both strategies depend
 entirely on **validation-accuracy checkpointing** — Stage 1's own rule — to stop in time.
