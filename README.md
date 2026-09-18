@@ -154,8 +154,10 @@ ProjectInComputerVision/
 │   └── README.md              <- full detail: datasets, protocol, per-step results, setup
 ├── Stage_2/                   <- Flow Matching as the last layer
 │   └── README.md              <- full detail: objectives, results, design decisions, setup
-└── Stage_3/                   <- Flow Matching before a frozen linear classifier
-    └── README.md              <- full detail: both strategies, sweeps, design decisions, setup
+├── Stage_3/                   <- Flow Matching before a frozen linear classifier
+│   └── README.md              <- full detail: both strategies, sweeps, design decisions, setup
+└── FinalReport/               <- the three-stage story told as one report
+    └── Final_Report_Combined.pdf
 ```
 
 Each stage is a self-contained, independently installable package (`cvlab` for Stage 1,
@@ -313,5 +315,5 @@ knobs Strategy 2 exposes, and 45 runs for the joint fine-tuning extension.
   ways on purpose; the first run caught only five, and the three misses were fixed by moving
   the formulas out of the tests and into the public API.
 
-Stage 3 was built without editing Stage 1 or Stage 2 — confirmed against git history — so
-every number in this project still traces back to the same original run that produced it.
+Stage 3 was built without editing Stage 1 or Stage 2, so every number in this project still
+traces back to the same original run that produced it.
