@@ -1,4 +1,4 @@
-# Step 3 — Rolled-Out Flow Matching
+# Step 03 — Rolled-out flow matching
 
 **A Computer Vision Project — *Flow Matching as a Layer*** · Stage 2
 University of Haifa

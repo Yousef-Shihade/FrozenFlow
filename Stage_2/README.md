@@ -5,6 +5,8 @@ University of Haifa · 2026
 
 Yousef Shihade · Mira Bitar
 
+**Full report:** [Stage_2/Reports/Stage2Report.pdf](Reports/Stage2Report.pdf)
+
 ---
 
 ## Goal
@@ -166,6 +168,7 @@ training so the comparison isolates the objective.
 ```text
 Stage_2/
 ├── README.md                  this file
+├── pyproject.toml             makes `cvlabfm` installable
 ├── src/cvlabfm/               FM layer, training loops, rollout — the reusable code
 ├── tests/                     the objective and rollout formulas, checked against the implementation
 ├── Work/
@@ -188,10 +191,10 @@ Each `Work/` step follows the Stage 1 convention: `code/` (the notebook), `plots
 
 ## Reproducing these results
 
-```bash
-pip install -e Stage_1          # cvlab: encoders, features, prototypes, evaluation
-pip install -e Stage_2          # cvlabfm: the flow-matching layer
-python -m pytest Stage_2/tests -q
+```powershell
+C:\cvlab_env\Scripts\python.exe -m pip install -e Stage_1          # cvlab: encoders, features, prototypes, evaluation
+C:\cvlab_env\Scripts\python.exe -m pip install -e Stage_2          # cvlabfm: the flow-matching layer
+C:\cvlab_env\Scripts\python.exe -m pytest Stage_2/tests -q
 ```
 
 Then run the five notebooks in `Work/` in order, selecting the `Python (CVLAB Stage 1)`
@@ -216,8 +219,8 @@ converge, and still produce a plausible accuracy table.
 the implementation agrees — deliberately written the slow, literal way, so the check is
 independent of the code it checks.
 
-```bash
-python -m pytest Stage_2/tests -q      # 21 passed
+```powershell
+C:\cvlab_env\Scripts\python.exe -m pytest Stage_2/tests -q      # 21 passed
 ```
 
 The suite itself was checked by breaking the implementation five ways on purpose. Three

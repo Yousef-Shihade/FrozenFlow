@@ -1,4 +1,4 @@
-# Step 4 — Image-Derived Class Prototypes
+# Step 04 — Image-derived class prototypes
 
 **A Computer Vision Project — *Flow Matching as a Layer*** · Stage 1
 University of Haifa

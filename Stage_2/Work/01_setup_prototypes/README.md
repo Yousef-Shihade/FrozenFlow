@@ -1,4 +1,4 @@
-# Step 1 — Setup & Class Prototypes
+# Step 01 — Setup and class prototypes
 
 **A Computer Vision Project — *Flow Matching as a Layer*** · Stage 2
 University of Haifa

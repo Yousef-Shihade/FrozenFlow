@@ -1,4 +1,4 @@
-# Step 5 — Feature-Space Visualisations & Flow Trajectories
+# Step 05 — Feature-space visualisations and flow trajectories
 
 **A Computer Vision Project — *Flow Matching as a Layer*** · Stage 2
 University of Haifa

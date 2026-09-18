@@ -5,6 +5,8 @@ University of Haifa · 2026
 
 Yousef Shihade · Mira Bitar
 
+**Full report:** [Stage_3/Reports/Stage3Report.pdf](Reports/Stage3Report.pdf)
+
 ---
 
 ## Goal
@@ -342,6 +344,8 @@ depends on that guarantee is finished and recorded before it is broken.
 Stage_3/
 ├── README.md                      this file
 ├── pyproject.toml                 the cvlab3 package
+├── Reports/
+│   └── Stage3Report.pdf           the written report for this stage
 ├── src/cvlab3/
 │   ├── classifier.py              FrozenClassifier, identity_flow, protocol constants
 │   ├── probe.py                   Stage 1's probe loop + the weights it did not return
@@ -370,11 +374,11 @@ Each `Work/` step follows the Stage 1 and 2 convention: `code/` (the notebook, w
 
 ## Reproducing these results
 
-```bash
-pip install -e Stage_1          # cvlab:   encoders, features, k-shot subsets, evaluation
-pip install -e Stage_2          # cvlabfm: the velocity network and Euler integrator
-pip install -e Stage_3          # cvlab3:  the frozen classifier and both strategies
-python -m pytest Stage_2/tests Stage_3/tests -q      # 52 passed
+```powershell
+C:\cvlab_env\Scripts\python.exe -m pip install -e Stage_1          # cvlab:   encoders, features, k-shot subsets, evaluation
+C:\cvlab_env\Scripts\python.exe -m pip install -e Stage_2          # cvlabfm: the velocity network and Euler integrator
+C:\cvlab_env\Scripts\python.exe -m pip install -e Stage_3          # cvlab3:  the frozen classifier and both strategies
+C:\cvlab_env\Scripts\python.exe -m pytest Stage_2/tests Stage_3/tests -q      # 52 passed
 ```
 
 Then run the six notebooks in `Work/` in order, selecting the `Python (CVLAB Stage 1)` kernel.
@@ -397,8 +401,8 @@ last step lands on $t = 1$, an FM interpolation with source and target swapped, 
 recovery that drops the factor of $T$ would each still train, still converge, and still produce
 a plausible accuracy table.
 
-```bash
-python -m pytest Stage_3/tests -q      # 31 passed
+```powershell
+C:\cvlab_env\Scripts\python.exe -m pytest Stage_3/tests -q      # 31 passed
 ```
 
 `test_stage3_formulas.py` re-derives each formula from its stated form and asserts the

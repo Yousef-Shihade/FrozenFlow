@@ -5,6 +5,8 @@ University of Haifa · 2026
 
 Yousef Shihade · Mira Bitar
 
+**Full report:** [Stage_1/Reports/Stage1Report.pdf](Reports/Stage1Report.pdf)
+
 ---
 
 ## Goal
@@ -179,7 +181,24 @@ runs, every test prediction, every prototype vector — came back **bit-for-bit 
 the prior run. Nothing in the pipeline depends on hidden state, execution order beyond the
 documented step sequence, or anything not captured in `Data/` plus the code itself.
 
-Stage 1 is complete and independently reproducible end to end.
+## What this stage produced
+
+| Output | Produced in |
+| --- | --- |
+| Linear-probe accuracy across all three K settings, both datasets | step 03 |
+| Prototype-classifier accuracy across all three K settings, both datasets | step 04 |
+| Probe-vs-prototype gap and the full-data headline table | step 05 |
+| Class separability (own- vs. other-class cosine margin), the quantity later stages build on | step 02 |
+| Row-normalised confusion matrices | step 05 |
+| Feature-space visualisations, before and after L2 normalisation | step 05 |
+| Copyright-banner-crop ablation | step 02 |
+| Epoch-budget robustness check | step 03 |
+
+Beyond those, three checks were added because the conclusions depend on them: the
+copyright-banner crop is **tested rather than trusted** (step 02), the late-checkpoint pattern
+on Aircraft is checked directly rather than assumed costly (step 03), and DTD is reproduced by
+**two independent implementations** — re-extracted features and a rewritten training loop —
+agreeing to within 0.26 pp (step 03).
 
 ---
 

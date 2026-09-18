@@ -1,4 +1,4 @@
-# Step 3 — Linear Probe
+# Step 03 — Linear probe
 
 **A Computer Vision Project — *Flow Matching as a Layer*** · Stage 1
 University of Haifa

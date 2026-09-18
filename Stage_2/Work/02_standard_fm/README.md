@@ -1,4 +1,4 @@
-# Step 2 — Standard Flow Matching
+# Step 02 — Standard flow matching
 
 **A Computer Vision Project — *Flow Matching as a Layer*** · Stage 2
 University of Haifa

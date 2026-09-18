@@ -19,6 +19,8 @@ Flow Matching layer on top of it and measures the difference.
 | **2** | **Flow Matching as the *last* layer** (standard vs. rolled-out training) | **complete** |
 | **3** | **Flow Matching *before* a frozen linear classifier** (end-to-end vs. classifier-guided) | **complete** |
 
+**Read the whole project as one report:** [FinalReport/FinalReport.pdf](FinalReport/FinalReport.pdf).
+
 Stage 1 uses no Flow Matching at all. Its entire purpose is to establish an honest,
 reproducible baseline: freeze a pretrained encoder, cache its features once, and train
 only a small classifier on top. Without that, any Stage 2/3 improvement is
@@ -56,7 +58,8 @@ on DINOv2/Aircraft, almost none on ResNet-18/Aircraft, predicting exactly which 
 the linear probe would win big on before either classifier was trained.
 
 Full detail, every step's findings, and reproduction instructions:
-**[Stage_1/README.md](Stage_1/README.md)**.
+**[Stage_1/README.md](Stage_1/README.md)**. Full report:
+**[Stage_1/Reports/Stage1Report.pdf](Stage_1/Reports/Stage1Report.pdf)**.
 
 ---
 
@@ -95,7 +98,8 @@ Three findings worth stating up front:
   break-even explains exactly the two cells where the FM layer loses.
 
 Full detail, including the L2-normalization ablation and every figure and table:
-**[Stage_2/README.md](Stage_2/README.md)**.
+**[Stage_2/README.md](Stage_2/README.md)**. Full report:
+**[Stage_2/Reports/Stage2Report.pdf](Stage_2/Reports/Stage2Report.pdf)**.
 
 ---
 
@@ -113,7 +117,7 @@ component. It is initialised so that `v(z,t) = 0`, making the transformation the
 identity — the untrained system is bit-for-bit the Stage 1 probe (Δ = 0.00 pp, predictions
 identical), so every reported number is caused by training the flow and nothing else.
 
-**Two strategies are compared**, over **225 training runs**. *End-to-end* backpropagates
+**Two strategies are compared**, over **180 training runs**. *End-to-end* backpropagates
 `CE(Wẑ+b, y)` through the whole rollout. *Classifier-guided* uses the frozen classifier to
 build an improved target `ẑ′` in feature space, then trains the flow toward it with an
 ordinary FM update — the gradient never passes through the rollout.
@@ -139,7 +143,8 @@ Three findings worth stating up front:
   Stage 1 ordering — moves the *wrong way* where the gain is real.
 
 Full detail, including the no-normalization ablation, the four-knob guided sweep and the
-joint fine-tuning extension: **[Stage_3/README.md](Stage_3/README.md)**.
+joint fine-tuning extension: **[Stage_3/README.md](Stage_3/README.md)**. Full report:
+**[Stage_3/Reports/Stage3Report.pdf](Stage_3/Reports/Stage3Report.pdf)**.
 
 ---
 

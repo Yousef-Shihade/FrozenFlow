@@ -1,4 +1,4 @@
-# Step 2 — Feature Extraction
+# Step 02 — Feature extraction
 
 **A Computer Vision Project — *Flow Matching as a Layer*** · Stage 1
 University of Haifa

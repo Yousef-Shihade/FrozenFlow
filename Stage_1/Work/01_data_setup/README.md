@@ -1,4 +1,4 @@
-# Step 1 — Data Setup & Protocol Verification
+# Step 01 — Data setup and protocol verification
 
 **A Computer Vision Project — *Flow Matching as a Layer*** · Stage 1
 University of Haifa
