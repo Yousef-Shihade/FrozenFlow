@@ -221,7 +221,7 @@ oversubscription.
 
 ## Next step
 
-**Step 3 — Linear probe.** Train `s = Wz + b` on the cached features: 3 encoder-dataset
+**Step 03 — Linear probe.** Train `s = Wz + b` on the cached features: 3 encoder-dataset
 pairs × K ∈ {5, 10, full} × 3 seeds = 27 runs (AdamW, lr 1e-3, weight decay 1e-4, batch 64,
 up to 200 epochs, checkpoint on best validation accuracy).
 

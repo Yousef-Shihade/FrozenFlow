@@ -136,7 +136,7 @@ expected.
 
 ## Next step
 
-**Step 5 — Analysis.** Pulls together the headline results: the combined accuracy table
+**Step 05 — Analysis.** Pulls together the headline results: the combined accuracy table
 (this notebook's results plus step 3's), the accuracy-vs-K plot with the prototype baseline
 included, the training curves (already produced in step 3), row-normalized confusion
 matrices, and the 2D feature visualization with prototypes overlaid.

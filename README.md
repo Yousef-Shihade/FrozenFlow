@@ -8,10 +8,11 @@
 
 ## The project
 
-The research question is whether a **Flow Matching** module can replace a standard
-classifier layer and do better than the conventional alternative. Answering that requires
-a trustworthy point of comparison, which is what Stage 1 builds; Stage 2 then inserts the
-Flow Matching layer on top of it and measures the difference.
+The research question is whether a small **Flow Matching** network, placed between a frozen
+encoder and a fixed classification rule, can learn to transport features to where that rule
+wants them — and when doing so actually helps. Answering that requires a trustworthy point
+of comparison, which is what Stage 1 builds. Stage 2 and Stage 3 each place a flow at a
+different point in the pipeline and measure the difference against that baseline.
 
 | Stage | Topic | Status |
 | --- | --- | --- |
@@ -156,14 +157,20 @@ ProjectInComputerVision/
 ├── requirements.txt
 ├── .gitignore
 ├── Stage_1/                   <- classification baselines with frozen encoders
-│   └── README.md              <- full detail: datasets, protocol, per-step results, setup
+│   ├── README.md              <- full detail: datasets, protocol, per-step results, setup
+│   └── Reports/Stage1Report.pdf
 ├── Stage_2/                   <- Flow Matching as the last layer
-│   └── README.md              <- full detail: objectives, results, design decisions, setup
+│   ├── README.md              <- full detail: objectives, results, design decisions, setup
+│   └── Reports/Stage2Report.pdf
 ├── Stage_3/                   <- Flow Matching before a frozen linear classifier
-│   └── README.md              <- full detail: both strategies, sweeps, design decisions, setup
+│   ├── README.md              <- full detail: both strategies, sweeps, design decisions, setup
+│   └── Reports/Stage3Report.pdf
 └── FinalReport/               <- the three-stage story told as one report
     └── FinalReport.pdf
 ```
+
+Each stage has its own written report in its `Reports/` folder; `FinalReport/` tells the
+three-stage story as a single report.
 
 Each stage is a self-contained, independently installable package (`cvlab` for Stage 1,
 `cvlabfm` for Stage 2, `cvlab3` for Stage 3) with its own `Work/` folder (one subfolder per

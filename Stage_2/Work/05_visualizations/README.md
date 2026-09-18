@@ -10,11 +10,11 @@ University of Haifa
 Stage 2's remaining two results, plus a reverse-flow exploration and a look at
 intermediate flow times.
 
-| # | Result | What it shows |
-| --- | --- | --- |
-| 3 | **Feature-space visualisations** | Original features vs. after standard FM vs. after rolled-out FM. Same test examples, same class colours, corresponding prototypes, projection fitted **jointly**. |
-| 4 | **Flow trajectories** | Intermediate FM states with the original feature, the transported feature, and the class prototype. |
-| — | Reverse flow | Included and labelled exploratory. |
+| Result | What it shows |
+| --- | --- |
+| **Feature-space visualisations** | Original features vs. after standard FM vs. after rolled-out FM. Same test examples, same class colours, corresponding prototypes, projection fitted **jointly**. |
+| **Flow trajectories** | Intermediate FM states with the original feature, the transported feature, and the class prototype. |
+| Reverse flow | Included and labelled exploratory. |
 
 No model is trained here — the representative networks (full data, seed 0) are loaded from
 steps 2 and 3, and only forward rollouts on cached test features are computed.
@@ -226,10 +226,10 @@ right one, which is what a 16–25 % baseline looks like geometrically.
 
 ## Stage 2 results — complete
 
-| # | Result | Where |
-| --- | --- | --- |
-| 1 | Classification results, $\Delta\mathrm{Acc}$, accuracy-vs-$K$ with error bars | step 4 |
-| 2 | Training curves, both objectives | step 4 |
-| 3 | Feature-space visualisations | **step 5** |
-| 4 | Flow trajectories | **step 5** |
-| — | Reverse flow | **step 5** |
+| Result | Where |
+| --- | --- |
+| Classification results, $\Delta\mathrm{Acc}$, accuracy-vs-$K$ with error bars | step 4 |
+| Training curves, both objectives | step 4 |
+| Feature-space visualisations | **step 5** |
+| Flow trajectories | **step 5** |
+| Reverse flow | **step 5** |

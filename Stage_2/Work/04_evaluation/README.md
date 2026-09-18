@@ -220,7 +220,7 @@ what a trained classifier would, not why.
 
 ## Next step
 
-**Step 5 — Visualisations.** The remaining two results: feature-space comparisons
+**Step 05 — Visualisations.** The remaining two results: feature-space comparisons
 (original encoder features vs. after standard FM vs. after rolled-out FM — same test examples,
 same class colours, projection fitted jointly across the compared sets), and flow trajectories
 showing intermediate states between the original feature and its class prototype.

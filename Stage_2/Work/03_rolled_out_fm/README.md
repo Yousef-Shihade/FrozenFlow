@@ -227,7 +227,7 @@ well separated.
 
 ## Next step
 
-**Step 4 — Evaluation.** Assembles the headline results from steps 2 and 3's saved
+**Step 04 — Evaluation.** Assembles the headline results from steps 2 and 3's saved
 results: the full accuracy table across all five methods (baseline, standard FM at
 $T \in \{4, 12\}$, rolled-out FM at $T \in \{4, 12\}$), $\Delta\mathrm{Acc}$ against the
 baseline, the accuracy-versus-$K$ plot with error bars, and representative training curves

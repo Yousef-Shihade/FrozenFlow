@@ -163,7 +163,7 @@ source of truth that could silently drift from Stage 1's.
 
 ## Next step
 
-**Step 2 — Standard FM training.** Implements the velocity network $v_\theta(z, t)$ and the
+**Step 02 — Standard FM training.** Implements the velocity network $v_\theta(z, t)$ and the
 standard flow-matching objective
 
 $$\mathcal{L}_\mathrm{FM} = \lVert v_\theta(z_t, t) - u_i \rVert_2^2,

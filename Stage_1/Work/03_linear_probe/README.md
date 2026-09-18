@@ -192,7 +192,7 @@ defaults were used or quietly tuned.
 
 ## Next step
 
-**Step 4 — Image-derived class prototypes**, the second baseline. No training:
+**Step 04 — Image-derived class prototypes**, the second baseline. No training:
 L2-normalise, average each class's training features, re-normalise, classify by cosine
 similarity. 21 runs (5-shot ×3, 10-shot ×3, full ×1 per combination — the full setting needs
 one run because averaging every training image leaves nothing stochastic).

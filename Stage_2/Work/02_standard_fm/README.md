@@ -261,7 +261,7 @@ the call site so it is not moved outside during a later refactor.
 
 ## Next step
 
-**Step 3 — Rolled-out FM training.** Same network, same configuration, same subsets and
+**Step 03 — Rolled-out FM training.** Same network, same configuration, same subsets and
 seeds; only the objective changes:
 
 $$\mathcal{L}_\mathrm{roll} = \lVert \hat z_T - p_{y_i} \rVert_2^2$$

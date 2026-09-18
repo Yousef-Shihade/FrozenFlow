@@ -197,7 +197,7 @@ placement and tail geometry.
 
 ## Next step
 
-**Step 2 — Feature extraction.** Load the frozen encoders (ResNet-18 on both datasets,
+**Step 02 — Feature extraction.** Load the frozen encoders (ResNet-18 on both datasets,
 DINOv2 ViT-S/14 on Aircraft), run every image through exactly once, and cache the feature
 tensors to `Stage_1/features/`. That is the last step that touches images or the GPU in any
 serious way — Steps 3–5 operate purely on cached vectors.
