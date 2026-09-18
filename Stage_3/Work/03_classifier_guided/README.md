@@ -53,7 +53,7 @@ part.
 
 ## 2 · The sweep
 
-The brief names exactly these four knobs. Each is varied around the main configuration
+Strategy 2 exposes exactly these four knobs. Each is varied around the main configuration
 (η = 1, one step, refresh every epoch, normalised, lr $10^{-4}$).
 
 | config | Δ vs. probe | selected epoch | moved |
@@ -70,7 +70,7 @@ The brief names exactly these four knobs. Each is varied around the main configu
 | lr $10^{-3}$ | +0.94 ± 0.71 pp | 17 | 10.8% |
 | lr $10^{-5}$ | +0.89 ± 0.80 pp | 144 | 8.4% |
 
-**Refreshing the targets *less* often is better.** The brief's step 6 says to recompute targets
+**Refreshing the targets *less* often is better.** Strategy 2 recomputes its targets
 as the flow changes; recomputing every epoch gives +1.40 pp, every 10 epochs **+1.82 pp**, every
 50 epochs +1.59 pp. Recomputing constantly means chasing a target that moves with the flow
 chasing it. Letting it go stale for a few epochs makes the objective closer to stationary, and
@@ -104,7 +104,7 @@ ResNet-18/Aircraft (+0.75), Strategy 1 is clearly better on DINOv2/Aircraft (−
 best-configuration against best-configuration — selected after the fact on *both* sides, so the
 comparison flatters both — the gap is +0.55 pp at *p* = 0.30.
 
-**The answer to the brief's second question is therefore: no, classifier-guided training does
+**The answer, therefore: no, classifier-guided training does
 not beat end-to-end rolled-out training on accuracy.**
 
 ### Where Strategy 2 *is* better: robustness
@@ -145,7 +145,7 @@ where that target was placed, so the same step size cannot memorise them nearly 
 | `tables/target_quality.csv` | target accuracy and CE at each η |
 | `tables/strategy_comparison_matched_lr.csv` | Strategy 1 vs 2 at matched learning rate |
 | `tables/matched_learning_rate_comparison.csv` | the three-row lr table above |
-| `plots/training_curves.png` | train/val/target curves (required deliverable) |
+| `plots/training_curves.png` | train/val/target curves (core result) |
 | `plots/strategy2_results.png` | every configuration, and the matched-lr comparison |
 
-**Next:** step 04 consolidates both strategies into the comparison the brief requires.
+**Next:** step 04 consolidates both strategies into the comparison.

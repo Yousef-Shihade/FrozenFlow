@@ -139,7 +139,7 @@ Three findings worth stating up front:
   Stage 1 ordering — moves the *wrong way* where the gain is real.
 
 Full detail, including the no-normalization ablation, the four-knob guided sweep and the
-optional joint fine-tuning: **[Stage_3/README.md](Stage_3/README.md)**.
+the joint fine-tuning extension: **[Stage_3/README.md](Stage_3/README.md)**.
 
 ---
 
@@ -288,9 +288,9 @@ Stage 2 is complete and independently reproducible end to end.
 ### Stage 3
 
 **All six steps are complete**, executed locally with outputs committed. Both training
-strategies the brief suggests are implemented and swept — 81 end-to-end runs across a
-learning-rate sweep and both suggested regularisers, 99 classifier-guided runs across all four
-knobs the brief names, and 45 runs for the optional joint fine-tuning extension.
+strategies are implemented and swept — 81 end-to-end runs across a
+learning-rate sweep and both regularisers, 99 classifier-guided runs across all four
+knobs Strategy 2 exposes, and 45 runs for the joint fine-tuning extension.
 
 - **The Stage 1 classifier is reproduced exactly before anything is built on it.** All nine
   probes re-trained through Stage 3's own code path, max |Δ| = **0.00 pp**, and **0 of 16,920**
@@ -304,11 +304,11 @@ knobs the brief names, and 45 runs for the optional joint fine-tuning extension.
 - **The strategy comparison is made at matched learning rate**, since the two objectives'
   default settings differed by 10×; comparing the defaults would have compared tuning rather
   than objective.
-- **The optional extension is interpreted against a control** — the classifier trained alone,
+- **The extension is interpreted against a control** — the classifier trained alone,
   with no flow — which is what separates "the flow helped" from "the classifier just got more
   training". It also independently confirms Stage 1 left the probe at its ceiling.
-- **The implementation is checked against the brief's formulas.** A 31-test suite re-derives
-  them from the brief's wording, and was itself validated by breaking the implementation eight
+- **The implementation is checked against its own formulas.** A 31-test suite re-derives
+  them from their stated form, and was itself validated by breaking the implementation eight
   ways on purpose; the first run caught only five, and the three misses were fixed by moving
   the formulas out of the tests and into the public API.
 

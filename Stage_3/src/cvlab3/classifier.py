@@ -41,27 +41,28 @@ __all__ = [
 
 # --- Stage 3 protocol ------------------------------------------------------
 
-#: Euler steps, fixed for all of Stage 3. The brief requires a single value throughout and
-#: does not name one. Stage 2 measured T = 4 against T = 12 across its whole grid and found
-#: them within 1 pp of each other with inconsistent sign, so the cheaper one is chosen -
+#: Euler steps, fixed for all of Stage 3. Stage 2 measured T = 4 against T = 12 across its
+#: whole grid and found them within 1 pp of each other with inconsistent sign, so the
+#: cheaper one is chosen -
 #: and it is meaningfully cheaper here, because Stage 3's end-to-end objective
 #: backpropagates through every step.
 T_STEPS: int = 4
 
-#: Training-set size. The brief suggests K = 10 as a reasonable default.
+#: Training-set size, fixed for all of Stage 3.
 K_SHOT: int = 10
 
 #: Unchanged from Stages 1 and 2, so the k-shot subsets are literally the same images.
 SEEDS: tuple[int, ...] = (0, 1, 2)
 
-#: The two combinations the brief asks for - one representative encoder per dataset.
+#: The two main combinations - one representative encoder per dataset.
 MAIN_COMBOS: tuple[tuple[str, str], ...] = (
     ("resnet18", "DTD"),
     ("dinov2", "FGVC-Aircraft"),
 )
 
-#: Every combination actually run. ResNet-18 on Aircraft is beyond what the brief requires;
-#: it is included because it is the one combination where Stage 1's features are known to be
+#: Every combination actually run. ResNet-18 on Aircraft goes beyond the two main
+#: combinations; it is included because it is the one combination where Stage 1's features
+#: are known to be
 #: badly entangled (own-vs-other cosine margin 0.041), which makes it the most informative
 #: test of whether a flow can rescue a representation a linear classifier struggles with.
 COMBOS: tuple[tuple[str, str], ...] = MAIN_COMBOS + (("resnet18", "FGVC-Aircraft"),)
@@ -163,8 +164,8 @@ def identity_flow(dim: int, seed: int, hidden_dim: int = 512,
 
     The output layer is zeroed, so ``v(z, t) = 0`` for every input and the Euler rollout
     returns ``z`` unchanged - bit-for-bit, not approximately. The Stage 3 system therefore
-    *is* the Stage 1 linear probe before training starts, which is what the brief asks for
-    and what makes ``delta`` against the probe baseline meaningful.
+    *is* the Stage 1 linear probe before training starts, which is what makes ``delta``
+    against the probe baseline meaningful.
 
     Only the readout is zeroed; the hidden layers keep the standard random initialisation.
     Note what that implies for the first optimiser step: a hidden layer's gradient is

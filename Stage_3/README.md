@@ -98,7 +98,7 @@ Configurations selected on **validation** accuracy, which appears in no reported
 | DINOv2 / FGVC-Aircraft | 51.54% | **54.13 ± 1.13** | **+2.59** | 53.73 ± 1.53 | +2.19 |
 | ResNet-18 / FGVC-Aircraft \* | 27.87% | 28.97 ± 0.74 | +1.10 | **29.92 ± 0.60** | **+2.05** |
 
-\* beyond the two combinations the brief requires — included because Stage 1 measured its
+\* beyond the two main combinations — included because Stage 1 measured its
 features as the most entangled (own-vs-other cosine margin 0.041), making it the hardest test.
 
 **Every combination improves under both objectives.** Across the full sweeps, **67/81 (83%)**
@@ -141,8 +141,8 @@ both use, and carrying it over was the natural choice. Here it is actively harmf
 $10\times$ is worth **+1.1 pp**, more than any regularisation achieves. Constraining how *fast*
 the flow moves beats constraining how *far*.
 
-**Refreshing the guided targets less often is better.** The brief's step 6 says to recompute
-targets as the flow changes. Every epoch gives +1.40 pp; every 10 epochs **+1.82 pp**. Chasing
+**Refreshing the guided targets less often is better.** Strategy 2 recomputes its targets
+as the flow changes. Every epoch gives +1.40 pp; every 10 epochs **+1.82 pp**. Chasing
 a target that moves with the flow chasing it is worse than letting it go slightly stale.
 
 **Movement is not what produces the gain.** On DINOv2/Aircraft the two strategies reach nearly
@@ -182,13 +182,13 @@ consumes. The margin is.**
 
 ---
 
-## Optional extension: unfreezing the classifier
+## Unfreezing the classifier
 
 **Unfreezing makes no measurable difference: −0.02 pp, $p = 0.97$** (at matched objective and
 learning rate — comparing against the *best* frozen result would confound unfreezing with which
 objective was used).
 
-The step also runs a **classifier-only control** that the brief does not ask for: continue
+The step also runs a **classifier-only control**, beyond unfreezing itself: continue
 training the classifier from Stage 1's weights with no flow at all. Without it, "joint training
 helped" cannot be distinguished from "the classifier simply got more training".
 
@@ -216,10 +216,9 @@ It does not, so they do not.
 
 Fixed in step 01 and used unchanged throughout.
 
-- **$T = 4$** Euler steps. The brief requires a single $T$ and names none. Stage 2 measured
-  $T=4$ against $T=12$ across its whole grid and found them within 1 pp with inconsistent sign,
-  so the cheaper one — and it is meaningfully cheaper here, because Strategy 1 backpropagates
-  through every step.
+- **$T = 4$** Euler steps. Stage 2 measured $T=4$ against $T=12$ across its whole grid and
+  found them within 1 pp with inconsistent sign, so we use the cheaper one — and it is
+  meaningfully cheaper here, because Strategy 1 backpropagates through every step.
 - **$K = 10$**, seeds $\{0,1,2\}$ — the same k-shot subsets as Stages 1 and 2, same images.
 - **Raw features, no L2 normalization** (see below).
 - **Velocity network**: Stage 2's design unchanged — 2 × 512 hidden, SiLU, $t$ concatenated —
@@ -280,7 +279,7 @@ calling `.train()` cannot silently unfreeze it.
 ### Step 02 — Strategy 1 ([details](Work/02_end_to_end/README.md))
 
 **81 runs** = 9 configurations × 3 combinations × 3 seeds, ~32 min. Learning-rate sweep plus
-both regularisers the brief suggests (displacement and velocity magnitude, three strengths
+both regularisers we implemented (displacement and velocity magnitude, three strengths
 each).
 
 Contains the step's most interesting result: **remaining training loss anti-predicts the gain.**
@@ -291,8 +290,8 @@ correlates *positively* with the gain across all 81 runs ($\rho = +0.54$, $p < 0
 
 ### Step 03 — Strategy 2 ([details](Work/03_classifier_guided/README.md))
 
-**99 runs** = 11 configurations × 3 combinations × 3 seeds, ~16 min. All four knobs the brief
-names: step size $\eta$, number of target steps, refresh frequency, and whether the update is
+**99 runs** = 11 configurations × 3 combinations × 3 seeds, ~16 min. All four knobs Strategy 2
+exposes: step size $\eta$, number of target steps, refresh frequency, and whether the update is
 normalized.
 
 On two of three combinations the targets start at **100% accuracy** and stay there — the probe
@@ -308,7 +307,7 @@ steps.
 
 ### Step 04 — Evaluation ([details](Work/04_evaluation/README.md))
 
-The comparison the brief requires. **Nothing is retrained here** — every number comes from the
+The consolidated comparison. **Nothing is retrained here** — every number comes from the
 run tables steps 02 and 03 wrote, so the reported comparison cannot quietly differ from the
 experiments.
 
@@ -329,8 +328,8 @@ space rather than read off the pictures.
 
 ### Step 06 — Joint fine-tuning ([details](Work/06_joint_finetuning/README.md))
 
-**45 runs** = 5 configurations × 3 combinations × 3 seeds, ~13 min. The brief's optional
-extension, plus the classifier-only control that makes it interpretable.
+**45 runs** = 5 configurations × 3 combinations × 3 seeds, ~13 min. A further experiment —
+unfreezing the classifier — plus the classifier-only control that makes it interpretable.
 
 Deliberately last: unfreezing breaks the "only the flow changed" guarantee, so everything that
 depends on that guarantee is finished and recorded before it is broken.
@@ -342,25 +341,24 @@ depends on that guarantee is finished and recorded before it is broken.
 ```text
 Stage_3/
 ├── README.md                      this file
-├── docs/                          the Stage 3 brief (not tracked)
 ├── pyproject.toml                 the cvlab3 package
 ├── src/cvlab3/
 │   ├── classifier.py              FrozenClassifier, identity_flow, protocol constants
 │   ├── probe.py                   Stage 1's probe loop + the weights it did not return
 │   ├── training.py                Strategy 1 — end-to-end rolled-out
 │   ├── guided.py                  Strategy 2 — classifier-guided targets
-│   ├── joint.py                   the optional extension, and its control
+│   ├── joint.py                   unfreezing the classifier, and its control
 │   └── paths.py                   where each step reads and writes
 ├── tests/
 │   ├── test_probe_equivalence.py  11 tests — the duplicated probe loop matches Stage 1
-│   └── test_stage3_formulas.py    20 tests — the brief's formulas vs. the implementation
+│   └── test_stage3_formulas.py    20 tests — the stage's own formulas vs. the implementation
 ├── Work/
 │   ├── 01_setup_classifier/       recover and freeze the probe, verify identity init
 │   ├── 02_end_to_end/             Strategy 1 + regularisation sweep
 │   ├── 03_classifier_guided/      Strategy 2 + the four-knob sweep
-│   ├── 04_evaluation/             the required comparison — retrains nothing
+│   ├── 04_evaluation/             the consolidated comparison — retrains nothing
 │   ├── 05_visualizations/         joint PCA, geometry in the full feature space
-│   └── 06_joint_finetuning/       optional extension + classifier-only control
+│   └── 06_joint_finetuning/       unfreezing the classifier + classifier-only control
 └── results/                       artefacts shared across notebooks
 ```
 
@@ -392,7 +390,7 @@ their curves and the figures they produced.
 
 ---
 
-## Does the code compute what the brief specifies?
+## Does the code compute its own formulas?
 
 Every result rests on that being true, and it is easy to break without noticing: a rollout whose
 last step lands on $t = 1$, an FM interpolation with source and target swapped, or a velocity
@@ -403,7 +401,7 @@ a plausible accuracy table.
 python -m pytest Stage_3/tests -q      # 31 passed
 ```
 
-`test_stage3_formulas.py` re-derives each formula from the brief's wording and asserts the
+`test_stage3_formulas.py` re-derives each formula from its stated form and asserts the
 implementation agrees. `test_probe_equivalence.py` runs Stage 1's probe loop and Stage 3's side
 by side and asserts they agree on accuracy, predictions, selected epoch, and **every** training
 curve — so the duplicated loop cannot drift from Stage 1 silently.

@@ -1,5 +1,5 @@
 """
-The optional extension: unfreezing the classifier and training it jointly with the flow.
+Unfreezing the classifier and training it jointly with the flow.
 
 Everything up to this point held the Stage 1 classifier fixed, which is what makes
 "$\\Delta$ against the linear probe" mean something: the only thing that changed was the flow.

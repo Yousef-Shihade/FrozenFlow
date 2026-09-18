@@ -1,8 +1,8 @@
-# Step 06 — Optional extension: jointly fine-tuning the classifier
+# Step 06 — Jointly fine-tuning the classifier
 
-> *"After completing the frozen-classifier experiments, you may also unfreeze the pretrained
-> linear classifier and jointly optimize the FM transformation and classifier. Compare this with
-> the frozen-classifier setting and with the original Stage 1 linear probe."*
+Every step so far kept the classifier frozen. This step unfreezes it and trains it jointly
+with the flow, comparing the result against both the frozen-classifier setting and the
+original Stage 1 linear probe.
 
 **45 runs**: 5 configurations × 3 combinations × 3 seeds, 13 minutes.
 
@@ -25,8 +25,8 @@ epochs with validation checkpointing so it *should* already be at its ceiling �
 not a measurement.
 
 So this step runs a **classifier-only control**: continue training the classifier from Stage 1's
-weights, same optimiser, budget and checkpoint rule, **no flow at all**. It is not in the brief;
-without it the extension cannot be interpreted.
+weights, same optimiser, budget and checkpoint rule, **no flow at all**. Without it the
+extension cannot be interpreted.
 
 | Combination | classifier only | joint | **flow contributes** | frozen S1 | frozen S2 |
 | --- | --- | --- | --- | --- | --- |
@@ -107,7 +107,7 @@ It does not, so they do not.
   points: the classifier is already fitted, the flow starts at identity. One shared rate would
   be an arbitrary choice rather than a neutral one.
 - **Regularisation was not swept** here — step 02 already measured it to be the weaker lever in
-  this setting, and the three knobs the brief names that *are* swept all came back null.
+  this setting, and the three knobs that *are* swept all came back null.
 
 ## Outputs
 

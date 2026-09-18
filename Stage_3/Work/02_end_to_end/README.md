@@ -138,7 +138,7 @@ the probe consistent.
 | `tables/strategy1_best_config_summary.csv` | per-combination, best configuration |
 | `tables/strategy1_learning_rate_sweep.csv` | the learning-rate comparison |
 | `tables/objective_diagnostic.csv` | per-run probe train/val accuracy and CE at identity |
-| `plots/training_curves.png` | train vs. validation, accuracy and loss (required deliverable) |
+| `plots/training_curves.png` | train vs. validation, accuracy and loss (core result) |
 | `plots/strategy1_results.png` | the diagnostic, and every configuration's Δ |
 | `plots/strategy1_displacement.png` | displacement vs. gain, and selected-epoch distribution |
 

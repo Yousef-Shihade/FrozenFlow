@@ -75,8 +75,8 @@ def train_frozen_classifier(
 ) -> FrozenClassifierResult:
     """Train one linear probe exactly as Stage 1 does, and keep its weights.
 
-    The brief asks for the linear classifier to be trained "exactly as in Stage 1" and then
-    frozen. This reproduces Stage 1's procedure step for step: the same seeding order (the
+    The classifier needs to be trained exactly as in Stage 1 and then frozen. This
+    reproduces Stage 1's procedure step for step: the same seeding order (the
     layer is constructed *after* ``manual_seed`` so its initialisation is reproducible), the
     same separate generator for batch order, the same optimiser, the same strict ``>``
     checkpoint rule that keeps the earliest best-validation epoch, and the same single

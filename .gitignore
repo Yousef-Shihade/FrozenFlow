@@ -41,9 +41,6 @@ Stage_2/Reports/*
 !Stage_2/Reports/Stage2Report.pdf
 Stage_3/Reports/*
 !Stage_3/Reports/Stage3Report.pdf
-!Stage_3/Reports/Stage3_QA.pdf
-!Stage_3/Reports/Stage3_SpeakerNotes.pdf
-!Stage_3/Reports/MySpeakerNotes.pdf
 
 # ---------------------------------------------------------------------------
 # NOTE on what IS committed, deliberately:

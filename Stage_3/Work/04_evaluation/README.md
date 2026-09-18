@@ -1,6 +1,6 @@
 # Step 04 — Evaluation
 
-The comparison the brief requires, assembled from steps 01–03's saved results. **Nothing is
+The consolidated comparison, assembled from steps 01–03's saved results. **Nothing is
 retrained here** — every number comes from the run tables those steps wrote.
 
 For each dataset, three methods on the same encoder, the same k-shot subset, the same seeds and
@@ -19,7 +19,7 @@ Top-1 test accuracy, $K = 10$, $T = 4$, mean ± sample std over 3 seeds.
 | DINOv2 / FGVC-Aircraft | 51.54% | **54.13 ± 1.13** | **+2.59** | 53.73 ± 1.53 | +2.19 |
 | ResNet-18 / FGVC-Aircraft \* | 27.87% | 28.97 ± 0.74 | +1.10 | **29.92 ± 0.60** | **+2.05** |
 
-\* carried beyond the two combinations the brief requires.
+\* carried beyond the two main combinations.
 
 **Every combination improves on average, under both objectives** — Strategy 1 by +1.27 pp
 overall, Strategy 2 by +1.82 pp.
@@ -117,8 +117,8 @@ it further is memorisation. Both depend entirely on validation-accuracy checkpoi
 | `tables/per_seed_deltas.csv` | per-seed values and t-tests |
 | `tables/configuration_ranking.csv` | every configuration by validation and test |
 | `tables/matched_learning_rate.csv` | the strategy comparison at fixed lr |
-| `plots/main_comparison.png` | three methods, and ΔAcc (required deliverable) |
-| `plots/training_curves_both_methods.png` | train/validation curves, both methods (required deliverable) |
+| `plots/main_comparison.png` | three methods, and ΔAcc (core result) |
+| `plots/training_curves_both_methods.png` | train/validation curves, both methods (core result) |
 | `plots/matched_learning_rate.png` | objective vs. tuning |
 
 **Next:** step 05 visualises what the flow does to the feature space.

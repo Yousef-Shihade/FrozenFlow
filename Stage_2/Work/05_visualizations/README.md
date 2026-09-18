@@ -7,13 +7,14 @@ University of Haifa
 
 ## Purpose
 
-Stage 2's remaining two results, plus the optional reverse-flow exploration.
+Stage 2's remaining two results, plus a reverse-flow exploration and a look at
+intermediate flow times.
 
 | # | Result | What it shows |
 | --- | --- | --- |
 | 3 | **Feature-space visualisations** | Original features vs. after standard FM vs. after rolled-out FM. Same test examples, same class colours, corresponding prototypes, projection fitted **jointly**. |
 | 4 | **Flow trajectories** | Intermediate FM states with the original feature, the transported feature, and the class prototype. |
-| — | Reverse flow | Optional; included and labelled exploratory. |
+| — | Reverse flow | Included and labelled exploratory. |
 
 No model is trained here — the representative networks (full data, seed 0) are loaded from
 steps 2 and 3, and only forward rollouts on cached test features are computed.
@@ -130,7 +131,7 @@ correspond to +22 pp and −1.6 pp.
 
 ---
 
-## Reverse flow (optional)
+## Reverse flow
 
 Integrating the learned field backwards from each prototype,
 $\hat z_k = \hat z_{k+1} - \tfrac{1}{T} v_\theta(\hat z_{k+1}, \tfrac{k}{T})$, asks what a
@@ -148,7 +149,7 @@ so this is exploratory and is not used to support any claim.
 
 ## Samples and prototypes at intermediate flow times
 
-An optional exploration beyond the two required results. `distance_by_step.png` measures,
+A further exploration beyond the two core results. `distance_by_step.png` measures,
 at every Euler step, how
 far $\hat z_k$ is from **its own** prototype and from the **nearest competing** one — in full
 dimensionality, not in the PCA projection. It turns out to explain the two findings above
@@ -219,7 +220,7 @@ right one, which is what a 16–25 % baseline looks like geometrically.
 | `accuracy_by_step.png` | Accuracy of the intermediate state at every step — the mid-rollout collapse |
 | `distance_by_step.png` | Samples vs. prototypes at intermediate flow times — own prototype against nearest rival |
 | `contraction_measured.png` | The contraction claim, measured in full dimensionality |
-| `reverse_flow.png` | Optional exploration, clearly labelled |
+| `reverse_flow.png` | Exploratory, clearly labelled |
 
 ---
 
@@ -231,4 +232,4 @@ right one, which is what a 16–25 % baseline looks like geometrically.
 | 2 | Training curves, both objectives | step 4 |
 | 3 | Feature-space visualisations | **step 5** |
 | 4 | Flow trajectories | **step 5** |
-| — | Reverse flow (optional) | **step 5** |
+| — | Reverse flow | **step 5** |

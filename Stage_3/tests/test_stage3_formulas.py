@@ -1,5 +1,5 @@
 """
-Does the code compute what the Stage 3 brief specifies?
+Does the code compute the formulas Stage 3 is built on?
 
 Every result in Stage 3 rests on that being true, and it is unusually easy to break without
 noticing: a rollout that backpropagates into the classifier, a guidance step that ascends the
@@ -7,8 +7,8 @@ loss instead of descending it, an FM interpolation that is the wrong way round, 
 classifier that quietly moves would each still train, still converge, and still produce a
 plausible accuracy table.
 
-These tests re-derive the brief's formulas from its wording — deliberately the slow, literal
-way — and assert the implementation agrees. Written to be independent of the code they check.
+These tests re-derive the four formulas below from their stated form — deliberately the
+slow, literal way — and assert the implementation agrees. Written to be independent of the code they check.
 
 The four things Stage 3 specifies
 ---------------------------------
@@ -18,7 +18,7 @@ The four things Stage 3 specifies
    then do a *standard* FM update between source ``z`` and target ``z_hat'``:
    ``t ~ U(0,1)``, ``z_t = (1-t) z + t z'``, ``u = z' - z``, ``L = ||v(z_t,t) - u||^2``.
 3. **Euler integration**: ``z_{k+1} = z_k + (1/T) v(z_k, k/T)`` — Stage 2's, reused unchanged.
-4. **The optional extension**: unfreezing must start from exactly the Stage 1 classifier.
+4. **Unfreezing the classifier**: it must start from exactly the Stage 1 classifier.
 
 The invariant that matters most is the one in bold: in steps 02-05 the classifier is frozen, so
 **its weights must be bit-identical before and after training**. Three tests check that
@@ -307,7 +307,7 @@ def test_refresh_every_controls_how_often_targets_are_rebuilt():
 
 
 # --------------------------------------------------------------------------
-# 4. The optional extension
+# 4. Unfreezing the classifier
 # --------------------------------------------------------------------------
 
 def test_unfreeze_copies_the_classifier_exactly_and_leaves_it_frozen():

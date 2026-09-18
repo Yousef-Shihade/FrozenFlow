@@ -65,7 +65,7 @@ classifier's own parameters being updated.
 
 ## 3 · The flow starts at identity — exactly
 
-The brief asks for an FM initialised *close to* identity. Zeroing the velocity network's
+We wanted an FM initialised *close to* identity. Zeroing the velocity network's
 output layer gives something stronger: $v(z,t) = 0$ everywhere, so each Euler update adds
 exactly zero and $\hat z = z$ **bit-for-bit**.
 
@@ -145,9 +145,9 @@ the classifier in front of it has no slack for that.
 
 ## Protocol fixed here for all of Stage 3
 
-- **T = 4** Euler steps. The brief requires a single T throughout and does not name one;
-  Stage 2 measured T = 4 against T = 12 across its whole grid and found them within 1 pp with
-  inconsistent sign, so the cheaper one is chosen — and it is meaningfully cheaper here,
+- **T = 4** Euler steps, fixed throughout. Stage 2 measured T = 4 against T = 12 across its
+  whole grid and found them within 1 pp with inconsistent sign, so we use the cheaper one —
+  and it is meaningfully cheaper here,
   because Strategy 1 backpropagates through every step.
 - **K = 10**, seeds **{0, 1, 2}**, the same k-shot subsets as Stages 1 and 2.
 - **Raw features**, no normalization (section 4).

@@ -10,8 +10,8 @@ backpropagating through the whole rollout and updating only the flow's parameter
 
 Optional regularisation
 -----------------------
-The brief invites penalising "unnecessarily large changes to the representation". Two forms
-are implemented, both off by default:
+Two forms of penalising unnecessarily large changes to the representation are implemented,
+both off by default:
 
 * ``displacement_weight`` penalises :math:`\\lVert \\hat z - z \\rVert^2` - how far the
   feature ended up from where it started.

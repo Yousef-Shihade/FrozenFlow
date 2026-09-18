@@ -1,6 +1,6 @@
 # Step 05 — Feature-space visualisation
 
-The brief's third deliverable: for a readable subset of classes, visualise the original
+For a readable subset of classes, visualise the original
 features $z$ and the transported features $\hat z$ for **both** Stage 3 methods, using the same
 test examples and class colours throughout, with the embedding computed **jointly** over the
 sets being compared.
@@ -16,13 +16,13 @@ to retrain again. 81 seconds.
 
 ---
 
-## 1 · The required figure
+## 1 · The main figure
 
 `plots/feature_space_*.png` — three panels per combination (original, Strategy 1, Strategy 2),
 same test images, same class colours, one PCA fitted on the **concatenation** of all three sets
 so the panels are directly comparable rather than three independent rotations.
 
-**PCA rather than t-SNE.** The brief permits either; PCA is used for the reason Stage 1 gave —
+**PCA rather than t-SNE.** PCA is used for the reason Stage 1 gave —
 it is deterministic (no perplexity or seed to justify), and "compute the embedding jointly over
 the sets being compared" has an unambiguous meaning for a linear method. Classes are picked by
 an **even stride** through the sorted class list, not hand-picked.
@@ -102,10 +102,10 @@ validation loss rises more slowly and which tolerates a 10× larger learning rat
 | `tables/visualised_models.csv` | the six models' accuracies (seed 0, full test split) |
 | `tables/feature_geometry.csv` | accuracy, margin, separability, displacement per panel |
 | `tables/geometry_change.csv` | each strategy's change against the original features |
-| `plots/feature_space_resnet18_dtd.png` | the required three-panel figure |
-| `plots/feature_space_dinov2_fgvcaircraft.png` | the required three-panel figure |
-| `plots/feature_space_resnet18_fgvcaircraft.png` | the required three-panel figure |
+| `plots/feature_space_resnet18_dtd.png` | the three-panel comparison figure |
+| `plots/feature_space_dinov2_fgvcaircraft.png` | the three-panel comparison figure |
+| `plots/feature_space_resnet18_fgvcaircraft.png` | the three-panel comparison figure |
 | `plots/what_the_flow_changes.png` | accuracy, margin and separability change side by side |
 
-**Next:** step 06, the optional extension — unfreezing the classifier and training it jointly
+**Next:** step 06, which unfreezes the classifier and trains it jointly
 with the flow.

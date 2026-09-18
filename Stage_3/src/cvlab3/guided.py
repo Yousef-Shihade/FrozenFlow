@@ -5,7 +5,7 @@ Instead of differentiating the classification loss through the whole rollout (St
 the frozen classifier is used to *construct an explicit target* for each feature, and the flow
 is then trained toward that target with an ordinary Flow Matching update.
 
-One training step, following the brief exactly:
+One training step:
 
 1. Roll :math:`z` through the **current** flow to get :math:`\\hat z`.
 2. Push :math:`\\hat z` through the frozen classifier and compute the classification loss.
@@ -21,8 +21,8 @@ One training step, following the brief exactly:
 
 How this differs from Stage 2's standard FM
 -------------------------------------------
-Mechanically the update is identical - and deliberately so, since the brief asks for "a
-standard FM training update". The difference is where the target comes from. Stage 2's targets
+Mechanically the update is identical - deliberately so, reusing Stage 2's standard FM
+machinery unchanged. The difference is where the target comes from. Stage 2's targets
 were **fixed class prototypes**: one vector per class, known before training, shared by every
 example of that class. Here the target is **per-example and moves during training**, because it
 is derived from the current flow's own output through a classifier gradient.
