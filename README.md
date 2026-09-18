@@ -157,7 +157,7 @@ ProjectInComputerVision/
 ├── Stage_3/                   <- Flow Matching before a frozen linear classifier
 │   └── README.md              <- full detail: both strategies, sweeps, design decisions, setup
 └── FinalReport/               <- the three-stage story told as one report
-    └── Final_Report_Combined.pdf
+    └── FinalReport.pdf
 ```
 
 Each stage is a self-contained, independently installable package (`cvlab` for Stage 1,
